@@ -2,8 +2,10 @@
 <?php include_once("../includes/functions.php"); ?>
 <?php logged_in();
 
-	// To redirect to correct user page
-
+ if(!isset($_SESSION['login_id'])) 
+	  {
+		 redirect_to('employee_index.php');
+	  }
 ?>
 
 <html>
@@ -25,7 +27,9 @@
 			<div id="menu">
 				<ul>
 					<li><a href="index.html" accesskey="1" title="">Home</a></li>
-					<li><a href="#" accesskey="2" title="">About Us</a></li>
+					<li><a href="#" accesskey="2" title="">Profile</a></li>
+					<li><a href="#" accesskey="2" title="">Requests</a></li>
+					<li><a href="#" accesskey="2" title="">Attendance</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>

@@ -3,7 +3,10 @@
 <?php logged_in();
 
 	// To redirect to correct user page
-
+ if(!isset($_SESSION['login_id'])) 
+	  {
+		 redirect_to('os_admin_index.php');
+	  }
 ?>
 
 <html>

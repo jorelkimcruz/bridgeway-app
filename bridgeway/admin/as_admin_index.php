@@ -2,8 +2,10 @@
 <?php include_once("../includes/functions.php"); ?>
 <?php logged_in();
 
-	// To redirect to correct user page
-
+ if(!isset($_SESSION['login_id'])) 
+	  {
+		 redirect_to('as_admin_index.php');
+	  }
 ?>
 
 <html>
