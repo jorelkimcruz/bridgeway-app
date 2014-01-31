@@ -26,8 +26,7 @@
 			<div id="menu">
 				<ul>
 					<li><a href="index.html" accesskey="1" title="">Home</a></li>
-					<li><a href="#" accesskey="2" title="">About Us</a></li>
-					<li><a href="#" accesskey="3" title="">Order Product</a></li>
+					<li><a href="#" accesskey="3" title="">Products</a></li>
 					<li><a href="#" accesskey="3" title="">View Cart</a></li>
 					<li><a href="#" accesskey="3" title="">View Profile</a></li>
 					
