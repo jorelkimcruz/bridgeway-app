@@ -27,7 +27,10 @@
 			<div id="menu">
 				<ul>
 					<li><a href="index.html" accesskey="1" title="">Home</a></li>
-					<li><a href="#" accesskey="2" title="">About Us</a></li>
+					<li><a href="#" accesskey="2" title="">Payables</a></li>
+					<li><a href="#" accesskey="3" title="">Recievables</a></li>
+					<li><a href="#" accesskey="4" title="">Audit Trail</a></li>
+					<li><a href="#" accesskey="5" title="">Financial Statement</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>

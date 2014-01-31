@@ -29,7 +29,8 @@
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-			<h2>Sign up</h2>
+			<h2>Thank you for Registering</h2>
+			<h4>Please click sign in tab to log in</h4>
 		</div>
 	</div>
 </div>
@@ -42,7 +43,7 @@
 </tr>
 <tr>
 <td ></td>
-<td >Thanks you for Registration!!! Please Login to Purchase the product</td>
+<td ></td>
 </tr>
 </table>
 

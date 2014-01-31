@@ -62,6 +62,10 @@ if (x==null || x=="")
   return false;
   }
   
+  
+{
+
+}  
   var x=document.forms["Main_Form"]["email"].value;
   var atpos=x.indexOf("@");
   var dotpos=x.lastIndexOf(".");
