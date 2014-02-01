@@ -1,10 +1,9 @@
 <?php require_once("../includes/session.php"); ?>
 <?php include_once("../includes/functions.php"); ?>
-<?php 
-      if(!isset($_SESSION['login_id'])) 
-	  {
-		 redirect_to('customer_index.php');
-	  }
+<?php logged_in();
+
+	// To redirect to correct user page
+
 ?>
 
 <html>
@@ -26,10 +25,9 @@
 			<div id="menu">
 				<ul>
 					<li><a href="index.html" accesskey="1" title="">Home</a></li>
-					<li><a href="#" accesskey="3" title="">Products</a></li>
-					<li><a href="#" accesskey="3" title="">View Cart</a></li>
-					<li><a href="#" accesskey="3" title="">View Profile</a></li>
-					
+					<li><a href="#" accesskey="2" title="">About Us</a></li>
+					<li><a href="#" accesskey="3" title="">Sign up</a></li>
+					<li  class="current_page_item"><a href="login.php" accesskey="4" title="">Sign in</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>

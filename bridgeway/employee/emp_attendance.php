@@ -1,10 +1,6 @@
 <?php require_once("../includes/session.php"); ?>
 <?php include_once("../includes/functions.php"); ?>
-<?php logged_in();
 
-	// To redirect to correct user page
-
-?>
 
 <html>
 <head>
@@ -24,9 +20,11 @@
 			<h1><span class="icon icon-cog"></span><a href="#">Bridgeway</a></h1>
 			<div id="menu">
 				<ul>
-					<li><a href="index.html" accesskey="1" title="">Home</a></li>
-					<li><a href="#" accesskey="2" title="">About Us</a></li>
-					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
+					<li><a href="leave_request.php"  >Leave Request</a></li>
+					<li><a href="emp_check_leave_request.php"  >Check Leave Request</a></li>
+					<li><a href="emp_profile.php" >Profile</a></li>
+					<li class='active-tab'>My Attendance</li>
+					<li><a href="../logout.php" >Log out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -35,7 +33,7 @@
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-			<h2>AS ADmin INDEX</h2>
+			<h2>Welcome EMPLOYEE!<?php echo $_SESSION['id']; ?> </h2>
 		</div>
 	</div>
 </div>
