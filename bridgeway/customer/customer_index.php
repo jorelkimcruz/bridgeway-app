@@ -1,5 +1,6 @@
 <?php require_once("../includes/session.php"); ?>
 <?php include_once("../includes/functions.php"); ?>
+<?php include_once("../includes/db_connect.php"); ?>
 <?php 
 logged_in();
      if (!isset($_SESSION['id'])) {
@@ -25,10 +26,10 @@ logged_in();
 			<h1><span class="icon icon-cog"></span><a href="#">Bridgeway</a></h1>
 			<div id="menu">
 				<ul>
-					<li><a href="index.html" accesskey="1" title="">Home</a></li>
-					<li><a href="#" accesskey="2" title="">About Us</a></li>
+					<li><a href="#" accesskey="1" title="">My Cart</a></li>
+					<li class="current_page_item"><a href="customer_index.php" accesskey="2" title="">My profile</a></li>
 					<li><a href="#" accesskey="3" title="">Sign up</a></li>
-					<li  class="current_page_item"><a href="login.php" accesskey="4" title="">Sign in</a></li>
+					<li><a href="search_product.php" accesskey="4" title="">Search Product</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>
@@ -45,7 +46,38 @@ logged_in();
 <div class="wrapper">
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
-				
+
+   <form id="Main_Form" name="Main_Form" action="customer_update_profile.php" method='POST' onsubmit="return validateForm()">		
+		
+		<?php
+		$query = "SELECT * FROM tb_user WHERE id ='".$_SESSION['id']."';";
+	$result = mysql_query($query);
+	$row = mysql_fetch_array($result);
+		?>
+	<input type="hidden" value="<?php echo $row[0]; ?>" name="id" />	
+<table CELLSPACING=10 align="center">
+<tr>
+<td><label for="name">User Name</label></td><td><input id="name" type="text" name="username" value="<?php echo $row[2];?>" disabled/></td>
+</tr>
+<tr>
+<td><label for="name">Email Address </label></td><td><input id="name" type="text" name="email" value="<?php echo $row[7]; ?>" required/></td>
+</tr>
+<tr>
+<td><label for="name">First Name </label></td><td><input id="name" type="text" name="firstname" value="<?php echo $row[4]; ?>" required/></td>
+</tr>
+<tr>
+<td><label for="name">Last Name </label></td><td><input id="name" type="text" name="lastname" value="<?php echo $row[5]; ?>" required /></td>
+</tr>
+<tr>
+<td><label for="name">Contact No# </label></td><td><input id="name" type="text" name="contact" value="<?php echo $row[6]; ?>" required /></td>
+</tr>
+<tr>
+<td><label for="name">Password</label></td><td><input id="name" type="password" name="password" value="<?php echo $row[3];?>" requiredv /></td></tr>
+<tr>
+<td></td><td><input type="submit" name="submit" value="Update"> </td>
+</tr></table>		
+</form>
+
 
 	</div>
 </div>
