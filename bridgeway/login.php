@@ -17,15 +17,15 @@ if (isset($_SESSION['id'])) {
 					redirect_to('customer/customer_index.php');
 				}
 				else if ($_SESSION['level']=='4'){
-					redirect_to('admin/auditTrail.php');
+							 redirect_to('admin/os_admin_index.php');
 				}
 				
 				else if ($_SESSION['level']=='5'){
-					redirect_to('admin/auditTrail.php');
+					 redirect_to('admin/os_admin_index.php');
 				}
 				
 				else if ($_SESSION['level']=='6'){
-					redirect_to('admin/auditTrail.php');
+					 redirect_to('admin/emp_admin_index.php');
 				}
 }
 
@@ -99,7 +99,7 @@ include_once("includes/form_functions.php");
 				}
 				
 				else if ($_SESSION['level']=='6'){
-					redirect_to('admin/auditTrail.php');
+						 redirect_to('admin/emp_admin_index.php');
 				}
 				
 			}

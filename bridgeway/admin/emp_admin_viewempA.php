@@ -1,8 +1,44 @@
 <?php require_once("../includes/session.php"); ?>
 <?php include_once("../includes/functions.php"); ?>
+<?php require_once("../includes/db_connect.php"); ?>
 <?php logged_in();
-
-	// To redirect to correct user page
+$msg_admin="";
+$asa=$_GET['id'];
+	$select=mysql_query("SELECT * FROM tb_employee WHERE id='$asa'");
+	if(mysql_num_rows($select)>0){
+		while($f_admin=@mysql_fetch_array($select)){
+		$f_id=$f_admin['id'];
+		$f_user_id=$f_admin['user_id'];
+		$f_fname=$f_admin['firstname'];
+		$f_lname=$f_admin['lastname'];
+		$f_mname=$f_admin['middlename'];
+		$f_address=$f_admin['address'];
+		$f_email=$f_admin['email'];
+		$f_position=$f_admin['position'];
+		$f_date=$f_admin['date_hired'];
+		$f_dept=$f_admin['department'];
+		$f_elem=$f_admin['elem_school'];
+		$f_hs=$f_admin['h_school'];
+		$f_cs=$f_admin['c_school'];
+		$f_status=$f_admin['status'];
+		$f_contact=$f_admin['contact_no'];
+		$msg_admin.="
+		<tr><th>Firstname<td>$f_fname</td></th>
+		<tr><th>Lastname<td>$f_lname</td></th>
+		<tr><th>Middlename<td>$f_mname</td></th>
+		<tr><th>Address<td>$f_address</td></th>
+		<tr><th>Email<td>$f_email</td></th>
+		<tr><th>Position<td>$f_position</td></th>
+		<tr><th>Department<td>$f_elem</td></th>
+		<tr><th>Elementary School<td>$f_hs</td></th>
+		<tr><th>High School<td>$f_hs</td></th>
+		<tr><th>College School<td>$f_cs</td></th>
+		<tr><th>Contact Number<td>$f_contact</td></th>
+		</tr>
+		";
+		}
+		}
+		
 
 ?>
 
@@ -25,7 +61,7 @@
 			<div id="menu">
 				<ul>
 					<li><a href="emp_admin_viewleave.php" >View Leave Request</a></li>
-					<li><a href="emp_admin_viewemp.php" >View Employee</a></li>
+					<li>View Employee</li>
 					<li><a href="emp_admin_addemp.php" >Add Employee</a></li>
 					<li><a href="emp_attendance.php" >View Attendance</a></li>
 					<li><a href="#" >Audit Trail</a></li>
@@ -38,7 +74,11 @@
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-			<h2>EMPLOYEE ADmin INDEX</h2>
+		<center>
+			<table border=2 cellpadding = 10 >
+			<?php echo $msg_admin; ?>
+			</table>
+			</center>
 		</div>
 	</div>
 </div>

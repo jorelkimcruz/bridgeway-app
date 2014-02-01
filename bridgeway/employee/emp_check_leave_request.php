@@ -40,7 +40,7 @@ $id=$_SESSION['id'];
 		<div class="title"><center>
 			<table border=2 cellpadding = 10>
 			<?php 
-			$q = mysql_query("select * from tb_leave");
+			$q = mysql_query("select * from tb_leave WHERE emp_id='$id'");
 echo "<table border=2 cellpadding = 10 >
 <tr>
 <th> Reason </th>

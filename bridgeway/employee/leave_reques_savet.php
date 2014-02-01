@@ -5,18 +5,17 @@
 <?php
 logged_in();
 $id=$_SESSION['id'];
-
 $msg="";
 if(isset($_POST['submit'])){
 $leave=$_POST['leave'];
-$ename=$_POST['ename'];
+$name=$_POST['usernamebox'];
 $cno=$_POST['cno'];
 $sdate=$_POST['syear'] . '-' . $_POST['smonth'] . '-' . $_POST['sday'];
 $edate=$_POST['eyear'] . '-' . $_POST['emonth'] . '-' . $_POST['eday'];
 
-$query=$query="INSERT INTO tb_leave VALUES('','$id','$leave','$cno','$ename','$sdate','$edate','PENDING')";
+$query="INSERT INTO tb_leave VALUES('','$id','$leave','$cno','$name','$sdate','$edate','PENDING')";
 $result=mysql_query($query);
-$msg="Please wait for the admin to approve you leave request!";
+$msg="Please wait for the admin to approve you leave request!";	
 }
 
 

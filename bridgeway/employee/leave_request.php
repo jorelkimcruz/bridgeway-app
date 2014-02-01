@@ -4,6 +4,23 @@
 
 <?php
 logged_in();
+$id=$_SESSION['id'];
+$msgs="";
+
+$query=mysql_query("SELECT * FROM tb_user WHERE id='$id'");
+if(mysql_num_rows($query)>0)
+{
+$emp_fetch=mysql_fetch_array($query);
+$e_id=$emp_fetch['id'];
+$e_username=$emp_fetch['username'];
+$e_password=$emp_fetch['password'];
+$e_fname=$emp_fetch['first_name'];
+$e_lname=$emp_fetch['last_name'];
+$name=$emp_fetch['first_name']. " " .$emp_fetch['last_name'];
+$e_contact=$emp_fetch['contact_no'];
+$e_email=$emp_fetch['email'];
+}
+$msgs="<tr><th>NAME<td>$name</td><td><input type='hidden' name='usernamebox' id='usernamebox' value='$name'></input></td></th></tr>"
 ?>
 <html>
 <head>
@@ -40,8 +57,8 @@ logged_in();
 			<h2>LEAVE REQUEST</h2>
 			<center>
 			<table>
+			<?php echo $msgs; ?>
 			<tr><th>Reason for Leaving</th><td><input type="text" name="leave"></td></tr>
-			<tr><th>Name of Employee</th><td><input type="text" name="ename"></td></tr>
 			<tr><th>Contact Number</th><td><input type="text" name="cno"></td></tr>
 			<tr><th>Leave Start Date</th><td>
 			<select name="smonth">

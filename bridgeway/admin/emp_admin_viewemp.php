@@ -1,8 +1,32 @@
 <?php require_once("../includes/session.php"); ?>
 <?php include_once("../includes/functions.php"); ?>
+<?php require_once("../includes/db_connect.php"); ?>
 <?php logged_in();
-
-	// To redirect to correct user page
+$msg_admin="";
+	$select=mysql_query("SELECT * FROM tb_employee");
+	if(mysql_num_rows($select)>0){
+		while($f_admin=@mysql_fetch_array($select)){
+		$f_id=$f_admin['id'];
+		$f_user_id=$f_admin['user_id'];
+		$f_fname=$f_admin['firstname'];
+		$f_lname=$f_admin['lastname'];
+		$f_mname=$f_admin['middlename'];
+		$f_address=$f_admin['address'];
+		$f_email=$f_admin['email'];
+		$f_position=$f_admin['position'];
+		$f_date=$f_admin['date_hired'];
+		$f_dept=$f_admin['department'];
+		$f_elem=$f_admin['elem_school'];
+		$f_hs=$f_admin['h_school'];
+		$f_cs=$f_admin['c_school'];
+		$f_status=$f_admin['status'];
+		$f_contact=$f_admin['contact_no'];
+		$msg_admin.="<tr><td><a href='emp_admin_viewempA.php?id=$f_id'>$f_fname</a></td>
+		<td>$f_address </td><td>$f_email </td><td>$f_dept</td><td>$f_status</td><td>$f_contact</td></tr>
+		";
+		}
+		}
+		
 
 ?>
 
@@ -25,7 +49,7 @@
 			<div id="menu">
 				<ul>
 					<li><a href="emp_admin_viewleave.php" >View Leave Request</a></li>
-					<li><a href="emp_admin_viewemp.php" >View Employee</a></li>
+					<li>View Employee</li>
 					<li><a href="emp_admin_addemp.php" >Add Employee</a></li>
 					<li><a href="emp_attendance.php" >View Attendance</a></li>
 					<li><a href="#" >Audit Trail</a></li>
@@ -38,7 +62,18 @@
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-			<h2>EMPLOYEE ADmin INDEX</h2>
+			<table border=2 cellpadding = 10 >
+			<tr>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Email</th>
+			<th>Department</th>
+			<th>Status</th>
+			<th>Contact Number</th>
+			</tr>
+			<?php echo $msg_admin; ?>
+			</table>
+			
 		</div>
 	</div>
 </div>
