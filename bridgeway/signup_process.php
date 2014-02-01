@@ -15,8 +15,7 @@ $checkrows = mysql_num_rows($check_user);
 
 if($checkrows >= '1'){
 
-echo "<script> self.location='signup.php?existing=1'; </script>";
-
+echo "<script> alert('Username Already exists..'); location = 'signup.php';</script>";
 }else{
 
 //INSERT INTO record of Customer
