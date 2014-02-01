@@ -41,7 +41,7 @@ logged_in();
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-			<h2>OS ADmin INDEX</h2>
+			<h2>Product Management</h2>
 			
 			<div style="border:1px solid;"> 
 
