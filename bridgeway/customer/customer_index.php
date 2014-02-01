@@ -1,9 +1,10 @@
 <?php require_once("../includes/session.php"); ?>
 <?php include_once("../includes/functions.php"); ?>
-<?php logged_in();
-
-	// To redirect to correct user page
-
+<?php 
+logged_in();
+     if (!isset($_SESSION['id'])) {
+		 redirect_to('customer_index.php');
+	  }
 ?>
 
 <html>
@@ -37,14 +38,14 @@
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-			<h2>Welcome to our website</h2>
+			<h2>Profile</h2>
 		</div>
 	</div>
 </div>
 <div class="wrapper">
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
-						
+				
 
 	</div>
 </div>

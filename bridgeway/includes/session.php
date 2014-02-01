@@ -7,7 +7,7 @@
 	
 	function logged_in() {
 		
-		return isset($_SESSION['login_id']);
+		return isset($_SESSION['id']);
 		return isset($_SESSION['username']);
 		return isset($_SESSION['level']);
 		return isset($_SESSION['logging_no']);

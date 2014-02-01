@@ -1,71 +1,134 @@
 <!-- START SESSION AND CONNECTION -->
 <?php require_once("includes/db_connect.php"); ?>
 <?php include_once("includes/functions.php"); ?>
+<?php include_once("includes/session.php"); ?>
 
-<?php 
-session_start();
-date_default_timezone_set('Asia/Manila');
-$timestamp = time();
-
-
-if(isset($_POST['submit'])) {
-	$username=$_POST['username'];
-	$password= $_POST['password'];
-	$_SESSION['password']=$pass;
-	$_SESSION['username']=$user;
-
-	//$search_user = "SELECT username from tb_user WHERE username='$username'";
-	//$search_pass = "SELECT password from tb_user WHERE password='$password'";
-	//$search_level = "SELECT first_name from tb_user WHERE username='$username'";
-	//$user_result = mysql_query($search_user);
-	//$pass_result = mysql_query($search_pass);	
-	//$level_result = mysql_query($search_level);	
-	$puta=mysql_query("SELECT * from tb_user WHERE username='$username' AND password='$password';");
-
-	//if($username == mysql_fetch_row($user_result) || $password = mysql_fetch_row($pass_result))
-	if(mysql_num_rows($puta) != 0 )
-		{
-		$s=@mysql_fetch_array($puta);
-		$id=$s['id'];
-		$level=$s['level'];
-		$_SESSION['id'] = $id;	
-		$_SESSION['level'] = $level;	
-		if($level=='3'){
-		header('Location:customer/customer_index.php');
-		}
-		elseif($level=='2'){
-		header('Location:employee/employee_index.php');
-		}
-		elseif($level=='1'){
-		header('Location:admin/super_admin_index.php');
-		}
-		elseif($level=='4'){
-		header('Location:admin/os_admin_index.php');
-		}
-		elseif($level=='5'){
-		header('Location:admin/as_admin_index.php');
-		}
-		elseif($level=='6'){
-		header('Location:admin/emp_admin_index.php');
-		}
-		}
-		else{
-		echo"<script> alert('Your username and password do not match') </script>";
-		}
-		
-		
-	//elseif($username != mysql_fetch_row($user_result) || $password != mysql_fetch_row($pass_result)){
-	//echo "<script> alert('Your username and password do not match') </script>";
-	//}
-	//elseif(empty($username) || empty($password)){
-	//echo "<script> alert('Please complete the details above') </script>";
-	//}
-	
-	
+<?php logged_in();
+//var_dump($_SESSION['id']);
+	// To redirect to correct user page
+if (isset($_SESSION['id'])) {
+    if ($_SESSION['level']=='1'){
+				redirect_to('admin/registerSubject.php');
+				}
+				else if ($_SESSION['level']=='2'){
+					redirect_to('employee/employee_index.php');
+				}
+				else if ($_SESSION['level']=='3'){
+					redirect_to('customer/customer_index.php');
+				}
+				else if ($_SESSION['level']=='4'){
+					redirect_to('admin/auditTrail.php');
+				}
+				
+				else if ($_SESSION['level']=='5'){
+					redirect_to('admin/auditTrail.php');
+				}
+				
+				else if ($_SESSION['level']=='6'){
+					redirect_to('admin/auditTrail.php');
+				}
 }
 
 
+include_once("includes/form_functions.php");
+
+	
+	// START FORM PROCESSING
+	if (isset($_POST['submit'])) {
+		// Form has been submitted.
+		$errors = array();
+//var_dump($_POST['username']);		
+		// perform validations on the form data
+		$required_fields = array('username', 'password');
+		$errors = array_merge((array)$errors, (array)(check_required_fields($required_fields, $_POST)));
+//var_dump($_POST['username']);
+		$fields_with_lengths = array('username' => 30, 'password' => 30);
+		$errors = array_merge($errors, check_max_field_lengths($fields_with_lengths, $_POST));
+
+		$username = trim(mysql_prep($_POST['username']));
+		$password = trim(mysql_prep($_POST['password']));
+	
+		if ( empty($errors) ) {
+			// Check database to see if username and the hashed password exist there.
+			$query = "SELECT *";
+			$query .= "FROM tb_user ";
+			$query .= "WHERE username = '{$username}' ";
+			$query .= "AND password = '{$password}' ";
+			$query .= "LIMIT 1";
+			$result_set = mysql_query($query);
+			confirm_query($result_set);
+			if (mysql_num_rows($result_set) == 1) {
+				// username/password authenticated
+				// and only 1 match
+				$found_user = mysql_fetch_array($result_set);
+				$_SESSION['id'] = $found_user['id'];
+				$_SESSION['username'] = $found_user['username'];
+				$_SESSION['level'] = $found_user['level'];
+				//var_dump($_SESSION['position']);
+				//DETERMINE THE NEXT VALUE OF AUTO_INCREMENT IN TB_AUDIT_TRAIL_LOGGING
+				$auto_increment="SHOW TABLE STATUS LIKE 'tb_audit_trail'";
+				$result_set=mysql_query($auto_increment);
+				confirm_query($result_set);
+				$auto_increment_value = mysql_fetch_array($result_set);
+				$_SESSION['logging_no'] = $auto_increment_value['Auto_increment'];
+				// INSERT TIME-IN FOR AUDIT TRAIL				
+				$user_id = $_SESSION['id'];
+				$logging_no = $_SESSION['logging_no'];
+				$audit_query="INSERT INTO tb_audit_trail values('','$id',CURRENT_TIMESTAMP,'Authentication','Login','Successful');";
+				$result_set=mysql_query($audit_query);
+				confirm_query($result_set);
+				
+				
+				// To know if Manager or Employee
+				$position = $_SESSION['position'];
+				if ($_SESSION['level']=='1'){
+				redirect_to('admin/registerSubject.php');
+				}
+				else if ($_SESSION['level']=='2'){
+					redirect_to('employee/employee_index.php');
+				}
+				else if ($_SESSION['level']=='3'){
+					redirect_to('customer/customer_index.php');
+				}
+				else if ($_SESSION['level']=='4'){
+					redirect_to('admin/auditTrail.php');
+				}
+				
+				else if ($_SESSION['level']=='5'){
+					redirect_to('admin/auditTrail.php');
+				}
+				
+				else if ($_SESSION['level']=='6'){
+					redirect_to('admin/auditTrail.php');
+				}
+				
+			}
+			else {
+				echo "<script language='JavaScript' type='text/javascript'>";
+				echo " alert('Username and Password combination incorrect.Please make sure your caps lock key is off and try again.')"; 	                echo "</script>";
+				// username/password combo was not found in the database
+				$message = "Username/password combination incorrect.";
+			}
+		}
+		else
+		{
+			if (count($errors) == 1) {
+				$message = "There was 1 error in the form.";
+			} else {
+				$message = "There were " . count($errors) . " errors in the form.";
+			}
+		}
+		
+	}
+	else { // Form has not been submitted.
+		if (isset($_GET['logout']) && $_GET['logout'] == 1) {
+			$message = "You are now logged out.";
+		} 
+		$username = "";
+		$password = "";
+	}
 ?>
+
 
 
 <html>
