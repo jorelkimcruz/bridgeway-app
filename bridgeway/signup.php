@@ -115,9 +115,6 @@ if (x != y)
 <td><label for="name">Last Name </label></td><td><input id="name" type="text" name="lastname" value="" /></td>
 </tr>
 <tr>
-<td><label for="name">Company Name (Optional) </label></td><td><input id="name" type="text" name="company" value="" /></td>
-</tr>
-<tr>
 <td><label for="name">Contact No# </label></td><td><input id="name" type="text" name="contact" value="" /></td>
 </tr>
 <tr>
