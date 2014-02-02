@@ -36,6 +36,7 @@
 <div class="wrapper">
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
+	
 	<script>
 function validateForm()
 {
@@ -102,10 +103,11 @@ if (x != y)
  
 }
 </script>
-
+ 
+  
 	<p>Please complete the fields below</p>
           
-            <form name="Main_Form" action="signup_process.php" method='POST' onsubmit="return validateForm()">
+            <form id="Main_Form" name="Main_Form" action="signup_process.php" method='POST' onsubmit="return validateForm()">
             	
 <table CELLSPACING=10 align="center">
 <tr>
