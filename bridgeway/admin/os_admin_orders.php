@@ -26,9 +26,9 @@ logged_in();
 			<h1><span class="icon icon-cog"></span><a href="#">Bridgeway</a></h1>
 			<div id="menu">
 				<ul>
-							<li><a href="customer_index.php" accesskey="4" title="">Products</a></li>
-					<li><a href="cart.php" accesskey="1" title="">My Cart</a></li>
-					<li class="current_page_item"><a href="customer_profile.php" accesskey="2" title="">My profile</a></li>
+						<li><a href="os_admin_index.php" accesskey="1" title="">Product Management</a></li>
+					<li><a href="os_admin_orders.php" accesskey="2" title="">Orders</a></li>
+					<li><a href="os_admin_customers.php" accesskey="3" title="">Customer</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>
@@ -50,7 +50,7 @@ logged_in();
 
 $konek = mysql_connect("localhost","root","") or die("Cannot connect to server");
 mysql_select_db("db_bridgeway",$konek) or die("Cannot connect to the database");
-$query = mysql_query("select * from tb_order WHERE user_id='".$id."' order by order_id asc ");
+$query = mysql_query("select * from tb_order order by order_id asc ");
 
 ?>
 
@@ -68,6 +68,8 @@ if(mysql_num_rows($query)>0){
 	   <td><b>Total Amount</b></td>
 	   <td><b>Status</b></td>
 	   <td><b>Date Added</b></td>
+	   <td>Update Status</td>
+	   <td></td>
 	   
 </tr>
 <?php
@@ -80,7 +82,22 @@ if(mysql_num_rows($query)>0){
 		      <td><?=$row['total_amount']?></td>
 			   <td><?=$row['status']?></td>
 			   <td><?=$row['date_added']?></td>
-        <td>&nbsp;<a  href="delete.php?id=<?=$row['order_id']?>"  onclick="return confirm('Are you sure?')">[Delete]</a></td>
+			   <td><center>
+					<?php
+		     if($row['status'] == "Accepted"){?>
+      <a  href="os_update_order_status.php?id=<?=$row['order_id']?>&status=<?=$row['status']?>"  onclick="return confirm('Are you sure to update this order?')">  [PAID]  </a>
+	  <?php }else if($row['status'] == "Pending"){
+     ?>
+	  <a  href="os_update_order_status.php?id=<?=$row['order_id']?>&status=<?=$row['status']?>"  onclick="return confirm('Are you sure to update this order?')">  [ACCEPT]  </a>
+	 <?php
+     }else{?>
+			PAID
+	 <?php
+	 }
+		?>
+			
+			 </center></td>
+        <td>&nbsp;<a  href="os_delete_order.php?id=<?=$row['order_id']?>&status=<?=$row['status']?>&quantity=<?=$row['quantity']?>"  onclick="return confirm('Are you sure?')">[Delete]</a></td>
 	
     </tr>
 <?php        

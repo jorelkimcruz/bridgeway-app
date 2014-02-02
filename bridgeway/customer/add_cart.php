@@ -12,7 +12,8 @@ logged_in();
 		$p_quantity = $_POST['quantitytoorder'];
 		$p_price = $_POST['product_price'];
 		
-			$query = "SELECT * FROM tb_products WHERE product_id = $p_id";
+		$query = "SELECT * FROM tb_products WHERE product_id = $p_id";
+			
 	$result = mysql_query($query )OR DIE (mysql_error);
 	
 	$row = mysql_fetch_array($result)OR DIE (mysql_error);
@@ -31,7 +32,7 @@ logged_in();
 	$result = mysql_query($ordered)OR DIE (mysql_error);
 
 			
-		echo "<script> alert('Successfully!'); location = 'search_product.php';</script>";
+		echo "<script> alert('Successfully!'); location = 'customer_index.php';</script>";
 	
 	}
 	

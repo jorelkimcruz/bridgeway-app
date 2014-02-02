@@ -29,9 +29,9 @@ logged_in();
 		
 			<div id="menu">
 				<ul>
-					<li><a href="#" accesskey="1" title="">Product Management</a></li>
-					<li><a href="#" accesskey="2" title="">Orders</a></li>
-					<li><a href="#" accesskey="3" title="">Customer</a></li>
+					<li><a href="os_admin_index.php" accesskey="1" title="">Product Management</a></li>
+					<li><a href="os_admin_orders.php" accesskey="2" title="">Orders</a></li>
+					<li><a href="os_admin_customers.php" accesskey="3" title="">Customer</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>

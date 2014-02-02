@@ -28,7 +28,7 @@ logged_in();
 			<h1><span class="icon icon-cog"></span><a href="#">Bridgeway</a></h1>
 			<div id="menu">
 				<ul>
-				<li><a href="customer_index.php" accesskey="4" title="">Search Product</a></li>
+				<li><a href="customer_index.php" accesskey="4" title="">Products</a></li>
 					<li><a href="cart.php" accesskey="1" title="">My Cart</a></li>
 					<li class="current_page_item"><a href="customer_profile.php" accesskey="2" title="">My profile</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
@@ -62,10 +62,12 @@ logged_in();
 	$limit = 3; 								//how many items to show per page
 	$page = $_GET['page'];
 	
-	if($page==0 || $page=="") 
-		$start = ($page - 1) * $limit; 			//first item to display on this page
+	if($page==0 ) 
+				//first item to display on this page
+				$start = 0;		
 	else
-		$start = 0;								//if no page var is given, set start to 0
+		
+$start = ($page - 1) * $limit; 			//if no page var is given, set start to 0
 	
 	/* Get data. */
 	$sql = "SELECT * FROM tb_products LIMIT $start, $limit";
@@ -188,7 +190,8 @@ logged_in();
 </select></td></tr>
 		<tr><td><input type="hidden" name="product_id" value="<?php echo $row[0]; ?>"></td></tr>
 		<tr><td><input type="hidden" name="product_price" value="<?php echo $row[4]; ?>"></td></tr>
-		<tr><td><input type="submit" value="Submit"></td><tr>
+		<tr><td><input type="submit" value="Submit"  onclick="return confirm('Are you sure to add this to your cart?')"></td><tr>
+		
 		</table>
 		</form>		
 		<?php
