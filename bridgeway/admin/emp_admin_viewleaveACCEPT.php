@@ -4,7 +4,7 @@
 <?php logged_in();
 
 $msg_admin="";
-	$select=mysql_query("SELECT * FROM tb_leave WHERE status='PENDING'");
+	$select=mysql_query("SELECT * FROM tb_leave WHERE status='Accepted'");
 	if(mysql_num_rows($select)>0){
 		while($f_admin=@mysql_fetch_array($select)){
 		$f_id=$f_admin['id'];
@@ -16,7 +16,7 @@ $msg_admin="";
 		$f_sdate=$f_admin['start_date'];
 		$f_edate=$f_admin['end_date'];
 	
-		$msg_admin.="<tr><td><a href='emp_admin_viewleaveA.php?id=$f_admins_id'>$f_name</a></td>
+		$msg_admin.="<tr><td>$f_name</td>
 		<td>$f_reason </td><td>$f_contact </td><td>$f_sdate</td><td>$f_edate</td></tr>
 		";
 		}
@@ -64,8 +64,8 @@ $msg_admin="";
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-<a href="emp_admin_viewleaveACCEPT.php">[ACCEPTED LEAVE]</a><a href="emp_admin_viewleaveDECLINE.php">[DECLINED LEAVE]</a>
-			<h2>PENDING REQUEST</h2>
+<a href="emp_admin_viewleave.php">[PENDING LEAVE]</a><a href="emp_admin_viewleaveDECLINE.php">[DECLINED LEAVE]</a>
+			<h2>ACCEPTED REQUEST</h2>
 			<center>
 			<table border=2 cellpadding = 10>
 			<tr><th>Name</th>
@@ -74,9 +74,9 @@ $msg_admin="";
 			<th>Start Date</th>
 			<th>End Date</th>
 			</tr>
-			</center>
 			<?php echo $msg_admin;?>
 			</table>
+			</center>
 		</div>
 	</div>
 </div>

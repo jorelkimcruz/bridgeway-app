@@ -28,7 +28,7 @@ logged_in();
 				<ul>
 					<li><a href="#" accesskey="1" title="">My Cart</a></li>
 					<li class="current_page_item"><a href="customer_index.php" accesskey="2" title="">My profile</a></li>
-					<li><a href="#" accesskey="3" title="">Sign up</a></li>
+
 					<li><a href="search_product.php" accesskey="4" title="">Search Product</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
@@ -39,15 +39,9 @@ logged_in();
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-			<h2>Profile</h2>
-		</div>
-	</div>
-</div>
-<div class="wrapper">
-	<div id="three-column" class="container">
-		<div><span class="arrow-down"></span></div>
-
-   <form id="Main_Form" name="Main_Form" action="customer_update_profile.php" method='POST' onsubmit="return validateForm()">		
+			<h2 >Profile</h2>
+			
+			 <form id="Main_Form" name="Main_Form" action="customer_update_profile.php" method='POST' onsubmit="return validateForm()">		
 		
 		<?php
 		$query = "SELECT * FROM tb_user WHERE id ='".$_SESSION['id']."';";
@@ -55,7 +49,8 @@ logged_in();
 	$row = mysql_fetch_array($result);
 		?>
 	<input type="hidden" value="<?php echo $row[0]; ?>" name="id" />	
-<table CELLSPACING=10 align="center">
+<table CELLSPACING=10  border=2 align="center" >
+
 <tr>
 <td><label for="name">User Name</label></td><td><input id="name" type="text" name="username" value="<?php echo $row[2];?>" disabled/></td>
 </tr>
@@ -77,6 +72,15 @@ logged_in();
 <td></td><td><input type="submit" name="submit" value="Update"> </td>
 </tr></table>		
 </form>
+		</div>
+		 
+	</div>
+</div>
+<div class="wrapper">
+	<div id="three-column" class="container">
+		<div><span class="arrow-down"></span></div>
+
+ 
 
 
 	</div>

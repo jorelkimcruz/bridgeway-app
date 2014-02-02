@@ -54,6 +54,10 @@
 		<tr><td>High School</td><td><input type="text" name="hs" required/></td></tr><br>
 		<tr><td>College School</td><td><input type="text" name="cs" required/></td></tr><br>
 		<tr><td>Contact Number</td><td>	<input type="text" name="contact" required/></td></tr><br>
+		<tr><td><b>USER ACCOUNT</b></td></tr><br>
+		<tr><td>Username</td><td>	<input type="text" name="user" required/></td></tr><br>
+		<tr><td>Password</td><td>	<input type="password" name="pass" required/></td></tr><br>
+	
 		</table>
 		<button type="submit" name="submit">Register</button>
 		</center>
@@ -73,6 +77,9 @@ $es=$_POST['es'];
 $hs=$_POST['hs'];
 $cs=$_POST['cs'];
 $contact=$_POST['contact'];
+$user=$_POST['user'];
+$pass=$_POST['pass'];
+$kwiri=mysql_query("INSERT INTO tb_user VALUES('','2','$user','$pass','$fname','$lname','$contact','$email')");
 $query=mysql_query("INSERT INTO tb_employee VALUES('','2','$fname','$lname','$mname','$add','$email','$pos','','$dept','$es','$hs','$cs','','$contact')");
 }
 ?>

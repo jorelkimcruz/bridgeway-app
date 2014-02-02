@@ -55,6 +55,7 @@ $msgs="<tr><th>NAME<td>$name</td><td><input type='hidden' name='usernamebox' id=
 	<div id="page" class="container">
 		<div class="title">
 			<h2>LEAVE REQUEST</h2>
+			</div>
 			<center>
 			<table>
 			<?php echo $msgs; ?>
@@ -62,8 +63,7 @@ $msgs="<tr><th>NAME<td>$name</td><td><input type='hidden' name='usernamebox' id=
 			<tr><th>Contact Number</th><td><input type="text" name="cno"></td></tr>
 			<tr><th>Leave Start Date</th><td>
 			<select name="smonth">
-			<?php
-			for ($m=1; $m<=12; $m++)echo "<option>$m</option>";?></select>
+			<?php for($m=1; $m<=12; $m++)echo "<option>$m</option>";?></select>
 			<select name="sday"><?php for ($m=1; $m<=31; $m++)echo "<option>$m</option>";?> </select>
 	<select name="syear">
 	<?php
@@ -93,7 +93,7 @@ $msgs="<tr><th>NAME<td>$name</td><td><input type='hidden' name='usernamebox' id=
 			</table>
 			<input type="submit" name="submit" value="Submit">
 			</center>
-		</div>
+		
 	</div>
 </div>
 <div class="wrapper">

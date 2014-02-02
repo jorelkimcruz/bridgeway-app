@@ -51,6 +51,9 @@ $id=$_SESSION['id'];
 if(isset($_POST['submit1']))
 {
 $ctrs=$_POST['ctr'];
+date_default_timezone_set("Asia/Manila");
+$time=time();
+$date=date('Y-m-d H:i:s',$time);
 $query=mysql_query("SELECT * FROM tb_user WHERE id='$id'");
 if(mysql_num_rows($query)>0)
 {
@@ -61,7 +64,7 @@ $e_lname=$emp_fetch['last_name'];
 $e_contact=$emp_fetch['contact_no'];
 $e_email=$emp_fetch['email'];
 
-$kriwi=mysql_query("INSERT INTO tb_attendance VALUES('','$e_fname','','','','$ctrs','in')");
+$kriwi=mysql_query("INSERT INTO tb_attendance VALUES('','$e_fname','$date','','','$ctrs','in')");
 }
 
 }
