@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2014 at 07:34 PM
+-- Generation Time: Feb 02, 2014 at 02:28 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -168,30 +168,34 @@ INSERT INTO `tbl_customer` (`cust_id`, `firstname`, `lastname`, `company`, `emai
 CREATE TABLE IF NOT EXISTS `tb_attendance` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `emp_name` varchar(100) NOT NULL,
-  `time_in` varchar(100) NOT NULL,
-  `time_out` varchar(100) NOT NULL,
+  `time_in` datetime NOT NULL,
+  `time_out` datetime NOT NULL,
   `date` varchar(100) NOT NULL,
   `emp_id` int(5) NOT NULL,
   `job` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `tb_attendance`
 --
 
 INSERT INTO `tb_attendance` (`id`, `emp_name`, `time_in`, `time_out`, `date`, `emp_id`, `job`) VALUES
-(1, 'qqwe', 'qweqwe', 'qweqweqwe', 'qweqwe', 2, ''),
-(2, 'jayven', '8:30', '9:00', 'February 10,2014', 7, 'in'),
-(15, 'jayven', '', '', '', 7, 'in'),
-(16, 'jayven', '', '', '', 0, 'in'),
-(17, 'jayven', '', '', '', 88, 'in'),
-(18, 'jayven', '', '', '', 88, 'in'),
-(23, 'jayven', '', '', '', 233, 'in'),
-(24, 'jayven', '', '', '', 23232, 'in'),
-(28, 'jayven', '', '', '', 7878, 'in'),
-(29, 'jayven', '', '', '', 0, 'in'),
-(30, 'jayven', '', '', '', 909, 'in');
+(1, 'qqwe', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'qweqwe', 2, ''),
+(2, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'February 10,2014', 7, 'in'),
+(15, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 7, 'in'),
+(16, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 'in'),
+(17, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 88, 'in'),
+(18, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 88, 'in'),
+(23, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 233, 'in'),
+(24, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 23232, 'in'),
+(28, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 7878, 'in'),
+(29, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 'in'),
+(30, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 909, 'in'),
+(31, 'emp_admin', '2014-02-02 04:45:10', '0000-00-00 00:00:00', '', 3, 'in'),
+(32, 'emp_admin', '2014-02-02 04:50:48', '0000-00-00 00:00:00', '', 1, 'in'),
+(33, 'emp_admin', '2014-02-02 04:50:53', '0000-00-00 00:00:00', '', 100, 'in'),
+(34, 'emp_admin', '2014-02-02 04:51:50', '0000-00-00 00:00:00', '', 100, 'in');
 
 -- --------------------------------------------------------
 
@@ -207,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `tb_audit_trail` (
   `action` varchar(30) NOT NULL,
   `description` varchar(30) NOT NULL,
   PRIMARY KEY (`audit_trail_tr_no`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=879 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=890 ;
 
 --
 -- Dumping data for table `tb_audit_trail`
@@ -241,7 +245,18 @@ INSERT INTO `tb_audit_trail` (`audit_trail_tr_no`, `id`, `date`, `object`, `acti
 (0000000875, '', '2014-02-01 18:31:20', 'Authentication', 'Logout', 'Successful'),
 (0000000876, '', '2014-02-01 18:31:49', 'Authentication', 'Login', 'Successful'),
 (0000000877, '', '2014-02-01 18:33:39', 'Authentication', 'Logout', 'Successful'),
-(0000000878, '', '2014-02-01 18:33:45', 'Authentication', 'Login', 'Successful');
+(0000000878, '', '2014-02-01 18:33:45', 'Authentication', 'Login', 'Successful'),
+(0000000879, '', '2014-02-01 20:43:55', 'Authentication', 'Logout', 'Successful'),
+(0000000880, '', '2014-02-01 20:44:02', 'Authentication', 'Login', 'Successful'),
+(0000000881, '', '2014-02-02 11:47:50', 'Authentication', 'Login', 'Successful'),
+(0000000882, '', '2014-02-02 11:55:15', 'Authentication', 'Logout', 'Successful'),
+(0000000883, '', '2014-02-02 11:55:24', 'Authentication', 'Login', 'Successful'),
+(0000000884, '', '2014-02-02 11:57:59', 'Authentication', 'Logout', 'Successful'),
+(0000000885, '', '2014-02-02 11:58:16', 'Authentication', 'Login', 'Successful'),
+(0000000886, '', '2014-02-02 12:00:20', 'Authentication', 'Logout', 'Successful'),
+(0000000887, '', '2014-02-02 12:00:25', 'Authentication', 'Login', 'Successful'),
+(0000000888, '', '2014-02-02 13:22:42', 'Authentication', 'Logout', 'Successful'),
+(0000000889, '', '2014-02-02 13:22:47', 'Authentication', 'Login', 'Successful');
 
 -- --------------------------------------------------------
 
@@ -306,6 +321,34 @@ INSERT INTO `tb_leave` (`id`, `emp_id`, `reason`, `contact_no`, `emp_name`, `sta
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_order`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_order` (
+  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `total_amount` int(11) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `date_added` datetime NOT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `tb_order`
+--
+
+INSERT INTO `tb_order` (`order_id`, `product_id`, `user_id`, `quantity`, `total_amount`, `status`, `date_added`) VALUES
+(3, 202, 3, 0, 130, 'Pending', '2014-02-02 21:08:13'),
+(4, 202, 3, 1, 10, 'Pending', '2014-02-02 21:09:07'),
+(5, 202, 3, 1, 10, 'Pending', '2014-02-02 21:19:53'),
+(6, 202, 3, 1, 10, 'Pending', '2014-02-02 21:20:04'),
+(7, 202, 3, 13, 130, 'Pending', '2014-02-02 21:21:39');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_products`
 --
 
@@ -317,25 +360,15 @@ CREATE TABLE IF NOT EXISTS `tb_products` (
   `price` int(6) NOT NULL,
   `image` varchar(100) NOT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=206 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=204 ;
 
 --
 -- Dumping data for table `tb_products`
 --
 
 INSERT INTO `tb_products` (`product_id`, `name`, `description`, `quantity`, `price`, `image`) VALUES
-(186, 'sdsd', 'sds', 234, 24, ''),
-(188, 'sasd', 'sdfsd', 454, 454, ''),
-(191, 'asdasd', 'asda', 343, 3434, ''),
-(192, 'sds', 'ssds', 34, 343, ''),
-(193, 'sd', 'sdsd', 34, 45, ''),
-(194, 'sd', 'ssdf', 657, 567, ''),
-(195, 'sdsd', 'sdsd', 23, 34, ''),
-(197, 'sdds', 'sd', 34, 4545, ''),
-(198, 'asda', 'sdfs', 46, 456, ''),
-(199, 'sfd', 'sdfs', 435, 4365, ''),
-(200, 'dsd', 's', 34, 56, ''),
-(201, 'sd', 'sd', 34, 34, '');
+(202, 'kaimito', 'spongbob', 57, 10, 'hijo.png'),
+(203, 'kalalua', 'koim,asd0ihje', 9, 100, 'images.jpg');
 
 -- --------------------------------------------------------
 
@@ -362,7 +395,7 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
 INSERT INTO `tb_user` (`id`, `level`, `username`, `password`, `first_name`, `last_name`, `contact_no`, `email`) VALUES
 (1, 1, 'superadmin', 'superadmin', 'superadmin', 'superadmin', 12345678, 'superadmin@yahoo.com'),
 (2, 2, 'employee', 'employee', 'employee', 'employee', 123234234, 'employee@yahoo.com'),
-(3, 3, 'customer', 'customer', 'customer', 'customer', 12345678, 'customer@yahoo.com'),
+(3, 3, 'customer', 'customer', 'custo', 'custodio', 12345678, 'customer@yahoo.com'),
 (4, 4, 'os_admin', 'os_admin', 'os_admin', 'os_admin', 123456789, 'os_admin@yahoo.com'),
 (5, 5, 'as_admin', 'as_admin', 'as_admin', 'as_admin', 123456789, 'as_admin@yahoo.com'),
 (6, 6, 'emp_admin', 'emp_admin', 'emp_admin', 'emp_admin', 123456789, 'hk@yahoo.com'),

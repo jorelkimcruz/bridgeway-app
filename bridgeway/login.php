@@ -88,14 +88,14 @@ include_once("includes/form_functions.php");
 					redirect_to('employee/employee_index.php');
 				}
 				else if ($_SESSION['level']=='3'){
-					redirect_to('customer/customer_index.php');
+								redirect_to('customer/customer_index.php');
 				}
 				else if ($_SESSION['level']=='4'){
-					redirect_to('admin/auditTrail.php');
+									redirect_to('admin/os_admin_index.php');
 				}
 				
 				else if ($_SESSION['level']=='5'){
-					redirect_to('admin/auditTrail.php');
+										redirect_to('customer/customer_index.php');
 				}
 				
 				else if ($_SESSION['level']=='6'){
