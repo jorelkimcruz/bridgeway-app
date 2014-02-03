@@ -63,7 +63,9 @@ $msg_admin="";
 </div>
 <div id="page-wrapper">
 	<div id="page" class="container">
+	
 		<div class="title">
+		
 <a href="emp_admin_viewleaveACCEPT.php">[ACCEPTED LEAVE]</a><a href="emp_admin_viewleaveDECLINE.php">[DECLINED LEAVE]</a>
 			<h2>PENDING REQUEST</h2>
 			<center>
@@ -77,6 +79,7 @@ $msg_admin="";
 			</center>
 			<?php echo $msg_admin;?>
 			</table>
+			<a href="emp_admin_printTRY.php">[PRINT PENDING LEAVE REPORT]</a>
 		</div>
 	</div>
 </div>

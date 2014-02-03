@@ -1,7 +1,14 @@
 <?php require_once("../includes/session.php"); ?>
 <?php include_once("../includes/functions.php"); ?>
+<?php require_once("../includes/db_connect.php"); ?>
 
 
+
+<?php
+logged_in();
+$id=$_SESSION['id'];
+
+?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -23,7 +30,7 @@
 					<li><a href="leave_request.php"  >Leave Request</a></li>
 					<li><a href="emp_check_leave_request.php"  >Check Leave Request</a></li>
 					<li><a href="emp_profile.php" >Profile</a></li>
-					<li><a href="emp_own_attendance.php" >My Attendance</a></li>
+					<li>My Attendance</li>
 					<li><a href="../logout.php" >Log out</a></li>
 				</ul>
 			</div>
@@ -33,7 +40,37 @@
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-			<h2>Welcome EMPLOYEE!<?php echo $_SESSION['id']; ?> </h2>
+		<h2>MY ATTENDANCE</h2>
+		<center>
+		<table border=2 cellpadding = 10>
+			<?php 
+			$q = mysql_query("SELECT tb_attendance.emp_id, tb_attendance.emp_name, tb_attendance.time_in, tb_attendance.time_out  
+			FROM tb_attendance
+			INNER JOIN tb_employee ON tb_attendance.emp_id=tb_employee.id
+			INNER JOIN 
+			WHERE tb_employee.id='6'");
+echo "<table border=2 cellpadding = 10 >
+<tr>
+
+<th> Employee ID </th>
+<th> Employee Name </th>
+<th> Time IN </th>
+<th> Time OUT</th>
+</tr>";
+while($r = mysql_fetch_array($q))
+{	
+	echo "<tr> ";
+	echo "<td>" .$r['emp_id']. " </td>";
+	echo "<td>" .$r['emp_name']. " </td>";
+	echo "<td>" .$r['time_in']. " </td>";
+	echo "<td>" .$r['time_out']. " </td>";
+	
+	echo "</tr>";
+}
+echo "</table>";
+			?>
+			</table>
+			</center>
 		</div>
 	</div>
 </div>

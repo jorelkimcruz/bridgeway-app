@@ -154,8 +154,8 @@ if(mysql_num_rows($query)>0){
     <td>Product ID</td>
     <td>Product Name</td>
     <td>Description</td>
-    <td>Price</td>
-	   <td>Quantity</td>
+    <td>Quantity</td>
+	   <td>Price</td>
 </tr>
 <?php
     while($row= mysql_fetch_array($query)){ ?>

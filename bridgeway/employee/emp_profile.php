@@ -12,6 +12,7 @@ $btn2="";
 $btn3="";
 $btn4="";
 $btn5="";
+$btn6="";
 $time=time();
 $msg="";
 
@@ -34,8 +35,10 @@ $btn2="<button type='submit' name='submit2'>Update Firstame</button>";
 $btn3="<button type='submit' name='submit3'>Update Lastame</button>";
 $btn4="<button type='submit' name='submit4'>Update Contact</button>";
 $btn5="<button type='submit' name='submit5'>Update Email</button>";
+$btn6="<button type='submit' name='submit6'>Update Password</button>";
 $print= "
 		<tr><th>Username<td>$e_username</td><td><input type='text' name='usernamebox' id='usernamebox'></input></td><td>$btn1</td></th></tr>
+		<tr><th>Password<td>*****</td><td><input type='password' name='passbox' id='passbox'></input></td><td>$btn6</td></th></tr>
 		<tr><th>Firstname<td>$e_fname</td><td><input type='text' name='fnamebox' id='fnamebox'></td><td>$btn2</td></th></tr>
 		<tr><th>Lastname<td>$e_lname</td><td><input type='text' name='lastnamebox' id='lastnamebox'></td><td>$btn3</td></th></tr>
 		<tr><th>Contact<td>$e_contact</td><td><input type='text' name='contactbox' id='contactbox'></td><td>$btn4</td></th></tr>
@@ -52,45 +55,93 @@ if(isset($_POST['submit1']))
 	//$s_username=mysql_real_escape_string($_POST['usernamebox']);
 	$select=mysql_query("SELECT * FROM tb_user WHERE username='$un' ");
 	if(mysql_num_rows($select)<=0){
+	$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Edit Profile','Successfull')");
 	$query=mysql_query("UPDATE tb_user SET username='$un' WHERE id='$id' ");
 	echo "<meta http-equiv='refresh' content='1' >";
 	}
-	}
-	
-	elseif(isset($_POST['submit2']))
-{	$un=$_POST['fnamebox'];
-	$select=mysql_query("SELECT * FROM tb_user WHERE first_name='$un' ");
+}
+elseif(isset($_POST['submit6']))
+{	$un=$_POST['passbox'];
+	//$s_username=mysql_real_escape_string($_POST['usernamebox']);
+	$select=mysql_query("SELECT * FROM tb_user WHERE password='$un' ");
 	if(mysql_num_rows($select)<=0){
-	$query=mysql_query("UPDATE tb_user SET first_name='$un' WHERE id='$id' ");
+	$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Edit Profile','Successfull')");
+	$query=mysql_query("UPDATE tb_user SET password='$un' WHERE id='$id' ");
 	echo "<meta http-equiv='refresh' content='1' >";
 	}
-	}
+}
+	
+elseif(isset($_POST['submit2']))
+{					$un=$_POST['fnamebox'];
+					if(ctype_alpha($un))
+					{
+					$select=mysql_query("SELECT * FROM tb_user WHERE first_name='$un' ");
+					if(mysql_num_rows($select)<=0){
+					$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Edit Profile','Successfull')");
+					$query=mysql_query("UPDATE tb_user SET first_name='$un' WHERE id='$id' ");
+					echo "<meta http-equiv='refresh' content='1' >";
+					}
+					}
+					elseif(!ctype_alpha($un))
+					{
+					echo"<script> alert('First name must be letters only') </script>";
+					}
+}
 
-	elseif(isset($_POST['submit3']))
-{	$un=$_POST['lastnamebox'];
-	$select=mysql_query("SELECT * FROM tb_user WHERE last_name='$un' ");
-	if(mysql_num_rows($select)<=0){
-	$query=mysql_query("UPDATE tb_user SET last_name='$un' WHERE id='$id' ");
-	echo "<meta http-equiv='refresh' content='1' >";
-	}
-	}
+elseif(isset($_POST['submit3']))
+{					$un=$_POST['lastnamebox'];
+					if(ctype_alpha($un))
+					{
+					$select=mysql_query("SELECT * FROM tb_user WHERE last_name='$un' ");
+					if(mysql_num_rows($select)<=0){
+					$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Edit Profile','Successfull')");
+					$query=mysql_query("UPDATE tb_user SET last_name='$un' WHERE id='$id' ");
+					echo "<meta http-equiv='refresh' content='1' >";
+					}
+					}
+					elseif(!ctype_alpha($un))
+					{
+					echo"<script> alert('Last name must be letters only') </script>";
+					}
+}
 	
-	elseif(isset($_POST['submit4']))
-{	$un=$_POST['contactbox'];
-	$select=mysql_query("SELECT * FROM tb_user WHERE contact_no='$un' ");
-	if(mysql_num_rows($select)<=0){
-	$query=mysql_query("UPDATE tb_user SET contact_no='$un' WHERE id='$id' ");
-	echo "<meta http-equiv='refresh' content='1' >";
-	}
-	}	
+elseif(isset($_POST['submit4']))
+{	
+					$un=$_POST['contactbox'];
+					if(is_numeric($un))
+					{
+					$select=mysql_query("SELECT * FROM tb_user WHERE contact_no='$un' ");
+					if(mysql_num_rows($select)<=0){
+					$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Edit Profile','Successfull')");
+					$query=mysql_query("UPDATE tb_user SET contact_no='$un' WHERE id='$id' ");
+					echo "<meta http-equiv='refresh' content='1' >";
+					}
+					}
+					elseif(!is_numeric($un))
+					{
+					echo"<script> alert('Contact number must be numbers only') </script>";
+					}
+					
+}
+	
 	elseif(isset($_POST['submit5']))
-{	$un=$_POST['emailbox'];
-	$select=mysql_query("SELECT * FROM tb_user WHERE email='$un' ");
-	if(mysql_num_rows($select)<=0){
-	$query=mysql_query("UPDATE tb_user SET email='$un' WHERE id='$id' ");
-	echo "<meta http-equiv='refresh' content='1' >";
-	}
-	}	
+{	
+
+					$un=$_POST['emailbox'];
+					if((preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$un)))
+					{
+					$select=mysql_query("SELECT * FROM tb_user WHERE email='$un' ");
+					if(mysql_num_rows($select)<=0){
+					$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Edit Profile','Successfull')");
+					$query=mysql_query("UPDATE tb_user SET email='$un' WHERE id='$id' ");
+					echo "<meta http-equiv='refresh' content='1' >";
+					}
+					}
+					elseif(!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$un))
+					{
+					echo"<script> alert('Invalid Email Format') </script>";
+					}
+}	
 
 ?>
 
@@ -118,7 +169,7 @@ if(isset($_POST['submit1']))
 					<li><a href="leave_request.php"  >Leave Request</a></li>
 					<li><a href="emp_check_leave_request.php"  >Check Leave Request</a></li>
 					<li class='active-tab'>Profile</li>
-					<li><a href="emp_attendance.php" >My Attendance</a></li>
+					<li><a href="emp_own_attendance.php" >My Attendance</a></li>
 					<li><a href="../logout.php" >Log out</a></li>
 				</ul>
 			</div>

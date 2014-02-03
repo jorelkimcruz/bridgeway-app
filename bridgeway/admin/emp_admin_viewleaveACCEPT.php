@@ -76,6 +76,7 @@ $msg_admin="";
 			</tr>
 			<?php echo $msg_admin;?>
 			</table>
+			<a href="emp_admin_printleaveACCEPT.php">[PRINT ACCEPTED LEAVE REPORT]</a>
 			</center>
 		</div>
 	</div>

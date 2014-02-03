@@ -79,6 +79,7 @@ $cs=$_POST['cs'];
 $contact=$_POST['contact'];
 $user=$_POST['user'];
 $pass=$_POST['pass'];
+$kwi=mysql_query("INSERT INTO tb_audit_trail VALUES('','emp_admin',CURRENT_TIMESTAMP,'Authentication','Add UserAccount&Employee','Successfull')");
 $kwiri=mysql_query("INSERT INTO tb_user VALUES('','2','$user','$pass','$fname','$lname','$contact','$email')");
 $query=mysql_query("INSERT INTO tb_employee VALUES('','2','$fname','$lname','$mname','$add','$email','$pos','','$dept','$es','$hs','$cs','','$contact')");
 }

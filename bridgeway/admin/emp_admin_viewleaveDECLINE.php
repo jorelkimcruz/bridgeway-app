@@ -78,6 +78,7 @@ $msg_admin="";
 			</tr>
 			<?php echo $msg_admin;?>
 			</table>
+			<a href="emp_admin_printleaveDecline.php">[PRINT DECLINED LEAVE REPORT]</a>
 			</center>
 		</div>
 	</div>

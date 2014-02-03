@@ -97,7 +97,7 @@ if(mysql_num_rows($query)>0){
 		?>
 			
 			 </center></td>
-        <td>&nbsp;<a  href="os_delete_order.php?id=<?=$row['order_id']?>&status=<?=$row['status']?>&quantity=<?=$row['quantity']?>"  onclick="return confirm('Are you sure?')">[Delete]</a></td>
+        <td>&nbsp;<a  href="os_delete_order.php?id=<?=$row['order_id']?>&status=<?=$row['status']?>&quantity=<?=$row['quantity']?>&prod_id=<?=$row['product_id']?>"  onclick="return confirm('Are you sure?')">[Delete]</a></td>
 	
     </tr>
 <?php        

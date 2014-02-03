@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2014 at 02:28 PM
+-- Generation Time: Feb 03, 2014 at 05:13 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -170,32 +170,63 @@ CREATE TABLE IF NOT EXISTS `tb_attendance` (
   `emp_name` varchar(100) NOT NULL,
   `time_in` datetime NOT NULL,
   `time_out` datetime NOT NULL,
-  `date` varchar(100) NOT NULL,
+  `date` date NOT NULL,
   `emp_id` int(5) NOT NULL,
   `job` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=88 ;
 
 --
 -- Dumping data for table `tb_attendance`
 --
 
 INSERT INTO `tb_attendance` (`id`, `emp_name`, `time_in`, `time_out`, `date`, `emp_id`, `job`) VALUES
-(1, 'qqwe', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'qweqwe', 2, ''),
-(2, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'February 10,2014', 7, 'in'),
-(15, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 7, 'in'),
-(16, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 'in'),
-(17, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 88, 'in'),
-(18, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 88, 'in'),
-(23, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 233, 'in'),
-(24, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 23232, 'in'),
-(28, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 7878, 'in'),
-(29, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 'in'),
-(30, 'jayven', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 909, 'in'),
-(31, 'emp_admin', '2014-02-02 04:45:10', '0000-00-00 00:00:00', '', 3, 'in'),
-(32, 'emp_admin', '2014-02-02 04:50:48', '0000-00-00 00:00:00', '', 1, 'in'),
-(33, 'emp_admin', '2014-02-02 04:50:53', '0000-00-00 00:00:00', '', 100, 'in'),
-(34, 'emp_admin', '2014-02-02 04:51:50', '0000-00-00 00:00:00', '', 100, 'in');
+(1, 'qqwe', '0000-00-00 00:00:00', '2014-02-03 23:39:59', '0000-00-00', 2, 'out'),
+(2, 'jayven', '0000-00-00 00:00:00', '2014-02-04 07:01:31', '0000-00-00', 7, 'out'),
+(15, 'jayven', '0000-00-00 00:00:00', '2014-02-04 07:01:31', '0000-00-00', 7, 'out'),
+(29, 'jayven', '0000-00-00 00:00:00', '2014-02-04 07:08:24', '0000-00-00', 0, 'out'),
+(31, 'emp_admin', '2014-02-03 01:07:46', '2014-02-04 07:04:06', '0000-00-00', 45, 'out'),
+(34, 'jayven', '2014-02-03 01:33:02', '2014-02-03 23:39:59', '0000-00-00', 2, 'out'),
+(35, 'jayven', '2014-02-03 01:35:29', '2014-02-03 23:39:59', '0000-00-00', 2, 'out'),
+(36, 'employee', '2014-02-03 10:49:17', '2014-02-03 23:46:12', '0000-00-00', 1, 'out'),
+(38, 'employee', '2014-02-03 11:04:04', '2014-02-03 23:46:12', '0000-00-00', 1, 'out'),
+(40, 'jorel', '2014-02-03 11:05:19', '2014-02-04 19:30:58', '0000-00-00', 4, 'out'),
+(44, 'jayven', '2014-02-03 11:14:14', '2014-02-03 23:39:59', '0000-00-00', 2, 'out'),
+(45, 'jayven', '2014-02-03 11:18:35', '2014-02-03 23:39:59', '0000-00-00', 2, 'out'),
+(46, 'jayven', '2014-02-03 11:21:42', '2014-02-03 23:39:59', '0000-00-00', 2, 'out'),
+(47, 'jayven', '2014-02-03 11:22:16', '2014-02-03 23:39:59', '0000-00-00', 2, 'out'),
+(48, 'jayven', '2014-02-03 11:24:08', '2014-02-03 23:39:59', '2014-02-01', 2, 'out'),
+(49, 'qweqweqwe', '2014-02-03 11:25:50', '2014-02-03 23:46:36', '0000-00-00', 3, 'out'),
+(51, 'jayven', '2014-02-03 11:35:41', '2014-02-03 23:39:59', '0000-00-00', 2, 'out'),
+(53, 'jayven', '2014-02-03 11:37:41', '2014-02-03 23:39:59', '0000-00-00', 2, 'out'),
+(60, 'jayven', '2014-02-03 11:40:33', '2014-02-03 23:39:59', '0000-00-00', 2, 'out'),
+(61, 'pansit', '2014-02-03 11:45:25', '2014-02-04 19:34:11', '0000-00-00', 5, 'out'),
+(62, 'pansit', '2014-02-03 11:58:22', '2014-02-04 19:34:11', '0000-00-00', 5, 'out'),
+(63, 'jason', '2014-02-03 12:15:36', '2014-02-03 13:42:22', '0000-00-00', 6, 'out'),
+(64, 'jason  jason', '2014-02-03 13:42:13', '2014-02-03 13:42:22', '0000-00-00', 6, 'out'),
+(65, 'employee  employee', '2014-02-03 17:13:42', '2014-02-03 23:46:12', '0000-00-00', 1, 'out'),
+(66, 'jesica  jesica', '2014-02-04 06:30:32', '2014-02-04 07:01:31', '0000-00-00', 7, 'out'),
+(67, 'jesica  jesica', '2014-02-04 06:31:29', '2014-02-04 07:01:31', '0000-00-00', 7, 'out'),
+(68, 'jesica  jesica', '2014-02-04 06:32:07', '2014-02-04 07:01:31', '0000-00-00', 7, 'out'),
+(69, 'jesica  jesica', '2014-02-04 06:32:58', '2014-02-04 07:01:31', '0000-00-00', 7, 'out'),
+(70, 'jesica  jesica', '2014-02-04 06:35:22', '2014-02-04 07:01:31', '2014-02-04', 7, 'out'),
+(71, 'jesica  jesica', '2014-02-04 07:01:29', '2014-02-04 07:01:31', '2014-02-04', 7, 'out'),
+(72, 'jayven  javier', '2014-02-04 07:05:49', '2014-02-03 23:39:59', '2014-02-04', 2, 'out'),
+(73, 'qweqweqwe  qweqwe', '2014-02-04 07:07:32', '2014-02-03 23:46:36', '2014-02-04', 3, 'out'),
+(74, 'employee  employee', '2014-02-04 07:08:01', '2014-02-03 23:46:12', '2014-02-04', 1, 'out'),
+(75, 'jayven  javier', '2014-02-04 07:08:22', '2014-02-03 23:39:59', '2014-02-04', 2, 'out'),
+(76, 'jayven  javier', '2014-02-04 19:15:47', '2014-02-03 23:39:59', '2014-02-04', 2, 'out'),
+(77, 'jorel  jorel', '2014-02-04 19:30:52', '2014-02-04 19:30:58', '2014-02-04', 4, 'out'),
+(78, 'pansit  pansit', '2014-02-04 19:34:08', '2014-02-04 19:34:11', '2014-02-04', 5, 'out'),
+(79, 'employee  employee', '2014-02-03 23:39:24', '2014-02-03 23:46:12', '0000-00-00', 1, 'out'),
+(80, 'jayven  javier', '2014-02-03 23:39:36', '2014-02-03 23:39:59', '0000-00-00', 2, 'out'),
+(81, 'employee  employee', '2014-02-03 23:40:04', '2014-02-03 23:46:12', '0000-00-00', 1, 'out'),
+(82, 'employee  employee', '2014-02-03 23:40:09', '2014-02-03 23:46:12', '0000-00-00', 1, 'out'),
+(83, 'employee  employee', '2014-02-03 23:40:13', '2014-02-03 23:46:12', '0000-00-00', 1, 'out'),
+(84, 'employee  employee', '2014-02-03 23:46:07', '2014-02-03 23:46:12', '2014-02-03', 1, 'out'),
+(85, 'jayven  javier', '2014-02-03 23:46:28', '0000-00-00 00:00:00', '2014-02-03', 2, 'in'),
+(86, 'jorel  jorel', '2014-02-03 23:46:34', '0000-00-00 00:00:00', '2014-02-03', 4, 'in'),
+(87, 'qweqweqwe  qweqwe', '2014-02-03 23:46:38', '0000-00-00 00:00:00', '2014-02-03', 3, 'in');
 
 -- --------------------------------------------------------
 
@@ -211,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `tb_audit_trail` (
   `action` varchar(30) NOT NULL,
   `description` varchar(30) NOT NULL,
   PRIMARY KEY (`audit_trail_tr_no`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=890 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1016 ;
 
 --
 -- Dumping data for table `tb_audit_trail`
@@ -256,7 +287,133 @@ INSERT INTO `tb_audit_trail` (`audit_trail_tr_no`, `id`, `date`, `object`, `acti
 (0000000886, '', '2014-02-02 12:00:20', 'Authentication', 'Logout', 'Successful'),
 (0000000887, '', '2014-02-02 12:00:25', 'Authentication', 'Login', 'Successful'),
 (0000000888, '', '2014-02-02 13:22:42', 'Authentication', 'Logout', 'Successful'),
-(0000000889, '', '2014-02-02 13:22:47', 'Authentication', 'Login', 'Successful');
+(0000000889, '', '2014-02-02 13:22:47', 'Authentication', 'Login', 'Successful'),
+(0000000890, '', '2014-02-02 13:39:05', 'Authentication', 'Logout', 'Successful'),
+(0000000891, '', '2014-02-02 13:39:16', 'Authentication', 'Login', 'Successful'),
+(0000000892, '', '2014-02-02 13:39:19', 'Authentication', 'Logout', 'Successful'),
+(0000000893, '', '2014-02-02 13:39:23', 'Authentication', 'Login', 'Successful'),
+(0000000894, '', '2014-02-02 13:40:34', 'Authentication', 'Logout', 'Successful'),
+(0000000895, '', '2014-02-02 13:40:42', 'Authentication', 'Login', 'Successful'),
+(0000000896, '', '2014-02-02 13:40:53', 'Authentication', 'Logout', 'Successful'),
+(0000000897, '', '2014-02-02 13:40:58', 'Authentication', 'Login', 'Successful'),
+(0000000898, '', '2014-02-02 14:08:09', 'Authentication', 'Logout', 'Successful'),
+(0000000899, '', '2014-02-02 14:08:16', 'Authentication', 'Login', 'Successful'),
+(0000000900, '', '2014-02-02 17:44:42', 'Authentication', 'Logout', 'Successful'),
+(0000000901, '', '2014-02-02 17:44:46', 'Authentication', 'Login', 'Successful'),
+(0000000902, '', '2014-02-02 17:45:29', 'Authentication', 'Logout', 'Successful'),
+(0000000903, '', '2014-02-02 17:45:35', 'Authentication', 'Login', 'Successful'),
+(0000000904, '', '2014-02-02 17:54:36', 'Authentication', 'Logout', 'Successful'),
+(0000000905, '', '2014-02-02 17:54:41', 'Authentication', 'Login', 'Successful'),
+(0000000906, '', '2014-02-02 17:55:19', 'Authentication', 'Logout', 'Successful'),
+(0000000907, '', '2014-02-02 17:55:26', 'Authentication', 'Login', 'Successful'),
+(0000000908, '', '2014-02-02 17:56:28', 'Authentication', 'Logout', 'Successful'),
+(0000000909, '', '2014-02-02 17:56:32', 'Authentication', 'Login', 'Successful'),
+(0000000910, '', '2014-02-02 17:56:54', 'Authentication', 'Logout', 'Successful'),
+(0000000911, '', '2014-02-02 17:57:06', 'Authentication', 'Login', 'Successful'),
+(0000000912, '', '2014-02-02 17:58:03', 'Authentication', 'Logout', 'Successful'),
+(0000000913, '', '2014-02-02 17:58:09', 'Authentication', 'Login', 'Successful'),
+(0000000914, '', '2014-02-02 17:58:18', 'Authentication', 'Logout', 'Successful'),
+(0000000915, '', '2014-02-02 17:58:22', 'Authentication', 'Login', 'Successful'),
+(0000000916, '', '2014-02-02 17:58:26', 'Authentication', 'Logout', 'Successful'),
+(0000000917, '', '2014-02-02 17:58:33', 'Authentication', 'Login', 'Successful'),
+(0000000918, '', '2014-02-02 17:59:57', 'Authentication', 'Logout', 'Successful'),
+(0000000919, '', '2014-02-02 18:00:03', 'Authentication', 'Login', 'Successful'),
+(0000000920, '', '2014-02-02 18:00:15', 'Authentication', 'Logout', 'Successful'),
+(0000000921, '', '2014-02-02 18:00:21', 'Authentication', 'Login', 'Successful'),
+(0000000922, '', '2014-02-02 18:01:38', 'Authentication', 'Logout', 'Successful'),
+(0000000923, '', '2014-02-02 18:01:43', 'Authentication', 'Login', 'Successful'),
+(0000000924, '', '2014-02-02 18:01:50', 'Authentication', 'Logout', 'Successful'),
+(0000000925, '', '2014-02-02 18:01:56', 'Authentication', 'Login', 'Successful'),
+(0000000926, '', '2014-02-02 18:02:12', 'Authentication', 'Logout', 'Successful'),
+(0000000927, '', '2014-02-02 18:02:19', 'Authentication', 'Login', 'Successful'),
+(0000000928, '', '2014-02-02 18:02:28', 'Authentication', 'Logout', 'Successful'),
+(0000000929, '', '2014-02-02 18:02:33', 'Authentication', 'Login', 'Successful'),
+(0000000930, '', '2014-02-02 18:03:24', 'Authentication', 'Logout', 'Successful'),
+(0000000931, '', '2014-02-02 18:03:29', 'Authentication', 'Login', 'Successful'),
+(0000000932, '', '2014-02-02 18:03:48', 'Authentication', 'Logout', 'Successful'),
+(0000000933, '', '2014-02-02 18:03:56', 'Authentication', 'Login', 'Successful'),
+(0000000934, '', '2014-02-02 18:05:47', 'Authentication', 'Logout', 'Successful'),
+(0000000935, '', '2014-02-02 18:05:52', 'Authentication', 'Login', 'Successful'),
+(0000000936, '', '2014-02-02 18:06:08', 'Authentication', 'Logout', 'Successful'),
+(0000000937, '', '2014-02-02 18:06:14', 'Authentication', 'Login', 'Successful'),
+(0000000938, '', '2014-02-02 18:07:39', 'Authentication', 'Logout', 'Successful'),
+(0000000939, '', '2014-02-02 18:08:05', 'Authentication', 'Login', 'Successful'),
+(0000000940, '', '2014-02-02 18:08:23', 'Authentication', 'Logout', 'Successful'),
+(0000000941, '', '2014-02-02 18:08:33', 'Authentication', 'Login', 'Successful'),
+(0000000942, '', '2014-02-02 18:09:02', 'Authentication', 'Logout', 'Successful'),
+(0000000943, '', '2014-02-02 18:09:08', 'Authentication', 'Login', 'Successful'),
+(0000000944, '', '2014-02-02 18:09:14', 'Authentication', 'Logout', 'Successful'),
+(0000000945, '', '2014-02-02 18:09:19', 'Authentication', 'Login', 'Successful'),
+(0000000946, '', '2014-02-03 15:07:09', 'Authentication', 'Login', 'Successful'),
+(0000000947, '', '2014-02-03 15:13:42', 'Authentication', 'Logout', 'Successful'),
+(0000000948, '', '2014-02-03 15:13:49', 'Authentication', 'Login', 'Successful'),
+(0000000949, '', '2014-02-03 15:13:57', 'Authentication', 'Logout', 'Successful'),
+(0000000950, '', '2014-02-03 15:14:02', 'Authentication', 'Login', 'Successful'),
+(0000000951, '', '2014-02-03 15:14:10', 'Authentication', 'Logout', 'Successful'),
+(0000000952, '', '2014-02-03 15:14:18', 'Authentication', 'Login', 'Successful'),
+(0000000953, '', '2014-02-03 15:20:10', 'Authentication', 'Logout', 'Successful'),
+(0000000954, '', '2014-02-03 15:20:18', 'Authentication', 'Login', 'Successful'),
+(0000000955, '', '2014-02-03 15:20:25', 'Authentication', 'Logout', 'Successful'),
+(0000000956, '', '2014-02-03 15:20:32', 'Authentication', 'Login', 'Successful'),
+(0000000957, '', '2014-02-03 15:21:34', 'Authentication', 'Logout', 'Successful'),
+(0000000958, '', '2014-02-03 15:21:41', 'Authentication', 'Login', 'Successful'),
+(0000000959, '', '2014-02-03 15:21:53', 'Authentication', 'Logout', 'Successful'),
+(0000000960, '', '2014-02-03 15:22:01', 'Authentication', 'Login', 'Successful'),
+(0000000961, '', '2014-02-03 15:23:28', 'Authentication', 'Logout', 'Successful'),
+(0000000962, '', '2014-02-03 15:23:33', 'Authentication', 'Login', 'Successful'),
+(0000000963, '', '2014-02-03 15:23:39', 'Authentication', 'Logout', 'Successful'),
+(0000000964, '', '2014-02-03 15:23:45', 'Authentication', 'Login', 'Successful'),
+(0000000965, '', '2014-02-03 15:24:30', 'Authentication', 'Logout', 'Successful'),
+(0000000966, '', '2014-02-03 15:24:34', 'Authentication', 'Login', 'Successful'),
+(0000000967, '', '2014-02-03 15:24:46', 'Authentication', 'Logout', 'Successful'),
+(0000000968, '', '2014-02-03 15:24:57', 'Authentication', 'Login', 'Successful'),
+(0000000969, '', '2014-02-03 15:25:56', 'Authentication', 'Logout', 'Successful'),
+(0000000970, '', '2014-02-03 15:26:00', 'Authentication', 'Login', 'Successful'),
+(0000000971, '', '2014-02-03 15:26:19', 'Authentication', 'Logout', 'Successful'),
+(0000000972, '', '2014-02-03 15:26:25', 'Authentication', 'Login', 'Successful'),
+(0000000973, '', '2014-02-03 15:29:31', 'Authentication', 'Logout', 'Successful'),
+(0000000974, '', '2014-02-03 15:29:35', 'Authentication', 'Login', 'Successful'),
+(0000000975, '', '2014-02-03 15:29:40', 'Authentication', 'Logout', 'Successful'),
+(0000000976, '', '2014-02-03 15:29:46', 'Authentication', 'Login', 'Successful'),
+(0000000977, '', '2014-02-03 15:30:05', 'Authentication', 'Logout', 'Successful'),
+(0000000978, '', '2014-02-03 15:30:10', 'Authentication', 'Login', 'Successful'),
+(0000000979, '', '2014-02-03 15:30:17', 'Authentication', 'Logout', 'Successful'),
+(0000000980, '', '2014-02-03 15:30:24', 'Authentication', 'Login', 'Successful'),
+(0000000981, '', '2014-02-03 15:32:03', 'Authentication', 'Logout', 'Successful'),
+(0000000982, '', '2014-02-03 15:32:08', 'Authentication', 'Login', 'Successful'),
+(0000000983, '', '2014-02-03 15:32:19', 'Authentication', 'Logout', 'Successful'),
+(0000000984, '', '2014-02-03 15:32:23', 'Authentication', 'Login', 'Successful'),
+(0000000985, '', '2014-02-03 15:34:56', 'Authentication', 'Logout', 'Successful'),
+(0000000986, '', '2014-02-03 15:35:01', 'Authentication', 'Login', 'Successful'),
+(0000000987, '', '2014-02-03 15:35:07', 'Authentication', 'Logout', 'Successful'),
+(0000000988, '', '2014-02-03 15:35:13', 'Authentication', 'Login', 'Successful'),
+(0000000989, '', '2014-02-03 15:39:11', 'Authentication', 'Logout', 'Successful'),
+(0000000990, '', '2014-02-03 15:39:17', 'Authentication', 'Login', 'Successful'),
+(0000000991, 'emp_admin', '2014-02-03 15:39:24', 'Authentication', 'Time in Employee', 'Successfull'),
+(0000000992, 'emp_admin', '2014-02-03 15:39:36', 'Authentication', 'Time in Employee', 'Successfull'),
+(0000000993, 'emp_admin', '2014-02-03 15:39:41', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000000994, 'emp_admin', '2014-02-03 15:39:44', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000000995, 'emp_admin', '2014-02-03 15:39:46', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000000996, 'emp_admin', '2014-02-03 15:39:48', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000000997, 'emp_admin', '2014-02-03 15:39:58', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000000998, 'emp_admin', '2014-02-03 15:39:59', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000000999, 'emp_admin', '2014-02-03 15:40:04', 'Authentication', 'Time in Employee', 'Successfull'),
+(0000001000, 'emp_admin', '2014-02-03 15:40:08', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000001001, 'emp_admin', '2014-02-03 15:40:09', 'Authentication', 'Time in Employee', 'Successfull'),
+(0000001002, 'emp_admin', '2014-02-03 15:40:11', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000001003, 'emp_admin', '2014-02-03 15:40:13', 'Authentication', 'Time in Employee', 'Successfull'),
+(0000001004, 'emp_admin', '2014-02-03 15:40:15', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000001005, 'emp_admin', '2014-02-03 15:45:18', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000001006, 'emp_admin', '2014-02-03 15:45:53', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000001007, 'emp_admin', '2014-02-03 15:46:07', 'Authentication', 'Time in Employee', 'Successfull'),
+(0000001008, 'emp_admin', '2014-02-03 15:46:12', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000001009, 'emp_admin', '2014-02-03 15:46:28', 'Authentication', 'Time in Employee', 'Successfull'),
+(0000001010, 'emp_admin', '2014-02-03 15:46:34', 'Authentication', 'Time in Employee', 'Successfull'),
+(0000001011, 'emp_admin', '2014-02-03 15:46:36', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000001012, 'emp_admin', '2014-02-03 15:46:38', 'Authentication', 'Time in Employee', 'Successfull'),
+(0000001013, 'emp_admin', '2014-02-03 15:46:45', 'Authentication', 'Timed out Employee', 'Successfull'),
+(0000001014, '', '2014-02-03 15:49:55', 'Authentication', 'Logout', 'Successful'),
+(0000001015, '', '2014-02-03 15:50:00', 'Authentication', 'Login', 'Successful');
 
 -- --------------------------------------------------------
 
@@ -281,14 +438,20 @@ CREATE TABLE IF NOT EXISTS `tb_employee` (
   `status` varchar(50) NOT NULL,
   `contact_no` int(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `tb_employee`
 --
 
 INSERT INTO `tb_employee` (`id`, `user_id`, `firstname`, `lastname`, `middlename`, `address`, `email`, `position`, `date_hired`, `department`, `elem_school`, `h_school`, `c_school`, `status`, `contact_no`) VALUES
-(1, 2, 'employee', 'employee', 'employee', 'employee', 'employee@yahoo.com', 'employee', '2014-04-08', 'employee', 'employee', 'employee', 'employee', 'employee', 12345678);
+(1, 2, 'employee', 'employee', 'employee', 'employee', 'employee@yahoo.com', 'employee', '2014-04-08', 'employee', 'employee', 'employee', 'employee', 'employee', 12345678),
+(2, 2, 'jayven', 'javier', 'santos', 'taytay rizal', 'asa@yahoo.com', 'employee', '2014-02-14', 'accounting', 'jose rizal university', 'jose rizal university', 'jose rizal university', '', 439534534),
+(3, 2, 'qweqweqwe', 'qweqwe', 'qweqwe', 'qweqwe', 'qweqweqwe', 'qrqwrqerwe', '0000-00-00', 'werwerwer', 'werwerwer', 'werwerwer', 'werwerwer', '', 345345),
+(4, 2, 'jorel', 'jorel', 'jorel', 'jorel', 'jorel', 'jorel', '0000-00-00', 'jorel', 'jorel', 'jorel', 'jorel', '', 123123123),
+(5, 2, 'pansit', 'pansit', 'pansit', 'pansit', 'pansit', 'pansit', '0000-00-00', 'pansit', 'pansit', 'pansit', 'pansit', '', 0),
+(6, 2, 'jason', 'jason', 'jason', 'jason', 'jason', 'jason', '0000-00-00', 'jason', 'jason', 'jason', 'jason', '', 1231),
+(7, 2, 'jesica', 'jesica', 'jesica', 'jesica', 'jesica@yahoo.com', 'jesica', '0000-00-00', 'jesica', 'jesica', 'jesica', 'jesica', '', 1282734234);
 
 -- --------------------------------------------------------
 
@@ -306,17 +469,41 @@ CREATE TABLE IF NOT EXISTS `tb_leave` (
   `end_date` date NOT NULL,
   `status` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `tb_leave`
 --
 
 INSERT INTO `tb_leave` (`id`, `emp_id`, `reason`, `contact_no`, `emp_name`, `start_date`, `end_date`, `status`) VALUES
-(1, 2, 'qweqweqwe', 213123123, 'qweqweqwe', '2050-01-01', '2050-01-01', 'Accepted'),
-(2, 2, 'qweqweqwe', 213123123, 'qweqweqwe', '2050-01-01', '2050-01-01', 'Decline'),
-(3, 2, 'tyuiyui', 0, 'yuiyui', '2050-01-01', '2050-01-01', 'PENDING'),
-(4, 2, 'jorel', 123123, 'jorel', '2050-01-01', '2050-01-01', 'Accepted');
+(1, 2, 'qweqweqwe', 213123123, 'qweqweqwe', '2050-01-01', '2050-01-01', 'Decline'),
+(2, 2, 'qweqweqwe', 213123123, 'qweqweqwe', '2050-01-01', '2050-01-01', 'Accepted'),
+(3, 2, 'tyuiyui', 0, 'yuiyui', '2050-01-01', '2050-01-01', 'Accepted'),
+(4, 2, 'jorel', 123123, 'jorel', '2050-01-01', '2050-01-01', 'Decline'),
+(5, 7, 'qweqwe', 123123, 'ttttttt', '2050-01-01', '2050-01-01', 'PENDING'),
+(6, 7, 'qweqwe', 123123, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(7, 7, 'qweqwe', 123123, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(8, 7, 'qweqwe', 123123, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(9, 7, 'gggg', 0, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(10, 7, 'qqssss', 0, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(11, 7, 'miley', 123123, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(12, 7, 'hfghfgh', 0, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(13, 7, 'hfghfgh', 0, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(14, 7, 'hghgh', 0, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(15, 7, 'hghgh', 0, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(16, 7, 'hghgh', 0, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(17, 7, 'hghgh', 0, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(18, 7, 'hghgh', 0, '', '2050-01-01', '2050-01-01', 'PENDING'),
+(19, 7, 'qweqwe', 0, 'jayven', '2050-01-01', '2050-01-01', 'Decline'),
+(20, 7, '', 0, 'jayven jayven', '2050-01-01', '2050-01-01', 'Accepted'),
+(21, 7, 'qweqwe', 0, 'jayven jayven', '2050-01-01', '2050-01-01', 'Accepted'),
+(22, 9, 'jason', 0, 'jason jason', '2050-01-01', '2050-01-01', 'Decline'),
+(23, 9, 'qweqwe', 123, 'jason jason', '2050-01-01', '2050-01-01', 'Accepted'),
+(24, 8, 'dsasdasd', 123123123, 'pansits pansits', '2050-01-01', '2050-01-01', 'PENDING'),
+(25, 8, 'qweqwe', 123123, 'pansits pansits', '2014-02-02', '2014-02-13', 'PENDING'),
+(26, 8, 'qweqwe', 123123, 'pansits pansits', '2014-02-08', '2014-02-27', 'PENDING'),
+(27, 8, 'qweqwe', 345345345, 'pansits pansits', '2014-02-08', '2014-02-14', 'PENDING'),
+(28, 8, 'werwerwer', 6756756, 'pansits pansits', '2014-02-07', '2014-02-27', 'PENDING');
 
 -- --------------------------------------------------------
 
@@ -333,18 +520,16 @@ CREATE TABLE IF NOT EXISTS `tb_order` (
   `status` varchar(100) NOT NULL,
   `date_added` datetime NOT NULL,
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `tb_order`
 --
 
 INSERT INTO `tb_order` (`order_id`, `product_id`, `user_id`, `quantity`, `total_amount`, `status`, `date_added`) VALUES
-(3, 202, 3, 0, 130, 'Pending', '2014-02-02 21:08:13'),
-(4, 202, 3, 1, 10, 'Pending', '2014-02-02 21:09:07'),
-(5, 202, 3, 1, 10, 'Pending', '2014-02-02 21:19:53'),
-(6, 202, 3, 1, 10, 'Pending', '2014-02-02 21:20:04'),
-(7, 202, 3, 13, 130, 'Pending', '2014-02-02 21:21:39');
+(11, 202, 3, 1, 10, 'Paid', '2014-02-03 23:35:04'),
+(12, 202, 3, 12, 120, 'Pending', '2014-02-03 23:50:06'),
+(13, 202, 3, 1, 10, 'Pending', '2014-02-03 23:55:46');
 
 -- --------------------------------------------------------
 
@@ -367,7 +552,7 @@ CREATE TABLE IF NOT EXISTS `tb_products` (
 --
 
 INSERT INTO `tb_products` (`product_id`, `name`, `description`, `quantity`, `price`, `image`) VALUES
-(202, 'kaimito', 'spongbob', 57, 10, 'hijo.png'),
+(202, 'kaimito', 'spongbob', 4, 10, 'hijo.png'),
 (203, 'kalalua', 'koim,asd0ihje', 9, 100, 'images.jpg');
 
 -- --------------------------------------------------------
@@ -386,7 +571,7 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
   `contact_no` int(15) NOT NULL,
   `email` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `tb_user`
@@ -401,7 +586,8 @@ INSERT INTO `tb_user` (`id`, `level`, `username`, `password`, `first_name`, `las
 (6, 6, 'emp_admin', 'emp_admin', 'emp_admin', 'emp_admin', 123456789, 'hk@yahoo.com'),
 (7, 2, 'jayven', 'jayven', 'jayven', 'jayven', 123123123, 'jasdasd@yahoo.com'),
 (8, 3, 'marcpogi', 'marcpogi', 'marc', 'rigor', 2147483647, 'marcrigor08@yahoo.com'),
-(9, 3, 'jorel', 'cruz', 'jorel', 'cruz', 2147483647, 'jore@yahoo.com');
+(9, 3, 'jorel', 'cruz', 'jorel', 'cruz', 2147483647, 'jore@yahoo.com'),
+(10, 3, 'kamote', '1234', 'asdad', 'asdad', 2147483647, 'asdasdads@yahoo.com');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

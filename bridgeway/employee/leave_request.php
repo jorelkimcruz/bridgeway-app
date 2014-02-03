@@ -19,6 +19,7 @@ $e_lname=$emp_fetch['last_name'];
 $name=$emp_fetch['first_name']. " " .$emp_fetch['last_name'];
 $e_contact=$emp_fetch['contact_no'];
 $e_email=$emp_fetch['email'];
+$trydate=(date("Y-m-d"));
 }
 $msgs="<tr><th>NAME<td>$name</td><td><input type='hidden' name='usernamebox' id='usernamebox' value='$name'></input></td></th></tr>"
 ?>
@@ -44,7 +45,7 @@ $msgs="<tr><th>NAME<td>$name</td><td><input type='hidden' name='usernamebox' id=
 					<li class='active-tab'>Leave Request</li>
 					<li><a href="emp_check_leave_request.php"  >Check Leave Request</a></li>
 					<li><a href="emp_profile.php" >Profile</a></li>
-					<li><a href="emp_attendance.php" >My Attendance</a></li>
+					<li><a href="emp_own_attendance.php" >My Attendance</a></li>
 					<li><a href="../logout.php" >Log out</a></li>
 				</ul>
 			</div>
@@ -61,37 +62,14 @@ $msgs="<tr><th>NAME<td>$name</td><td><input type='hidden' name='usernamebox' id=
 			<?php echo $msgs; ?>
 			<tr><th>Reason for Leaving</th><td><input type="text" name="leave"></td></tr>
 			<tr><th>Contact Number</th><td><input type="text" name="cno"></td></tr>
-			<tr><th>Leave Start Date</th><td>
-			<select name="smonth">
-			<?php for($m=1; $m<=12; $m++)echo "<option>$m</option>";?></select>
-			<select name="sday"><?php for ($m=1; $m<=31; $m++)echo "<option>$m</option>";?> </select>
-	<select name="syear">
-	<?php
-	for ($m=2050; $m>=2000; $m--)
-		echo "<option>$m</option>";
-	?> 	
-			</select>
-			</td></tr>
-			<tr><th>Leave End Date</th><td>
-			<select name="emonth">
-			<?php
-			for ($m=1; $m<=12; $m++)
-			echo "<option>$m</option>";
-			?></select>
-	<select name="eday">
-	<?php
-	for ($m=1; $m<=31; $m++)
-		echo "<option>$m</option>";
-	?> 	
-	</select>
-	<select name="eyear">
-	<?php
-	for ($m=2050; $m>=2000; $m--)
-		echo "<option>$m</option>";
-	?> 	
-			</select></td></tr>
+			<tr><th>Leave Start Date</th><td><input type="date" name="sdate"></td></tr>
+			<tr><th>Leave End Date</th><td><input type="date" name="edate"></td></tr>
 			</table>
 			<input type="submit" name="submit" value="Submit">
+			<br><br><br>NOTE:<br>
+			*Contact Number must contain numbers only<br>
+			*LEAVE Start Date must be date tomorrow onwards<br>
+			*LEAVE End date must not be less than Leave Start Dates
 			</center>
 		
 	</div>

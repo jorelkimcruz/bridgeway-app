@@ -10,12 +10,32 @@ if(isset($_POST['submit'])){
 $leave=$_POST['leave'];
 $name=$_POST['usernamebox'];
 $cno=$_POST['cno'];
-$sdate=$_POST['syear'] . '-' . $_POST['smonth'] . '-' . $_POST['sday'];
-$edate=$_POST['eyear'] . '-' . $_POST['emonth'] . '-' . $_POST['eday'];
+$sdate=$_POST['sdate'];
+$edate=$_POST['edate'];
+$date=date("Y-m-d");
 
+if(!is_numeric($cno))
+{
+	echo"<script> alert('Contact number must be numbers only') </script>";
+	redirect_to('leave_request.php');
+	
+}
+elseif($sdate<$date)
+{
+	echo"<script> alert('INVALID LEAVE START DATE') </script>";
+	redirect_to('leave_request.php');
+}
+elseif($edate<$sdate)
+{
+echo"<script> alert('INVALID LEAVE END DATE') </script>";
+redirect_to('leave_request.php');
+}
+else{
+$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Passed Leave Request','Successfull')");
 $query="INSERT INTO tb_leave VALUES('','$id','$leave','$cno','$name','$sdate','$edate','PENDING')";
 $result=mysql_query($query);
 $msg="Please wait for the admin to approve you leave request!";	
+}
 }
 
 
@@ -42,7 +62,7 @@ $msg="Please wait for the admin to approve you leave request!";
 					<li class='active-tab'>Leave Request</li>
 					<li><a href="emp_check_leave_request.php"  >Check Leave Request</a></li>
 					<li><a href="emp_profile.php" >Profile</a></li>
-					<li><a href="emp_attendance.php" >My Attendance</a></li>
+					<li><a href="emp_own_attendance.php" >My Attendance</a></li>
 					<li><a href="../logout.php" >Log out</a></li>
 				</ul>
 			</div>

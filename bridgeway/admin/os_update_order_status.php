@@ -7,16 +7,17 @@ $id    = $_GET['id'];
 
 $status    = $_GET['status'];
 $new_status="";
-echo $status;
 
 if ($status == "Pending") {
    	$update="UPDATE tb_order SET status = 'Accepted' 
 		WHERE order_id = '$id ' ";
 		$exe=mysql_query($update) or die(mysql_error());
+		echo "<script>alert('Record successfuly updated.');window.location.href='os_admin_orders.php';</script>"; 
 } else {
       	$update="UPDATE tb_order SET status = 'Paid' 
 		WHERE order_id = '$id ' ";
 		$exe=mysql_query($update) or die(mysql_error());
+		echo "<script>alert('Record successfuly updated.');window.location.href='os_admin_orders.php';</script>"; 
 }
 
 	
