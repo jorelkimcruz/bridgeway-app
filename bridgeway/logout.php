@@ -7,7 +7,7 @@
 		require_once("includes/session.php");
 		
 		// 2. save the logout date and time
-		$id=$_SESSION['login_id'];
+		$id=$_SESSION['id'];
 		
 		include 'includes/db_connect.php';
 		

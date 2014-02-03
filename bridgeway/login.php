@@ -8,7 +8,7 @@
 	// To redirect to correct user page
 if (isset($_SESSION['id'])) {
     if ($_SESSION['level']=='1'){
-				redirect_to('admin/registerSubject.php');
+				redirect_to('admin/super_admin_index.php');
 				}
 				else if ($_SESSION['level']=='2'){
 					redirect_to('employee/employee_index.php');
@@ -74,7 +74,7 @@ include_once("includes/form_functions.php");
 				// INSERT TIME-IN FOR AUDIT TRAIL				
 				$user_id = $_SESSION['id'];
 				$logging_no = $_SESSION['logging_no'];
-				$audit_query="INSERT INTO tb_audit_trail values('','$id',CURRENT_TIMESTAMP,'Authentication','Login','Successful');";
+				$audit_query="INSERT INTO tb_audit_trail values('','$user_id',CURRENT_TIMESTAMP,'Authentication','Login','Successful');";
 				$result_set=mysql_query($audit_query);
 				confirm_query($result_set);
 				
@@ -82,7 +82,7 @@ include_once("includes/form_functions.php");
 				// To know if Manager or Employee
 				$position = $_SESSION['position'];
 				if ($_SESSION['level']=='1'){
-				redirect_to('admin/registerSubject.php');
+				redirect_to('admin/super_admin_index.php');
 				}
 				else if ($_SESSION['level']=='2'){
 					redirect_to('employee/employee_index.php');

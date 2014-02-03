@@ -24,7 +24,7 @@
 			<h1><span class="icon icon-cog"></span><a href="#">Bridgeway</a></h1>
 			<div id="menu">
 				<ul>
-					<li><a href="index.html" accesskey="1" title="">Home</a></li>
+					<li><a href="audit_trail.php" accesskey="1" title="">Audit Trail</a></li>
 					<li><a href="#" accesskey="2" title="">About Us</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
