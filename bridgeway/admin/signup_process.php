@@ -2,6 +2,7 @@
 include("../includes/session.php");
 include("../includes/db_connect.php");
 
+logged_in();
 
 //customer info
 $firstname = $_POST['firstname'];
@@ -10,7 +11,7 @@ $contact = $_POST['contact'];
 $email = $_POST['email'];
 $username = $_POST['username'];
 $password = $_POST['password'];
-
+$user_id=$_SESSION['id'];
 $check_user = mysql_query("SELECT username FROM `tb_user` WHERE username = '$username'")or die(mysql_error());
 $checkrows = mysql_num_rows($check_user);
 
@@ -37,6 +38,11 @@ VALUES (
 '$contact',
 '$username',
 '$password')")or die(mysql_error());
+
+// INSERT TIME-IN FOR AUDIT TRAIL				
+				
+				$audit_query="INSERT INTO tb_audit_trail values('','$user_id',CURRENT_TIMESTAMP,'Authentication','Register New Customer','Successful');";
+				$result = mysql_query($audit_query);
 
 echo "<script> alert('Successfully!'); location =  'os_admin_customers.php';</script>";
 }

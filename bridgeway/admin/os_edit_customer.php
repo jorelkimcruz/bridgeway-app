@@ -111,83 +111,42 @@ if (x != y)
 
 	<p>Please complete the fields below</p>
           
-            <form id="Main_Form" name="Main_Form" action="signup_process.php" method='POST' onsubmit="return validateForm()">
-            	
+		  <?php
+			$query = "SELECT * FROM tb_user WHERE id ='".$_GET['id']."';";
+			$result = mysql_query($query);
+			$row = mysql_fetch_array($result);
+			
+?>
+		  
+            <form id="Main_Form" name="Main_Form" action="os_edit_customer_process.php" method='POST' onsubmit="return validateForm()">
+            	<input type="hidden" value="<?php echo $row[0]; ?>" name="customer_id" />
 <table CELLSPACING=10 align="center">
 <tr>
-<td><label for="name">First Name </label></td><td><input id="name" type="text" name="firstname" value=""  required /></td>
+<td><label for="name">First Name </label></td><td><input id="name" type="text" name="firstname" value="<?php echo $row[4];?>"  required /></td>
 </tr>
 <tr>
-<td><label for="name">Last Name </label></td><td><input id="name" type="text" name="lastname" value="" required /></td>
+<td><label for="name">Last Name </label></td><td><input id="name" type="text" name="lastname" value="<?php echo $row[5];?>" required /></td>
 </tr>
 <tr>
-<td><label for="name">Contact No# </label></td><td><input id="name" type="text" name="contact" value=""  required /></td>
+<td><label for="name">Contact No# </label></td><td><input id="name" type="text" name="contact" value="<?php echo $row[6];?>"  required /></td>
 </tr>
 <tr>
-<td><label for="name">Email Address </label></td><td><input id="name" type="text" name="email" value="" required /></td>
+<td><label for="name">Email Address </label></td><td><input id="name" type="text" name="email" value="<?php echo $row[7];?>" required /></td>
 </tr>
 <tr>
-<td><label for="name">User Name</label></td><td><input id="name" type="text" name="username" value=""  required/></td>
+<td><label for="name">User Name</label></td><td><input id="name" type="text" name="username" value="<?php echo $row[2];?>"  required/></td>
 </tr>
 <tr>
-<td><label for="name">Password</label></td><td><input id="name" type="password" name="password" value="" required/></td>
+<td><label for="name">Password</label></td><td><input id="name" type="password" name="password" value="<?php echo $row[3];?>" required/></td>
 </tr>
 <tr>
-<td><label for="name">Retype Password</label></td><td><input id="name" type="password" name="retype_password" value=""  required /></td>
-</tr>
-<tr>
-<td></td><td><input name="submit" type="submit" value='Register'></td>
+<td></td><td><input name="submit" type="submit" value='Update'></td>
 </tr></table>
       
             </form>
-			
-			<?php
-$konek = mysql_connect("localhost","root","") or die("Cannot connect to server");
 
-mysql_select_db("db_bridgeway",$konek) or die("Cannot connect to the database");
-$query = mysql_query("select * from tb_user  WHERE level=3 order by id asc");
-?>
-
-<?php
-
-if(mysql_num_rows($query)>0){ 
-?>
-<center>
-<table border="1">
-<tr>
-    <td>Customers ID</td>
-    <td>First Name</td>
-    <td>Last Name</td>
-    <td>Contact Number</td>
-	   <td>Email Address</td>
-	    <td>UserName</td>
-		 <td>Password</td>
-</tr>
-<?php
-    while($row= mysql_fetch_array($query)){ ?>
-    <tr>
-	<td><?=$row['id']?></td>
-        <td><?=$row['first_name']?></td>
-        <td><?=$row['last_name']?></td>
-		   <td><?=$row['contact_no']?></td>
-		      <td><?=$row['email']?></td>
-			    <td><?=$row['username']?></td>
-
-		
-        <td><a href="os_edit_customer.php?id=<?=$row['id']?>">[Edit]</a>&nbsp;<a  href="delete_customer.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure?')">[Delete]</a></td>
-	
-    </tr>
-<?php        
-        
-    }
-        
-}
-else{
-    
-    echo "no record";
-}
-
-?>
+	  
+	  
 </td></tr>
 </table>
 </center>

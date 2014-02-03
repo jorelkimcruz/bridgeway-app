@@ -1,5 +1,6 @@
 <?php require_once("../includes/session.php"); ?>
 <?php include_once("../includes/functions.php"); ?>
+<?php include_once("../includes/db_connect.php"); ?>
 <?php 
 logged_in();
      if (!isset($_SESSION['id'])) {
@@ -44,27 +45,33 @@ logged_in();
 			<h2>Product Management</h2>
 			
 			<div style="border:1px solid;"> 
-
-<form action="os_admin_index.php" method="post" enctype="multipart/form-data">
+<?php
+			$query = "SELECT * FROM tb_products WHERE product_id ='".$_GET['id']."';";
+			$result = mysql_query($query);
+			$row = mysql_fetch_array($result);
+			
+?>
+			
+<form action="edit_product.php" method="post" enctype="multipart/form-data">
 <table>
 <tr>
-<td>Product Name</td><td> <input type="text" name="p_name" required></td>
+<td>Product Name</td><td> <input type="text" name="p_name" value="<?php echo $row[1];?>"required></td>
 </tr>
 
 <tr>
-<td>Description </td><td><input type="text" name="p_desc" required></td>
+<td>Description </td><td><input type="text" name="p_desc" value="<?php echo $row[2];?>"required></td>
 </tr>
 
 <tr>
-<td>Quantity </td><td><input type="text" name="quantity" required></td>
+<td>Quantity </td><td><input type="text" name="quantity" value="<?php echo $row[3];?>" required></td>
 </tr>
 
 <tr>
-<td>Price </td><td><input type="text" name="price" required></td>
+<td>Price </td><td><input type="text" name="price" value="<?php echo $row[4];?>"required></td>
 </tr>
 
 <tr>
-<td>FileName: </td><td><input type="file" name="file" id="file" required></td>
+<td>FileName: </td><td><input type="file" name="file" id="file" value="<?php echo $row[5];?>"required></td>
 
 </tr>
 
@@ -81,10 +88,6 @@ logged_in();
 
 if(isset($_POST['submit_product']))
 {
- mysql_connect("localhost","root","") or die (mysql_error());
-    echo "sulod";
-    mysql_select_db("db_bridgeway") or die (mysql_error());
-    echo "abre na ";
 
 $pname= ($_POST['p_name']);
 $pdesc = ($_POST['p_desc']);
@@ -122,7 +125,11 @@ if ((($_FILES["file"]["type"] == "image/gif")
       move_uploaded_file($_FILES["file"]["tmp_name"],
       "upload/" . $_FILES["file"]["name"]);
       echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
-mysql_query("insert tb_products set name='".$pname."', description='".$pdesc."', quantity='".$pquantity."', price='".$pprice."', image='".$_FILES["file"]["name"] ."'");
+		
+		$image=$_FILES['file']['name'];
+	  mysql_query("UPDATE tb_products SET name = '$pname', 
+	description = '$pdesc', quantity = '$pquantity',
+	price = '$pprice', image = '$image' WHERE product_id = $_GET['id'] ";
 echo "<script>alert('Record successfuly saved.');window.location.href='os_admin_index.php';</script>";
       }
     }
@@ -138,51 +145,6 @@ else
 <div class="wrapper">
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
-						<?php
-$konek = mysql_connect("localhost","root","") or die("Cannot connect to server");
-
-mysql_select_db("db_bridgeway",$konek) or die("Cannot connect to the database");
-$query = mysql_query("select * from tb_products order by product_id asc");
-?>
-
-<?php
-
-if(mysql_num_rows($query)>0){ 
-?>
-<table border="1">
-<tr>
-    <td>Product ID</td>
-    <td>Product Name</td>
-    <td>Description</td>
-    <td>Quantity</td>
-	   <td>Price</td>
-</tr>
-<?php
-    while($row= mysql_fetch_array($query)){ ?>
-    <tr>
-	<td><?=$row['product_id']?></td>
-        <td><?=$row['name']?></td>
-        <td><?=$row['description']?></td>
-		   <td><?=$row['quantity']?></td>
-		      <td><?=$row['price']?></td>
-
-		
-        <td><a href="edit_product.php?id=<?=$row['product_id']?>">[Edit]</a>&nbsp;<a  href="delete.php?id=<?=$row['product_id']?>&user_id=<?=$_SESSION['id']?>">[Delete]</a></td>
-	
-    </tr>
-<?php        
-        
-    }
-        
-}
-else{
-    
-    echo "no record";
-}
-
-?>
-</td></tr>
-</table>
 
 	</div>
 </div>

@@ -25,7 +25,7 @@
 			<h1><span class="icon icon-cog"></span><a href="#">Bridgeway</a></h1>
 			<div id="menu">
 				<ul>
-					<li><a href="#" accesskey="1" title="">TAB</a></li>
+					<li><a href="audit_trail.php" accesskey="1" title="">Audit Trail</a></li>
 					<li><a href="#" accesskey="2" title="">TAB</a></li>
 					<li><a href="#" accesskey="3" title="">TAB</a></li>
 					<li><a href="super_admin_addadmin.php">ADD ADMIN</a></li>
