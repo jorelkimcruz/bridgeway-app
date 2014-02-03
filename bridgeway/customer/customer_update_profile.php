@@ -15,6 +15,11 @@ if(isset($_POST['submit'])){
 	email = '$email', password = '$password' WHERE id = $id ";
 	$exe=mysql_query($q) or die(mysql_error());
 	
+	// INSERT TIME-IN FOR AUDIT TRAIL				
+				
+				$audit_query="INSERT INTO tb_audit_trail values('','$id',CURRENT_TIMESTAMP,'Authentication','Update Profile','Successful');";
+				$result = mysql_query($audit_query);
+	
 	echo "<script> alert('Profile successfully updated...'); location = 'customer_index.php';</script>";
 }
 ?>

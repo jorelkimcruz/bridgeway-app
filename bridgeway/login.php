@@ -27,6 +27,9 @@ if (isset($_SESSION['id'])) {
 				else if ($_SESSION['level']=='6'){
 					 redirect_to('admin/emp_admin_index.php');
 				}
+				else if ($_SESSION['level']=='7'){
+					 redirect_to('accounting/view_payable.php');
+				}
 }
 
 
@@ -100,6 +103,9 @@ include_once("includes/form_functions.php");
 				
 				else if ($_SESSION['level']=='6'){
 						 redirect_to('admin/emp_admin_index.php');
+				}
+					else if ($_SESSION['level']=='7'){
+					 redirect_to('accounting/view_payable.php');
 				}
 				
 			}

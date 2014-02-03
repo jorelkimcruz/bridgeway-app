@@ -1,3 +1,4 @@
+
 <?php require_once("../includes/session.php"); ?>
 <?php include_once("../includes/functions.php"); ?>
 <?php include_once("../includes/db_connect.php"); ?>
@@ -18,6 +19,7 @@ logged_in();
 <link href="../default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../fonts.css" rel="stylesheet" type="text/css" media="all" />
 
+
 </head>
 <body>
 <div id="header-wrapper">
@@ -26,9 +28,9 @@ logged_in();
 			<h1><span class="icon icon-cog"></span><a href="#">Bridgeway</a></h1>
 			<div id="menu">
 				<ul>
-					<li><a href="customer_index.php" accesskey="4" title="">Products</a></li>
-					<li><a href="cart.php" accesskey="1" title="">My Cart</a></li>
-					<li class="current_page_item"><a href="customer_profile.php" accesskey="2" title="">My profile</a></li>
+				<li class="current_page_item"><a href="view_payable.php" accesskey="4" title="">View Payable</a></li>
+					<li><a href="add_payable.php" accesskey="1" title="">Add Payable</a></li>
+					<li><a href="liability.php" accesskey="2" title="">Financial Statement</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>
@@ -38,8 +40,9 @@ logged_in();
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-			<h2 >Audit Trail</h2>
-			<!-- JQUERY IMPORT-->
+			<h2>Payable</h2>
+			
+		<!-- JQUERY IMPORT-->
         <link type="text/css" href="../jquery-ui.css" rel="Stylesheet" />	
 		<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="../js/jquery-ui-1.8.17.custom.min.js"></script>
@@ -70,17 +73,15 @@ logged_in();
         <table align="center" cellpadding="0" cellspacing="0" border="0" id="auditTrail">
         <thead>
         <tr>
-        <th align="center">TR No.</th>
-        <th align="center">User</th>
-        <th align="center">DateTime</th>
-        <th align="center">Object</th>
-        <th align="center">Action</th>
+        <th align="center">Id</th>
+        <th align="center">Amount</th>
         <th align="center">Description</th>
+        <th align="center">Date/Time Added</th>
         </tr>
         </thead>
         <tbody>
         <?php
-			$query = "SELECT * FROM tb_audit_trail;";
+			$query = "SELECT * FROM tb_payables;";
 			$result_set = mysql_query($query);
 			confirm_query($result_set);
 			while($row = mysql_fetch_assoc($result_set))
@@ -89,12 +90,10 @@ logged_in();
             
         
         <tr>
-        <td align="center"><?php echo $row['audit_trail_tr_no']; ?></td>
         <td align="center"><?php echo $row['id']; ?></td>
-        <td align="center"><?php echo $row['date']; ?></td>
-        <td align="center"><?php echo $row['object']; ?></td>
-        <td align="center"><?php echo $row['action']; ?></td>
+        <td align="center"><?php echo $row['amount']; ?></td>
         <td align="center"><?php echo $row['description']; ?></td>
+        <td align="center"><?php echo $row['date_added']; ?></td>
         </tr>
         <?php
 			}
@@ -102,11 +101,10 @@ logged_in();
 		?>
        	</tbody>
         </table>
+		
 		</div>
-		 
 	</div>
 </div>
-
 <div id="copyright" class="container">
 	<p>Copyright (c) 2014 Sitename.com. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
 </div>
