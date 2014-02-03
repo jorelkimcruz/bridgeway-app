@@ -44,16 +44,16 @@
 		<h2>ADD EMPLOYEE</h2>
 		<table border=2 cellpadding = 10>
 		<tr><td>Firstname</td><td><input type="text" name="fname" required/></td></tr>
-		<tr><td>Lastname</td><td><input type="text" name="lname" required/></td></tr><br>
-		<tr><td>Middlename</td><td><input type="text" name="mname" required/></td></tr><br>
-		<tr><td>Address</td><td><input type="text" name="add" required/></td></tr><br>
-		<tr><td>Email</td><td><input type="text" name="email" required/></td></tr><br>
-		<tr><td>Position</td><td><input type="text" name="pos" required/></td></tr><br>
-		<tr><td>Department</td><td><input type="text" name="dept" required/></td></tr><br>
-		<tr><td>Elementary School</td><td><input type="text" name="es" required/></td></tr><br>
-		<tr><td>High School</td><td><input type="text" name="hs" required/></td></tr><br>
-		<tr><td>College School</td><td><input type="text" name="cs" required/></td></tr><br>
-		<tr><td>Contact Number</td><td>	<input type="text" name="contact" required/></td></tr><br>
+		<tr><td>Lastname</td><td><input type="text" name="lname" required/></td></tr>
+		<tr><td>Middlename</td><td><input type="text" name="mname" required/></td></tr>
+		<tr><td>Address</td><td><input type="text" name="add" required/></td></tr>
+		<tr><td>Email</td><td><input type="text" name="email" required/></td></tr>
+		<tr><td>Position</td><td><input type="text" name="pos" required/></td></tr>
+		<tr><td>Department</td><td><input type="text" name="dept" required/></td></tr>
+		<tr><td>Elementary School</td><td><input type="text" name="es" required/></td></tr>
+		<tr><td>High School</td><td><input type="text" name="hs" required/></td></tr>
+		<tr><td>College School</td><td><input type="text" name="cs" required/></td></tr>
+		<tr><td>Contact Number</td><td>	<input type="text" name="contact" required/></td></tr>
 		<tr><td><b>USER ACCOUNT</b></td></tr><br>
 		<tr><td>Username</td><td>	<input type="text" name="user" required/></td></tr><br>
 		<tr><td>Password</td><td>	<input type="password" name="pass" required/></td></tr><br>

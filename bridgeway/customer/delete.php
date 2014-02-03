@@ -9,7 +9,9 @@ if(isset($id))
 {
     mysql_query("DELETE FROM tb_order
 	
-WHERE order_id='".$id."'");
+WHERE id='".$id."'");
+
+
 
   echo "<script>alert('Record successfuly updated.');window.location.href='cart.php';</script>";
 }

@@ -1,5 +1,6 @@
 <?php require_once("../includes/session.php"); ?>
 <?php include_once("../includes/functions.php"); ?>
+<?php require_once("../includes/db_connect.php"); ?>
 <?php logged_in();
 
 	// To redirect to correct user page
@@ -24,8 +25,10 @@
 			<h1><span class="icon icon-cog"></span><a href="#">Bridgeway</a></h1>
 			<div id="menu">
 				<ul>
-					<li><a href="audit_trail.php" accesskey="1" title="">Audit Trail</a></li>
-					<li><a href="#" accesskey="2" title="">About Us</a></li>
+					<li><a href="#" accesskey="1" title="">TAB</a></li>
+					<li><a href="#" accesskey="2" title="">TAB</a></li>
+					<li><a href="#" accesskey="3" title="">TAB</a></li>
+					<li><a href="super_admin_addadmin.php">ADD ADMIN</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>

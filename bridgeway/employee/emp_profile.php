@@ -169,7 +169,6 @@ elseif(isset($_POST['submit4']))
 					<li><a href="leave_request.php"  >Leave Request</a></li>
 					<li><a href="emp_check_leave_request.php"  >Check Leave Request</a></li>
 					<li class='active-tab'>Profile</li>
-					<li><a href="emp_own_attendance.php" >My Attendance</a></li>
 					<li><a href="../logout.php" >Log out</a></li>
 				</ul>
 			</div>

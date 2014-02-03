@@ -45,7 +45,6 @@ $msgs="<tr><th>NAME<td>$name</td><td><input type='hidden' name='usernamebox' id=
 					<li class='active-tab'>Leave Request</li>
 					<li><a href="emp_check_leave_request.php"  >Check Leave Request</a></li>
 					<li><a href="emp_profile.php" >Profile</a></li>
-					<li><a href="emp_own_attendance.php" >My Attendance</a></li>
 					<li><a href="../logout.php" >Log out</a></li>
 				</ul>
 			</div>

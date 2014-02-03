@@ -62,7 +62,6 @@ $msg="Please wait for the admin to approve you leave request!";
 					<li class='active-tab'>Leave Request</li>
 					<li><a href="emp_check_leave_request.php"  >Check Leave Request</a></li>
 					<li><a href="emp_profile.php" >Profile</a></li>
-					<li><a href="emp_own_attendance.php" >My Attendance</a></li>
 					<li><a href="../logout.php" >Log out</a></li>
 				</ul>
 			</div>

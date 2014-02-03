@@ -50,42 +50,69 @@ logged_in();
 
 $konek = mysql_connect("localhost","root","") or die("Cannot connect to server");
 mysql_select_db("db_bridgeway",$konek) or die("Cannot connect to the database");
-$query = mysql_query("select * from tb_order WHERE user_id='".$id."' order by order_id asc ");
+
+$query = "SELECT  tb_order.batchorder_id,tb_order.id,tb_products.name, tb_order.product_price, tb_order.product_quantity, tb_order.total_price,tb_order.active From tb_products INNER JOIN tb_order ON tb_products.product_id=tb_order.product_id WHERE customer_id=".$id ." AND active>=1  AND  active<=2";
+
+$result = mysql_query($query )OR DIE (mysql_error);
 
 ?>
 
 <?php
 
-if(mysql_num_rows($query)>0){ 
+if(mysql_num_rows($result)>0){ 
 ?>
-<table border="6" ">
+<center>
+<table cellspacing="50" >
 <tr>
 
-    <td><b>Order ID</b></td>
-    <td><b>Product ID</b></td>
-    <td><b>User ID</b></td>
+    <td><b>Product</b></td>
+    <td><b>Price</b></td>
     <td><b>Quantity</b></td>
-	   <td><b>Total Amount</b></td>
-	   <td><b>Status</b></td>
-	   <td><b>Date Added</b></td>
-	   
+	<td><b>Total Price</b></td>
+	
 </tr>
 <?php
-    while($row= mysql_fetch_array($query)){ ?>
+$totalamount =0;
+
+    while($row= mysql_fetch_array($result)){ $batchorder_id = $row['batchorder_id'];
+$status = $row['active'];?>
     <tr>
-	<td><?=$row['order_id']?></td>
-        <td><?=$row['product_id']?></td>
-        <td><?=$row['user_id']?></td>
-		   <td><?=$row['quantity']?></td>
-		      <td><?=$row['total_amount']?></td>
-			   <td><?=$row['status']?></td>
-			   <td><?=$row['date_added']?></td>
-        <td>&nbsp;<a  href="delete.php?id=<?=$row['order_id']?>"  onclick="return confirm('Are you sure?')">[Delete]</a></td>
-	
+        <td><?=$row['name']?></td>
+        <td><?=$row['product_price']?></td>
+		    <td><?=$row['product_quantity']?></td>
+		   <td><?=$row['total_price'];  $totalamount += $row['total_price'];?> PHP</td>
+		  
+        <td><?php
+		     if($status == 1){?> <a  href="delete.php?id=<?=$row['id']?>"  onclick="return confirm('Are you sure?')">[Delete]</a></td>
+	<?php } else{  }?>
     </tr>
-<?php        
-        
-    }
+
+<?php 
+       
+    } ?>
+		<tr>
+<td><b>TOTAL AMOUNT: </b></td><td></td><td></td><td><?php echo    $totalamount; ?> PHP</td>
+</tr>
+
+		<tr>
+<td><b></b></td><td></td><td></td><td>
+
+<?php
+		     if($status == 1){?>
+      <a  href="checkout.php?id=<?=$batchorder_id?>&status=<?=$status?>"  onclick="return confirm('Are you sure to update this order?')">  [Checkout]  </a>
+	  <?php }else { 
+     ?>
+	  <a  href="checkout.php?id=<?=$batchorder_id?>&status=<?=$status?>"  onclick="return confirm('Are you sure to update this order?')">  [Cancel]  </a>
+
+	 <?php
+	 }
+		?>
+
+     </td>
+</tr>
+</td></tr>
+</table></center>
+	<?php
         
 }
 else{
@@ -94,8 +121,6 @@ else{
 }
 
 ?>
-</td></tr>
-</table>
 			
 			
 		</div>

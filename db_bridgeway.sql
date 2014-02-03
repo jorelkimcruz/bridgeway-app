@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2014 at 05:13 PM
+-- Generation Time: Feb 03, 2014 at 10:44 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -242,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `tb_audit_trail` (
   `action` varchar(30) NOT NULL,
   `description` varchar(30) NOT NULL,
   PRIMARY KEY (`audit_trail_tr_no`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1016 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1080 ;
 
 --
 -- Dumping data for table `tb_audit_trail`
@@ -413,7 +413,71 @@ INSERT INTO `tb_audit_trail` (`audit_trail_tr_no`, `id`, `date`, `object`, `acti
 (0000001012, 'emp_admin', '2014-02-03 15:46:38', 'Authentication', 'Time in Employee', 'Successfull'),
 (0000001013, 'emp_admin', '2014-02-03 15:46:45', 'Authentication', 'Timed out Employee', 'Successfull'),
 (0000001014, '', '2014-02-03 15:49:55', 'Authentication', 'Logout', 'Successful'),
-(0000001015, '', '2014-02-03 15:50:00', 'Authentication', 'Login', 'Successful');
+(0000001015, '', '2014-02-03 15:50:00', 'Authentication', 'Login', 'Successful'),
+(0000001016, '3', '2014-02-03 19:36:11', 'Authentication', 'Logout', 'Successful'),
+(0000001017, '4', '2014-02-03 19:36:17', 'Authentication', 'Login', 'Successful'),
+(0000001018, '4', '2014-02-03 20:14:23', 'Authentication', 'Logout', 'Successful'),
+(0000001019, '10', '2014-02-03 20:15:01', 'Authentication', 'Login', 'Successful'),
+(0000001020, '10', '2014-02-03 20:15:07', 'Authentication', 'Logout', 'Successful'),
+(0000001021, '4', '2014-02-03 20:15:14', 'Authentication', 'Login', 'Successful'),
+(0000001022, '4', '2014-02-03 20:15:24', 'Authentication', 'Logout', 'Successful'),
+(0000001023, '10', '2014-02-03 20:15:37', 'Authentication', 'Login', 'Successful'),
+(0000001024, '10', '2014-02-03 20:15:47', 'Authentication', 'Logout', 'Successful'),
+(0000001025, '10', '2014-02-03 20:16:30', 'Authentication', 'Login', 'Successful'),
+(0000001026, '10', '2014-02-03 20:17:13', 'Authentication', 'Logout', 'Successful'),
+(0000001027, '3', '2014-02-03 20:17:17', 'Authentication', 'Login', 'Successful'),
+(0000001028, '3', '2014-02-03 20:18:59', 'Authentication', 'Logout', 'Successful'),
+(0000001029, '10', '2014-02-03 20:19:04', 'Authentication', 'Login', 'Successful'),
+(0000001030, '10', '2014-02-03 20:26:10', 'Authentication', 'Logout', 'Successful'),
+(0000001031, '4', '2014-02-03 20:26:15', 'Authentication', 'Login', 'Successful'),
+(0000001032, '4', '2014-02-03 20:44:07', 'Authentication', 'Logout', 'Successful'),
+(0000001033, '3', '2014-02-03 20:44:11', 'Authentication', 'Login', 'Successful'),
+(0000001034, '3', '2014-02-03 20:44:18', 'Authentication', 'Logout', 'Successful'),
+(0000001035, '10', '2014-02-03 20:44:27', 'Authentication', 'Login', 'Successful'),
+(0000001036, '10', '2014-02-03 21:21:00', 'Authentication', 'Logout', 'Successful'),
+(0000001037, '4', '2014-02-03 21:21:04', 'Authentication', 'Login', 'Successful'),
+(0000001038, '4', '2014-02-03 21:22:52', 'Authentication', 'Logout', 'Successful'),
+(0000001039, '3', '2014-02-03 21:22:56', 'Authentication', 'Login', 'Successful'),
+(0000001040, '3', '2014-02-03 21:23:14', 'Authentication', 'Logout', 'Successful'),
+(0000001041, '10', '2014-02-03 21:23:17', 'Authentication', 'Login', 'Successful'),
+(0000001042, '10', '2014-02-03 21:24:50', 'Authentication', 'Logout', 'Successful'),
+(0000001043, '4', '2014-02-03 21:24:56', 'Authentication', 'Login', 'Successful'),
+(0000001044, '4', '2014-02-03 21:25:02', 'Authentication', 'Logout', 'Successful'),
+(0000001045, '10', '2014-02-03 21:25:08', 'Authentication', 'Login', 'Successful'),
+(0000001046, '10', '2014-02-03 21:25:15', 'Authentication', 'Logout', 'Successful'),
+(0000001047, '4', '2014-02-03 21:25:20', 'Authentication', 'Login', 'Successful'),
+(0000001048, '4', '2014-02-03 21:27:13', 'Authentication', 'Logout', 'Successful'),
+(0000001049, '10', '2014-02-03 21:27:35', 'Authentication', 'Login', 'Successful'),
+(0000001050, '10', '2014-02-03 21:27:44', 'Authentication', 'Logout', 'Successful'),
+(0000001051, '4', '2014-02-03 21:27:49', 'Authentication', 'Login', 'Successful'),
+(0000001052, '4', '2014-02-03 21:28:37', 'Authentication', 'Logout', 'Successful'),
+(0000001053, '10', '2014-02-03 21:28:41', 'Authentication', 'Login', 'Successful'),
+(0000001054, '10', '2014-02-03 21:28:49', 'Authentication', 'Logout', 'Successful'),
+(0000001055, '4', '2014-02-03 21:28:59', 'Authentication', 'Login', 'Successful'),
+(0000001056, '4', '2014-02-03 21:29:29', 'Authentication', 'Logout', 'Successful'),
+(0000001057, '10', '2014-02-03 21:29:34', 'Authentication', 'Login', 'Successful'),
+(0000001058, '10', '2014-02-03 21:29:48', 'Authentication', 'Logout', 'Successful'),
+(0000001059, '4', '2014-02-03 21:29:53', 'Authentication', 'Login', 'Successful'),
+(0000001060, '4', '2014-02-03 21:30:36', 'Authentication', 'Logout', 'Successful'),
+(0000001061, '10', '2014-02-03 21:30:40', 'Authentication', 'Login', 'Successful'),
+(0000001062, '10', '2014-02-03 21:31:02', 'Authentication', 'Logout', 'Successful'),
+(0000001063, '4', '2014-02-03 21:31:09', 'Authentication', 'Login', 'Successful'),
+(0000001064, '4', '2014-02-03 21:32:00', 'Authentication', 'Logout', 'Successful'),
+(0000001065, '10', '2014-02-03 21:32:05', 'Authentication', 'Login', 'Successful'),
+(0000001066, '10', '2014-02-03 21:32:14', 'Authentication', 'Logout', 'Successful'),
+(0000001067, '4', '2014-02-03 21:32:20', 'Authentication', 'Login', 'Successful'),
+(0000001068, '4', '2014-02-03 21:32:35', 'Authentication', 'Logout', 'Successful'),
+(0000001069, '10', '2014-02-03 21:32:40', 'Authentication', 'Login', 'Successful'),
+(0000001070, '10', '2014-02-03 21:39:05', 'Authentication', 'Logout', 'Successful'),
+(0000001071, '4', '2014-02-03 21:39:09', 'Authentication', 'Login', 'Successful'),
+(0000001072, '4', '2014-02-03 21:39:16', 'Authentication', 'Logout', 'Successful'),
+(0000001073, '10', '2014-02-03 21:39:29', 'Authentication', 'Login', 'Successful'),
+(0000001074, '10', '2014-02-03 21:39:35', 'Authentication', 'Logout', 'Successful'),
+(0000001075, '4', '2014-02-03 21:39:41', 'Authentication', 'Login', 'Successful'),
+(0000001076, '4', '2014-02-03 21:39:48', 'Authentication', 'Logout', 'Successful'),
+(0000001077, '10', '2014-02-03 21:40:09', 'Authentication', 'Login', 'Successful'),
+(0000001078, '10', '2014-02-03 21:40:36', 'Authentication', 'Logout', 'Successful'),
+(0000001079, '4', '2014-02-03 21:40:41', 'Authentication', 'Login', 'Successful');
 
 -- --------------------------------------------------------
 
@@ -512,24 +576,27 @@ INSERT INTO `tb_leave` (`id`, `emp_id`, `reason`, `contact_no`, `emp_name`, `sta
 --
 
 CREATE TABLE IF NOT EXISTS `tb_order` (
-  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `total_amount` int(11) NOT NULL,
-  `status` varchar(100) NOT NULL,
-  `date_added` datetime NOT NULL,
-  PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+  `customer_id` int(11) NOT NULL,
+  `product_price` int(11) NOT NULL,
+  `product_quantity` int(11) NOT NULL,
+  `total_price` int(11) NOT NULL,
+  `order_date` datetime NOT NULL,
+  `batchorder_id` int(11) DEFAULT NULL,
+  `active` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `tb_order`
 --
 
-INSERT INTO `tb_order` (`order_id`, `product_id`, `user_id`, `quantity`, `total_amount`, `status`, `date_added`) VALUES
-(11, 202, 3, 1, 10, 'Paid', '2014-02-03 23:35:04'),
-(12, 202, 3, 12, 120, 'Pending', '2014-02-03 23:50:06'),
-(13, 202, 3, 1, 10, 'Pending', '2014-02-03 23:55:46');
+INSERT INTO `tb_order` (`id`, `product_id`, `customer_id`, `product_price`, `product_quantity`, `total_price`, `order_date`, `batchorder_id`, `active`) VALUES
+(6, 203, 10, 100, 1, 100, '2014-02-04 04:17:05', 984931, 3),
+(7, 203, 10, 100, 1, 100, '2014-02-04 05:37:19', 166510, 3),
+(8, 203, 10, 100, 1, 100, '2014-02-04 05:40:15', 647741, 3),
+(9, 203, 10, 100, 0, 0, '2014-02-04 05:40:22', 647741, 3);
 
 -- --------------------------------------------------------
 
@@ -552,8 +619,8 @@ CREATE TABLE IF NOT EXISTS `tb_products` (
 --
 
 INSERT INTO `tb_products` (`product_id`, `name`, `description`, `quantity`, `price`, `image`) VALUES
-(202, 'kaimito', 'spongbob', 4, 10, 'hijo.png'),
-(203, 'kalalua', 'koim,asd0ihje', 9, 100, 'images.jpg');
+(202, 'kaimito', 'spongbob', 0, 10, 'hijo.png'),
+(203, 'kalalua', 'koim,asd0ihje', 0, 100, 'images.jpg');
 
 -- --------------------------------------------------------
 

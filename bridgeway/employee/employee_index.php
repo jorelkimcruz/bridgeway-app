@@ -23,7 +23,6 @@
 					<li><a href="leave_request.php"  >Leave Request</a></li>
 					<li><a href="emp_check_leave_request.php"  >Check Leave Request</a></li>
 					<li><a href="emp_profile.php" >Profile</a></li>
-					<li><a href="emp_own_attendance.php" >My Attendance</a></li>
 					<li><a href="../logout.php" >Log out</a></li>
 				</ul>
 			</div>
@@ -33,7 +32,7 @@
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-			<h2>Welcome EMPLOYEE!<?php echo $_SESSION['id']; ?> </h2>
+			<h2>Welcome EMPLOYEE! </h2>
 		</div>
 	</div>
 </div>

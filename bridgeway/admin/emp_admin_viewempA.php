@@ -74,10 +74,18 @@ $asa=$_GET['id'];
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-		<center>
+		<center><h2>Employee Details</h2>
 			<table border=2 cellpadding = 10 >
 			<?php echo $msg_admin; ?>
-			</table>
+			</table><br>
+			<form action="emp_admin_viewempB.php" method="POST">
+			<b>View Attendance of this Employee<br>
+			<input type="hidden" name="asa" value="<?php echo $asa; ?>"><br>
+			From:<input type="date" name="fdate"><br>
+			To:<input type="date" name="tdate"><br>
+			<input type="submit" name="submitdate" value="SUBMIT"><br>
+			</b>
+			</form>
 			</center>
 		</div>
 	</div>

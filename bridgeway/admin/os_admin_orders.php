@@ -50,7 +50,9 @@ logged_in();
 
 $konek = mysql_connect("localhost","root","") or die("Cannot connect to server");
 mysql_select_db("db_bridgeway",$konek) or die("Cannot connect to the database");
-$query = mysql_query("select * from tb_order order by order_id asc ");
+$query = mysql_query("select * from tb_order GROUP BY batchorder_id");
+
+
 
 ?>
 
@@ -58,51 +60,53 @@ $query = mysql_query("select * from tb_order order by order_id asc ");
 
 if(mysql_num_rows($query)>0){ 
 ?>
-<table border="6" ">
+<center>
+<table border="2" >
 <tr>
-
     <td><b>Order ID</b></td>
-    <td><b>Product ID</b></td>
-    <td><b>User ID</b></td>
-    <td><b>Quantity</b></td>
+    <td><b>Customer ID</b></td>
+	   <td><b>Total Quantity</b></td>
 	   <td><b>Total Amount</b></td>
-	   <td><b>Status</b></td>
 	   <td><b>Date Added</b></td>
-	   <td>Update Status</td>
-	   <td></td>
+	   	   <td><b>Status</b></td>
+		   <td></td>
+
 	   
 </tr>
 <?php
     while($row= mysql_fetch_array($query)){ ?>
     <tr>
-	<td><?=$row['order_id']?></td>
-        <td><?=$row['product_id']?></td>
-        <td><?=$row['user_id']?></td>
-		   <td><?=$row['quantity']?></td>
-		      <td><?=$row['total_amount']?></td>
-			   <td><?=$row['status']?></td>
-			   <td><?=$row['date_added']?></td>
-			   <td><center>
-					<?php
-		     if($row['status'] == "Accepted"){?>
-      <a  href="os_update_order_status.php?id=<?=$row['order_id']?>&status=<?=$row['status']?>"  onclick="return confirm('Are you sure to update this order?')">  [PAID]  </a>
-	  <?php }else if($row['status'] == "Pending"){
-     ?>
-	  <a  href="os_update_order_status.php?id=<?=$row['order_id']?>&status=<?=$row['status']?>"  onclick="return confirm('Are you sure to update this order?')">  [ACCEPT]  </a>
-	 <?php
-     }else{?>
-			PAID
-	 <?php
-	 }
-		?>
-			
+	<td><?=$row['batchorder_id']?></td>
+        <td><?=$row['customer_id']?></td>
+			   <td>
+			 	<?php $batchorder = $row['batchorder_id']; $query2 =  mysql_query("select * from tb_order WHERE batchorder_id=".$row['batchorder_id']."");
+    while($row= mysql_fetch_array($query2)){
+	
+		$p_quant = $row['product_quantity'];
+		$p_price = $row['total_price'];
+		$date=$row['order_date'];
+		$status = $row['active'];
+		$totalQuant=0;
+		$totalPrice=0;
+		
+		$totalQuant += $p_quant;
+		$totalPrice += $p_price;
+		
+		echo $totalQuant;
+	} ?>   
+			   </td>
+			   <td><?php echo $totalPrice; ?></td>
+			   <td>
+			   <center>
+		<?php echo $date;?>
 			 </center></td>
+			 <td><?php if($status==2){?> <a  href="os_update_order_status.php?id=<?=$batchorder?>&status=<?=$status?>"  onclick="return confirm('Are you sure to update this order?')">  [DONE]  </a>
+ <?php } else if($status==3){ ?> <a  href="print.php?id=<?=$batchorder?>&status=<?=$status?>"  onclick="return confirm('Are you sure to update this order?')">  [Print Receipt]  </a><?php } else{echo"PENDING";}?></td>
         <td>&nbsp;<a  href="os_delete_order.php?id=<?=$row['order_id']?>&status=<?=$row['status']?>&quantity=<?=$row['quantity']?>&prod_id=<?=$row['product_id']?>"  onclick="return confirm('Are you sure?')">[Delete]</a></td>
 	
     </tr>
 <?php        
-        
-    }
+             }
         
 }
 else{

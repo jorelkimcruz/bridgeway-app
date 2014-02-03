@@ -153,7 +153,6 @@ $start = ($page - 1) * $limit; 			//if no page var is given, set start to 0
 				}
 			}
 		}
-		
 		//next button
 		if ($page < $counter - 1) 
 			$pagination.= "<a href=\"$targetpage?page=$next\">next ?</a>";
@@ -174,8 +173,6 @@ $start = ($page - 1) * $limit; 			//if no page var is given, set start to 0
 	echo "<td>";?>
 	
 			<form action="add_cart.php" method="post">
-		
-
 		<table>
 		<tr><td><img src="../admin/upload/<?php echo $row[5];?>" alt="" width="200" height="250"/></td></tr>
 		<tr><td><b>Name: </b><?php  echo $row[1]; ?></td></tr>
