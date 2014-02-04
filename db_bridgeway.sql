@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 03, 2014 at 10:44 PM
--- Server version: 5.5.32
--- PHP Version: 5.4.19
+-- Host: localhost
+-- Generation Time: Feb 04, 2014 at 02:42 PM
+-- Server version: 5.5.16
+-- PHP Version: 5.3.8
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_bridgeway`
 --
-CREATE DATABASE IF NOT EXISTS `db_bridgeway` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `db_bridgeway`;
 
 -- --------------------------------------------------------
 
@@ -242,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `tb_audit_trail` (
   `action` varchar(30) NOT NULL,
   `description` varchar(30) NOT NULL,
   PRIMARY KEY (`audit_trail_tr_no`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1080 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1202 ;
 
 --
 -- Dumping data for table `tb_audit_trail`
@@ -477,7 +475,129 @@ INSERT INTO `tb_audit_trail` (`audit_trail_tr_no`, `id`, `date`, `object`, `acti
 (0000001076, '4', '2014-02-03 21:39:48', 'Authentication', 'Logout', 'Successful'),
 (0000001077, '10', '2014-02-03 21:40:09', 'Authentication', 'Login', 'Successful'),
 (0000001078, '10', '2014-02-03 21:40:36', 'Authentication', 'Logout', 'Successful'),
-(0000001079, '4', '2014-02-03 21:40:41', 'Authentication', 'Login', 'Successful');
+(0000001079, '4', '2014-02-03 21:40:41', 'Authentication', 'Login', 'Successful'),
+(0000001080, '8', '2014-02-03 21:56:16', 'Authentication', 'Login', 'Successful'),
+(0000001081, '8', '2014-02-03 21:56:29', 'Authentication', 'Logout', 'Successful'),
+(0000001082, '4', '2014-02-03 21:56:58', 'Authentication', 'Login', 'Successful'),
+(0000001083, '4', '2014-02-03 22:26:23', 'Authentication', 'Logout', 'Successful'),
+(0000001084, '1', '2014-02-03 22:26:42', 'Authentication', 'Login', 'Successful'),
+(0000001085, '1', '2014-02-03 22:31:22', 'Authentication', 'Logout', 'Successful'),
+(0000001086, '4', '2014-02-03 22:31:31', 'Authentication', 'Login', 'Successful'),
+(0000001087, '4', '2014-02-03 22:31:40', 'Authentication', 'Logout', 'Successful'),
+(0000001088, '4', '2014-02-03 22:33:06', 'Authentication', 'Login', 'Successful'),
+(0000001089, '4', '2014-02-03 22:35:55', 'Authentication', 'Logout', 'Successful'),
+(0000001090, '1', '2014-02-03 22:36:03', 'Authentication', 'Login', 'Successful'),
+(0000001091, '1', '2014-02-03 22:36:17', 'Authentication', 'Logout', 'Successful'),
+(0000001092, '4', '2014-02-03 22:36:35', 'Authentication', 'Login', 'Successful'),
+(0000001093, '4', '2014-02-03 22:39:02', 'Authentication', 'Logout', 'Successful'),
+(0000001094, '1', '2014-02-03 22:39:06', 'Authentication', 'Login', 'Successful'),
+(0000001095, '1', '2014-02-03 22:41:38', 'Authentication', 'Logout', 'Successful'),
+(0000001096, '4', '2014-02-03 22:41:48', 'Authentication', 'Login', 'Successful'),
+(0000001097, '4', '2014-02-03 22:42:35', 'Authentication', 'Logout', 'Successful'),
+(0000001098, '4', '2014-02-03 22:42:55', 'Authentication', 'Login', 'Successful'),
+(0000001099, '4', '2014-02-03 22:43:12', 'Authentication', 'Logout', 'Successful'),
+(0000001100, '8', '2014-02-03 22:43:16', 'Authentication', 'Login', 'Successful'),
+(0000001101, '8', '2014-02-03 22:43:20', 'Authentication', 'Added New Batch Order', 'Successful'),
+(0000001102, '', '2014-02-03 22:43:50', 'Authentication', 'Delete Product from Batch Orde', 'Successful'),
+(0000001103, '8', '2014-02-03 22:43:56', 'Authentication', 'Logout', 'Successful'),
+(0000001104, '4', '2014-02-03 22:44:02', 'Authentication', 'Login', 'Successful'),
+(0000001105, '4', '2014-02-03 22:44:05', 'Authentication', 'Logout', 'Successful'),
+(0000001106, '1', '2014-02-03 22:44:17', 'Authentication', 'Login', 'Successful'),
+(0000001107, '1', '2014-02-03 22:45:27', 'Authentication', 'Logout', 'Successful'),
+(0000001108, '4', '2014-02-03 22:47:33', 'Authentication', 'Login', 'Successful'),
+(0000001109, '4', '2014-02-03 22:54:40', 'Authentication', 'Add Payable', 'Successful'),
+(0000001110, '4', '2014-02-03 23:25:28', 'Authentication', 'Update customer profile', 'Successful'),
+(0000001111, '4', '2014-02-03 23:26:24', 'Authentication', 'Update customer profile', 'Successful'),
+(0000001112, '4', '2014-02-03 23:27:20', 'Authentication', 'Update customer profile', 'Successful'),
+(0000001113, '4', '2014-02-03 23:32:27', 'Authentication', 'Register New Customer', 'Successful'),
+(0000001114, '4', '2014-02-03 23:32:35', 'Authentication', 'Update customer profile', 'Successful'),
+(0000001115, '4', '2014-02-03 23:32:39', 'Authentication', 'Delete Customer', 'Successful'),
+(0000001116, '4', '2014-02-03 23:34:55', 'Authentication', 'Logout', 'Successful'),
+(0000001117, '8', '2014-02-03 23:35:28', 'Authentication', 'Login', 'Successful'),
+(0000001118, '8', '2014-02-03 23:35:41', 'Authentication', 'Added New Batch Order', 'Successful'),
+(0000001119, '8', '2014-02-03 23:35:52', 'Authentication', 'Logout', 'Successful'),
+(0000001120, '4', '2014-02-03 23:35:58', 'Authentication', 'Login', 'Successful'),
+(0000001121, '4', '2014-02-03 23:36:15', 'Authentication', 'Logout', 'Successful'),
+(0000001122, '8', '2014-02-03 23:36:23', 'Authentication', 'Login', 'Successful'),
+(0000001123, '8', '2014-02-03 23:36:33', 'Authentication', 'Added New Batch Order', 'Successful'),
+(0000001124, '8', '2014-02-03 23:36:42', 'Authentication', 'Logout', 'Successful'),
+(0000001125, '4', '2014-02-03 23:36:55', 'Authentication', 'Login', 'Successful'),
+(0000001126, '4', '2014-02-03 23:37:21', 'Authentication', 'Logout', 'Successful'),
+(0000001127, '8', '2014-02-03 23:37:32', 'Authentication', 'Login', 'Successful'),
+(0000001128, '2', '2014-02-04 10:33:22', 'Authentication', 'Login', 'Successful'),
+(0000001129, '2', '2014-02-04 10:33:36', 'Authentication', 'Logout', 'Successful'),
+(0000001130, '4', '2014-02-04 10:39:54', 'Authentication', 'Login', 'Successful'),
+(0000001131, '4', '2014-02-04 11:02:58', 'Authentication', 'Logout', 'Successful'),
+(0000001132, '11', '2014-02-04 11:08:09', 'Authentication', 'Login', 'Successful'),
+(0000001133, '11', '2014-02-04 11:08:24', 'Authentication', 'Add Payable', 'Successful'),
+(0000001134, '11', '2014-02-04 11:14:17', 'Authentication', 'Add Payable', 'Successful'),
+(0000001135, '11', '2014-02-04 11:16:39', 'Authentication', 'Add Payable', 'Successful'),
+(0000001136, '11', '2014-02-04 11:16:43', 'Authentication', 'Add Payable', 'Successful'),
+(0000001137, '11', '2014-02-04 11:24:31', 'Authentication', 'Logout', 'Successful'),
+(0000001138, '4', '2014-02-04 11:24:59', 'Authentication', 'Login', 'Successful'),
+(0000001139, '4', '2014-02-04 11:27:05', 'Authentication', 'Delete Customer', 'Successful'),
+(0000001140, '4', '2014-02-04 11:27:28', 'Authentication', 'Delete Customer', 'Successful'),
+(0000001141, '4', '2014-02-04 11:28:01', 'Authentication', 'Delete Customer', 'Successful'),
+(0000001142, '4', '2014-02-04 11:30:49', 'Authentication', 'Delete Customer', 'Successful'),
+(0000001143, '4', '2014-02-04 11:32:15', 'Authentication', 'Delete Customer', 'Successful'),
+(0000001144, '4', '2014-02-04 11:35:42', 'Authentication', 'Delete Customer', 'Successful'),
+(0000001145, '4', '2014-02-04 11:35:59', 'Authentication', 'Delete Customer', 'Successful'),
+(0000001146, '4', '2014-02-04 11:40:25', 'Authentication', 'Delete Customer', 'Successful'),
+(0000001147, '4', '2014-02-04 12:01:04', 'Authentication', 'Logout', 'Successful'),
+(0000001148, '8', '2014-02-04 12:01:22', 'Authentication', 'Login', 'Successful'),
+(0000001149, '8', '2014-02-04 12:01:34', 'Authentication', 'Added New Batch Order', 'Successful'),
+(0000001150, '8', '2014-02-04 12:01:51', 'Authentication', 'Add to existing order', 'Successful'),
+(0000001151, '8', '2014-02-04 12:01:58', 'Authentication', 'Logout', 'Successful'),
+(0000001152, '4', '2014-02-04 12:02:11', 'Authentication', 'Login', 'Successful'),
+(0000001153, '4', '2014-02-04 12:04:16', 'Authentication', 'Delete Customer', 'Successful'),
+(0000001154, '4', '2014-02-04 12:05:52', 'Authentication', 'Delete Customer', 'Successful'),
+(0000001155, '4', '2014-02-04 12:09:06', 'Authentication', 'Logout', 'Successful'),
+(0000001156, '8', '2014-02-04 12:09:12', 'Authentication', 'Login', 'Successful'),
+(0000001157, '8', '2014-02-04 12:09:16', 'Authentication', 'Added New Batch Order', 'Successful'),
+(0000001158, '8', '2014-02-04 12:09:28', 'Authentication', 'Logout', 'Successful'),
+(0000001159, '4', '2014-02-04 12:09:33', 'Authentication', 'Login', 'Successful'),
+(0000001160, '4', '2014-02-04 12:09:41', 'Authentication', 'Logout', 'Successful'),
+(0000001161, '8', '2014-02-04 12:09:49', 'Authentication', 'Login', 'Successful'),
+(0000001162, '8', '2014-02-04 12:09:59', 'Authentication', 'Logout', 'Successful'),
+(0000001163, '4', '2014-02-04 12:10:04', 'Authentication', 'Login', 'Successful'),
+(0000001164, '4', '2014-02-04 12:16:15', 'Authentication', 'Logout', 'Successful'),
+(0000001165, '8', '2014-02-04 12:16:19', 'Authentication', 'Login', 'Successful'),
+(0000001166, '8', '2014-02-04 12:16:32', 'Authentication', 'Logout', 'Successful'),
+(0000001167, '4', '2014-02-04 12:16:36', 'Authentication', 'Login', 'Successful'),
+(0000001168, '4', '2014-02-04 13:02:00', 'Authentication', 'Logout', 'Successful'),
+(0000001169, '4', '2014-02-04 13:02:06', 'Authentication', 'Login', 'Successful'),
+(0000001170, '4', '2014-02-04 13:02:09', 'Authentication', 'Logout', 'Successful'),
+(0000001171, '11', '2014-02-04 13:02:56', 'Authentication', 'Login', 'Successful'),
+(0000001172, '11', '2014-02-04 13:05:15', 'Authentication', 'Logout', 'Successful'),
+(0000001173, '8', '2014-02-04 13:05:20', 'Authentication', 'Login', 'Successful'),
+(0000001174, '8', '2014-02-04 13:06:56', 'Authentication', 'Logout', 'Successful'),
+(0000001175, '4', '2014-02-04 13:07:06', 'Authentication', 'Login', 'Successful'),
+(0000001176, '4', '2014-02-04 13:07:55', 'Authentication', 'Logout', 'Successful'),
+(0000001177, '8', '2014-02-04 13:08:00', 'Authentication', 'Login', 'Successful'),
+(0000001178, '8', '2014-02-04 13:12:08', 'Authentication', 'Logout', 'Successful'),
+(0000001179, '8', '2014-02-04 13:12:11', 'Authentication', 'Login', 'Successful'),
+(0000001180, '8', '2014-02-04 13:15:57', 'Authentication', 'Logout', 'Successful'),
+(0000001181, '4', '2014-02-04 13:16:04', 'Authentication', 'Login', 'Successful'),
+(0000001182, '4', '2014-02-04 13:20:54', 'Authentication', 'Logout', 'Successful'),
+(0000001183, '8', '2014-02-04 13:21:04', 'Authentication', 'Login', 'Successful'),
+(0000001184, '8', '2014-02-04 13:24:49', 'Authentication', 'Logout', 'Successful'),
+(0000001185, '8', '2014-02-04 13:24:49', 'Authentication', 'Logout', 'Successful'),
+(0000001186, '8', '2014-02-04 13:24:55', 'Authentication', 'Login', 'Successful'),
+(0000001187, '8', '2014-02-04 13:25:55', 'Authentication', 'Logout', 'Successful'),
+(0000001188, '8', '2014-02-04 13:25:55', 'Authentication', 'Logout', 'Successful'),
+(0000001189, '8', '2014-02-04 13:25:55', 'Authentication', 'Logout', 'Successful'),
+(0000001190, '8', '2014-02-04 13:25:55', 'Authentication', 'Logout', 'Successful'),
+(0000001191, '8', '2014-02-04 13:25:55', 'Authentication', 'Logout', 'Successful'),
+(0000001192, '8', '2014-02-04 13:25:55', 'Authentication', 'Logout', 'Successful'),
+(0000001193, '8', '2014-02-04 13:25:55', 'Authentication', 'Logout', 'Successful'),
+(0000001194, '4', '2014-02-04 13:26:01', 'Authentication', 'Login', 'Successful'),
+(0000001195, '4', '2014-02-04 13:26:20', 'Authentication', 'Logout', 'Successful'),
+(0000001196, '8', '2014-02-04 13:26:23', 'Authentication', 'Login', 'Successful'),
+(0000001197, '8', '2014-02-04 13:33:41', 'Authentication', 'Logout', 'Successful'),
+(0000001198, '8', '2014-02-04 13:33:45', 'Authentication', 'Login', 'Successful'),
+(0000001199, '8', '2014-02-04 13:34:05', 'Authentication', 'Logout', 'Successful'),
+(0000001200, '8', '2014-02-04 13:34:10', 'Authentication', 'Login', 'Successful'),
+(0000001201, '8', '2014-02-04 13:37:58', 'Authentication', 'Login', 'Successful');
 
 -- --------------------------------------------------------
 
@@ -586,7 +706,7 @@ CREATE TABLE IF NOT EXISTS `tb_order` (
   `batchorder_id` int(11) DEFAULT NULL,
   `active` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `tb_order`
@@ -594,9 +714,29 @@ CREATE TABLE IF NOT EXISTS `tb_order` (
 
 INSERT INTO `tb_order` (`id`, `product_id`, `customer_id`, `product_price`, `product_quantity`, `total_price`, `order_date`, `batchorder_id`, `active`) VALUES
 (6, 203, 10, 100, 1, 100, '2014-02-04 04:17:05', 984931, 3),
-(7, 203, 10, 100, 1, 100, '2014-02-04 05:37:19', 166510, 3),
-(8, 203, 10, 100, 1, 100, '2014-02-04 05:40:15', 647741, 3),
-(9, 203, 10, 100, 0, 0, '2014-02-04 05:40:22', 647741, 3);
+(15, 210, 8, 1600, 1, 1600, '2014-02-04 20:09:16', 311381, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_payables`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_payables` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `amount` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `date_added` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `tb_payables`
+--
+
+INSERT INTO `tb_payables` (`id`, `amount`, `description`, `date_added`) VALUES
+(1, 12312, 'asdasdsad', '2014-02-04 19:16:39'),
+(2, 123, 'asdsd', '2014-02-04 19:16:43');
 
 -- --------------------------------------------------------
 
@@ -612,15 +752,21 @@ CREATE TABLE IF NOT EXISTS `tb_products` (
   `price` int(6) NOT NULL,
   `image` varchar(100) NOT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=204 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=217 ;
 
 --
 -- Dumping data for table `tb_products`
 --
 
 INSERT INTO `tb_products` (`product_id`, `name`, `description`, `quantity`, `price`, `image`) VALUES
-(202, 'kaimito', 'spongbob', 0, 10, 'hijo.png'),
-(203, 'kalalua', 'koim,asd0ihje', 0, 100, 'images.jpg');
+(209, 'StrideLine', 'ads', 0, 1600, 'sea town lucho libre.jpg'),
+(210, 'Pocket Wifi', 'Pocket na Wifi pa', 82, 1600, 'sea town classic.jpg'),
+(211, 'Pocket Wifi', 'Pocket na Wifi pa', 98, 1600, 'sea town hornet.jpg'),
+(212, 'kahit ano', 'ads', 2, 1600, 'jru.png'),
+(213, 'asdasd', 'asdasd', 34, 343, 'sea town classic.jpg'),
+(214, '2323', '2323', 2323, 2323, 'sea town hornet.jpg'),
+(215, '2323', '2323', 23232323, 232323, 'sea town vivid pink.jpg'),
+(216, 'asd', 'adsad', 2, 1600, 'sea town lucho libre.jpg');
 
 -- --------------------------------------------------------
 
@@ -638,7 +784,7 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
   `contact_no` int(15) NOT NULL,
   `email` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `tb_user`
@@ -647,14 +793,14 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
 INSERT INTO `tb_user` (`id`, `level`, `username`, `password`, `first_name`, `last_name`, `contact_no`, `email`) VALUES
 (1, 1, 'superadmin', 'superadmin', 'superadmin', 'superadmin', 12345678, 'superadmin@yahoo.com'),
 (2, 2, 'employee', 'employee', 'employee', 'employee', 123234234, 'employee@yahoo.com'),
-(3, 3, 'customer', 'customer', 'custo', 'custodio', 12345678, 'customer@yahoo.com'),
 (4, 4, 'os_admin', 'os_admin', 'os_admin', 'os_admin', 123456789, 'os_admin@yahoo.com'),
 (5, 5, 'as_admin', 'as_admin', 'as_admin', 'as_admin', 123456789, 'as_admin@yahoo.com'),
 (6, 6, 'emp_admin', 'emp_admin', 'emp_admin', 'emp_admin', 123456789, 'hk@yahoo.com'),
 (7, 2, 'jayven', 'jayven', 'jayven', 'jayven', 123123123, 'jasdasd@yahoo.com'),
-(8, 3, 'marcpogi', 'marcpogi', 'marc', 'rigor', 2147483647, 'marcrigor08@yahoo.com'),
-(9, 3, 'jorel', 'cruz', 'jorel', 'cruz', 2147483647, 'jore@yahoo.com'),
-(10, 3, 'kamote', '1234', 'asdad', 'asdad', 2147483647, 'asdasdads@yahoo.com');
+(8, 3, 'marcpogi', 'marcpogi', 'marc', 'rigor2', 2147483647, 'marcrigor08@yahoo.com'),
+(9, 3, 'jorel', 'cruz', 'jorel', 'cruz2', 2147483647, 'jore@yahoo.com'),
+(10, 3, 'kamote', '1234', 'asdad', 'asdad', 2147483647, 'asdasdads@yahoo.com'),
+(11, 7, 'accounting', 'accounting', 'accounting', 'accounting', 123456, 'accounting@yahoo.com');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

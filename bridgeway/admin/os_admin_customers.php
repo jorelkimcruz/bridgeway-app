@@ -190,6 +190,7 @@ else{
 ?>
 </td></tr>
 </table>
+<a href="os_admin_printcust.php">[PRINT CUSTOMER REPORT]</a>
 </center>
 	
 	

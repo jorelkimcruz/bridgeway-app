@@ -44,6 +44,7 @@ logged_in();
 			
 			
 		
+			
 	<?php
 	
 	// How many adjacent pages should be shown on each side?
@@ -58,8 +59,10 @@ logged_in();
 	$total_pages = $total_pages['counter'];
 	
 	/* Setup vars for query. */
-	$targetpage = "search_product.php"; 	//your file name  (the name of this file)
+	$targetpage = "customer_index.php"; 	//your file name  (the name of this file)
 	$limit = 3; 								//how many items to show per page
+
+	
 	$page = $_GET['page'];
 	
 	if($page==0 ) 
@@ -69,7 +72,7 @@ logged_in();
 		
 $start = ($page - 1) * $limit; 			//if no page var is given, set start to 0
 	
-	/* Get data. */
+		/* Get data. */
 	$sql = "SELECT * FROM tb_products LIMIT $start, $limit";
 	$result = mysql_query($sql);
 	
@@ -84,7 +87,7 @@ $start = ($page - 1) * $limit; 			//if no page var is given, set start to 0
 		Now we apply our rules and draw the pagination object. 
 		We're actually saving the code to a variable in case we want to draw it more than once.
 	*/
-	$pagination = "";
+$pagination = "";
 	if($lastpage > 1)
 	{	
 		$pagination .= "<div class=\"pagination\">";
@@ -106,8 +109,7 @@ $start = ($page - 1) * $limit; 			//if no page var is given, set start to 0
 			}
 		}
 		elseif($lastpage > 5 + ($adjacents * 2))	//enough pages to hide some
-		{
-			//close to beginning; only hide later pages
+		{			//close to beginning; only hide later pages
 			if($page < 1 + ($adjacents * 2))		
 			{
 				for ($counter = 1; $counter < 4 + ($adjacents * 2); $counter++)

@@ -41,7 +41,7 @@ logged_in();
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-			<h2>Payable</h2>
+			<h2>Receivable</h2>
 			
 		<!-- JQUERY IMPORT-->
         <link type="text/css" href="../jquery-ui.css" rel="Stylesheet" />	
@@ -74,15 +74,14 @@ logged_in();
         <table align="center" cellpadding="0" cellspacing="0" border="0" id="auditTrail">
         <thead>
         <tr>
-        <th align="center">Id</th>
-        <th align="center">Amount</th>
-        <th align="center">Description</th>
-        <th align="center">Date/Time Added</th>
+        <th align="center">Order Id</th>
+        <th align="center">Total Price</th>
+        <th align="center">Order Date</th>
         </tr>
         </thead>
         <tbody>
         <?php
-			$query = "SELECT * FROM tb_payables;";
+			$query = "SELECT * FROM tb_order WHERE active=3;";
 			$result_set = mysql_query($query);
 			confirm_query($result_set);
 			while($row = mysql_fetch_assoc($result_set))
@@ -92,9 +91,8 @@ logged_in();
         
         <tr>
         <td align="center"><?php echo $row['id']; ?></td>
-        <td align="center"><?php echo $row['amount']; ?></td>
-        <td align="center"><?php echo $row['description']; ?></td>
-        <td align="center"><?php echo $row['date_added']; ?></td>
+        <td align="center"><?php echo $row['total_price']; ?></td>
+        <td align="center"><?php echo $row['order_date']; ?></td>
         </tr>
         <?php
 			}

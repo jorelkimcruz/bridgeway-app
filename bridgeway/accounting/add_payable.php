@@ -31,6 +31,7 @@ logged_in();
 				<ul>
 				<li><a href="view_payable.php" accesskey="4" title="">View Payable</a></li>
 					<li class="current_page_item"><a href="add_payable.php" accesskey="1" title="">Add Payable</a></li>
+					<li><a href="view_receivable.php" accesskey="1" title="">View Receivable</a></li>
 					<li><a href="liability.php" accesskey="2" title="">Financial Statement</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>

@@ -31,6 +31,7 @@ logged_in();
 				<ul>
 				<li><a href="view_payable.php" accesskey="4" title="">View Payable</a></li>
 					<li><a href="add_payable.php" accesskey="1" title="">Add Payable</a></li>
+					<li><a href="view_receivable.php" accesskey="1" title="">View Receivable</a></li>
 					<li class="current_page_item"><a href="liability.php" accesskey="2" title="">Financial Statement</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
@@ -53,6 +54,11 @@ logged_in();
         </thead>
         <tbody>
         <?php
+			$query = "SELECT SUM(total_price) as total_price FROM tb_order WHERE active=3;";
+			$result_set = mysql_query($query);
+			confirm_query($result_set);
+			$order = mysql_fetch_array($result_set);
+			
 			$query1 = "SELECT SUM(quantity) as quantity FROM tb_products;";
 			$result_set1 = mysql_query($query1);
 			confirm_query($result_set1);
@@ -68,8 +74,8 @@ logged_in();
             
         
         <tr>
-        <td align="center"></td>
-        <td align="center"><?php echo number_format("".$products['quantity']."")."<br>"; ?></td>
+		<td align="center"><?php echo number_format("".$order['total_price']."",2)."<br>"; ?></td>
+        <td align="center"><?php echo $products['quantity']; ?></td>
         <td align="center"><?php echo number_format("".$payables['amount']."",2)."<br>"; ?></td>
         </tr>
         <?php

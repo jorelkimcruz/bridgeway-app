@@ -108,6 +108,13 @@ else
 {
 $kwi=mysql_query("INSERT INTO tb_audit_trail VALUES('','super admin',CURRENT_TIMESTAMP,'Authentication','Add Admin Account','Successfull')");
 $query=mysql_query("INSERT INTO tb_user VALUES('','$l','$user','$pass','$fname','$lname','$contact','$email')");
+
+
+// INSERT TIME-IN FOR AUDIT TRAIL				
+				
+				$audit_query="INSERT INTO tb_audit_trail values('','$user_id',CURRENT_TIMESTAMP,'Authentication','Delete Customer','Successful');";
+				$result = mysql_query($audit_query);
+
 echo "<script>alert('ADD ADMIN SUCCESSFULLY')</script>";
 }
 }

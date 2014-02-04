@@ -39,9 +39,10 @@ logged_in();
 	<div id="page" class="container">
 		<div class="title">
 			<h2>Cart</h2>
+			<b>PAID ORDERS</b><br>
 			<a href="os_admin_ordersA.php">[PENDING]</a>
 			<a href="os_admin_ordersB.php">[ACCEPTED]</a>
-			<a href="os_admin_ordersC.php">[PAID]</a>
+			<a href="os_admin_orders.php">[VIEW ALL ORDERS]</a>
 					<?php
 					
 					if(isset($_SESSION['id']))
@@ -50,9 +51,8 @@ logged_in();
 					}
 					
 
-$konek = mysql_connect("localhost","root","") or die("Cannot connect to server");
-mysql_select_db("db_bridgeway",$konek) or die("Cannot connect to the database");
-$query = mysql_query("select * from tb_order GROUP BY batchorder_id");
+
+$query = mysql_query("select * from tb_order WHERE active='3' GROUP BY batchorder_id ");
 
 
 
@@ -118,8 +118,7 @@ else{
 ?>
 </td></tr>
 </table>
-<a href="os_admin_printorder.php"> PRINT ALL ORDERS</a>
-			
+			<a href="os_admin_printorderC.php"> PRINT ALL PAID ORDERS</a>
 			
 		</div>
 	</div>

@@ -64,7 +64,7 @@ logged_in();
 </tr>
 
 <tr>
-<td>FileName: </td><td><input type="file" name="file" id="file" required></td>
+<td>FileName: (2mb below required)</td><td><input type="file" name="file" id="file" required></td>
 
 </tr>
 
@@ -183,7 +183,7 @@ else{
 ?>
 </td></tr>
 </table>
-
+<a href="os_admin_printprod.php">[PRINT PRODUCTS REPORT]</a>
 	</div>
 </div>
 </div>
