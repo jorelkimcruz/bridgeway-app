@@ -63,7 +63,8 @@ logged_in();
 	$limit = 3; 								//how many items to show per page
 
 	
-	$page = $_GET['page'];
+	
+ $page = $_GET['page'];
 	
 	if($page==0 ) 
 				//first item to display on this page
@@ -73,7 +74,7 @@ logged_in();
 $start = ($page - 1) * $limit; 			//if no page var is given, set start to 0
 	
 		/* Get data. */
-	$sql = "SELECT * FROM tb_products LIMIT $start, $limit";
+	$sql = "SELECT * FROM tb_products WHERE quantity>=1 LIMIT $start, $limit";
 	$result = mysql_query($sql);
 	
 	/* Setup page vars for display. */

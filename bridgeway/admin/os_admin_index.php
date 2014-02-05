@@ -64,7 +64,7 @@ logged_in();
 </tr>
 
 <tr>
-<td>FileName: (2mb below required)</td><td><input type="file" name="file" id="file" required></td>
+<td>FileName: (720W X 960H required)</td><td><input type="file" name="file" id="file" required></td>
 
 </tr>
 
