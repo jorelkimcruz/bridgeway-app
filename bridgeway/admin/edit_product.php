@@ -46,13 +46,15 @@ logged_in();
 			
 			<div style="border:1px solid;"> 
 <?php
-			$query = "SELECT * FROM tb_products WHERE product_id ='".$_GET['id']."';";
+			$product_id=$_GET['id'];
+			$query = "SELECT * FROM tb_products WHERE product_id ='".$product_id."';";
 			$result = mysql_query($query);
 			$row = mysql_fetch_array($result);
 			
 ?>
 			
-<form action="edit_product.php" method="post" enctype="multipart/form-data">
+<form action="edit_product_process.php" method="post" enctype="multipart/form-data">
+<input type="hidden" value="<?php echo $row[0]; ?>" name="product_id" />
 <table>
 <tr>
 <td>Product Name</td><td> <input type="text" name="p_name" value="<?php echo $row[1];?>"required></td>
@@ -70,11 +72,6 @@ logged_in();
 <td>Price </td><td><input type="text" name="price" value="<?php echo $row[4];?>"required></td>
 </tr>
 
-<tr>
-<td>FileName: </td><td><input type="file" name="file" id="file" value="<?php echo $row[5];?>"required></td>
-
-</tr>
-
 
 </table>
 
@@ -83,64 +80,10 @@ logged_in();
 <input type="submit" value="Submit" name="submit_product">
 <input type="reset" value="Reset">
 
-<?php
-
-
-if(isset($_POST['submit_product']))
-{
-
-$pname= ($_POST['p_name']);
-$pdesc = ($_POST['p_desc']);
-$pquantity= ($_POST['quantity']);
-$pprice = ($_POST['price']);
-
-$allowedExts = array("gif", "jpeg", "jpg", "png");
-$temp = explode(".", $_FILES["file"]["name"]);
-$extension = end($temp);
-if ((($_FILES["file"]["type"] == "image/gif")
-|| ($_FILES["file"]["type"] == "image/jpeg")
-|| ($_FILES["file"]["type"] == "image/jpg")
-|| ($_FILES["file"]["type"] == "image/pjpeg")
-|| ($_FILES["file"]["type"] == "image/x-png")
-|| ($_FILES["file"]["type"] == "image/png"))
-&& ($_FILES["file"]["size"] < 20000)
-&& in_array($extension, $allowedExts))
-  {
-  if ($_FILES["file"]["error"] > 0)
-    {
-    echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
-	echo "<script>alert('ERROR UPLOAD');</script>";
-	
-    }
-  else
-    {
-
-    if (file_exists("upload/" . $_FILES["file"]["name"]))
-      {
-      echo $_FILES["file"]["name"] . " already exists. ";
-	  echo "<script>alert('EXIST');</script>";
-      }
-    else
-      {
-      move_uploaded_file($_FILES["file"]["tmp_name"],
-      "upload/" . $_FILES["file"]["name"]);
-      echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
-		
-		$image=$_FILES['file']['name'];
-	  mysql_query("UPDATE tb_products SET name = '$pname', 
-	description = '$pdesc', quantity = '$pquantity',
-	price = '$pprice', image = '$image' WHERE product_id = $_GET['id'] ";
-echo "<script>alert('Record successfuly saved.');window.location.href='os_admin_index.php';</script>";
-      }
-    }
-  }
-else
-  {
-  echo "Invalid file";
-  }
-}
-?>
 </form>    
+
+
+
 
 <div class="wrapper">
 	<div id="three-column" class="container">

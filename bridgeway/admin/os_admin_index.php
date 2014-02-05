@@ -64,7 +64,7 @@ logged_in();
 </tr>
 
 <tr>
-<td>FileName: (720W X 960H required)</td><td><input type="file" name="file" id="file" required></td>
+<td>FileName: (2mb below required)</td><td><input type="file" name="file" id="file" required></td>
 
 </tr>
 
@@ -81,11 +81,7 @@ logged_in();
 
 if(isset($_POST['submit_product']))
 {
- mysql_connect("localhost","root","") or die (mysql_error());
-    echo "sulod";
-    mysql_select_db("db_bridgeway") or die (mysql_error());
-    echo "abre na ";
-
+$id=$_SESSION['id'];
 $pname= ($_POST['p_name']);
 $pdesc = ($_POST['p_desc']);
 $pquantity= ($_POST['quantity']);
@@ -123,8 +119,16 @@ if ((($_FILES["file"]["type"] == "image/gif")
       "upload/" . $_FILES["file"]["name"]);
       echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
 mysql_query("insert tb_products set name='".$pname."', description='".$pdesc."', quantity='".$pquantity."', price='".$pprice."', image='".$_FILES["file"]["name"] ."'");
+
+  
+	// INSERT TIME-IN FOR AUDIT TRAIL				
+				
+				$audit_query="INSERT INTO tb_audit_trail values('','$id',CURRENT_TIMESTAMP,'Authentication','Add Product','Successful');";
+				$result = mysql_query($audit_query);
+	
+
 echo "<script>alert('Record successfuly saved.');window.location.href='os_admin_index.php';</script>";
-      }
+    }
     }
   }
 else

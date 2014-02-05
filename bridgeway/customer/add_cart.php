@@ -59,7 +59,7 @@ if(isset($_POST['product_id']))
 				$audit_query="INSERT INTO tb_audit_trail values('','$user_id',CURRENT_TIMESTAMP,'Authentication','Add to existing order','Successful');";
 				$result = mysql_query($audit_query);
 				
-		echo "<script> alert('Successfully!'); location = 'customer_index.php';</script>";
+		echo "<script> alert('Successfully!'); location = 'customer_index.php?page=1';</script>";
 	
 	}
 		
@@ -111,7 +111,7 @@ if(isset($_POST['product_id']))
 				$audit_query1="INSERT INTO tb_audit_trail values('','$user_id',CURRENT_TIMESTAMP,'Authentication','Added New Batch Order','Successful');";
 				$result = mysql_query($audit_query1);
 
-		echo "<script> alert('Successfully!'); location = 'customer_index.php';</script>";
+		echo "<script> alert('Successfully!'); location = 'customer_index.php?page=1';</script>";
 	
 	}
 		

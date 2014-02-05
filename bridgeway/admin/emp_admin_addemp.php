@@ -30,7 +30,14 @@
 					<li><a href="emp_admin_viewemp.php" >View Employee</a></li>
 					<li>Add Employee</li>
 					<li><a href="emp_attendance.php" >View Attendance</a></li>
-					<li><a href="#" >Audit Trail</a></li>
+								<?php
+					   if (isset($_SESSION['id'])) {
+							$level=$_SESSION['level'];
+							if($level==1)
+							{?> 		<li><a href="super_admin_index.php" accesskey="4" title="">SuperAdmin Index</a></li> <?php }
+					}
+					?>
+	
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>

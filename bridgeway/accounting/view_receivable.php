@@ -32,6 +32,13 @@ logged_in();
 					<li><a href="add_payable.php" accesskey="1" title="">Add Payable</a></li>
 					<li><a href="view_receivable.php" accesskey="1" title="">View Receivable</a></li>
 					<li><a href="liability.php" accesskey="2" title="">Financial Statement</a></li>
+										<?php
+					   if (isset($_SESSION['id'])) {
+							$level=$_SESSION['level'];
+							if($level==1)
+							{?> 		<li><a href="../admin/super_admin_index.php" accesskey="4" title="">SuperAdmin Index</a></li> <?php }
+					}
+					?>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>

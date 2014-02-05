@@ -31,6 +31,13 @@ logged_in();
 					<li><a href="os_admin_index.php" accesskey="1" title="">Product Management</a></li>
 					<li><a href="os_admin_orders.php" accesskey="2" title="">Orders</a></li>
 					<li><a href="os_admin_customers.php" accesskey="3" title="">Customer</a></li>
+						<?php
+					   if (isset($_SESSION['id'])) {
+							$level=$_SESSION['level'];
+							if($level==1)
+							{?> 		<li><a href="super_admin_index.php" accesskey="4" title="">SuperAdmin Index</a></li> <?php }
+					}
+					?>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>

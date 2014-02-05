@@ -26,9 +26,10 @@ logged_in();
 			<h1><span class="icon icon-cog"></span><a href="#">Bridgeway</a></h1>
 			<div id="menu">
 				<ul>
-					<li><a href="customer_index.php" accesskey="4" title="">Products</a></li>
-					<li><a href="cart.php" accesskey="1" title="">My Cart</a></li>
-					<li class="current_page_item"><a href="customer_profile.php" accesskey="2" title="">My profile</a></li>
+				<li><a href="audit_trail.php" accesskey="1" title="">Audit Trail</a></li>
+					<li><a href="os_admin_index.php" accesskey="2" title="">Order Management</a></li>
+				<li><a href="emp_admin_index.php" accesskey="2" title="">Employee Management</a></li>
+				<li><a href="super_admin_index.php" accesskey="2" title="">Admin Management</a></li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>

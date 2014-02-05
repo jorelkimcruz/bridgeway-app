@@ -26,10 +26,10 @@
 			<h1><span class="icon icon-cog"></span><a href="#">Bridgeway</a></h1>
 			<div id="menu">
 				<ul>
-					<li><a href="#" accesskey="1" title="">TAB</a></li>
-					<li><a href="#" accesskey="2" title="">TAB</a></li>
-					<li><a href="#" accesskey="3" title="">TAB</a></li>
-					<li>Add Admin</li>
+								<li><a href="audit_trail.php" accesskey="1" title="">Audit Trail</a></li>
+					<li><a href="#" accesskey="2" title="">Order Management</a></li>
+					<li><a href="#" accesskey="" title=""></a>Admin Accounts Management</li>
+					<li><a href="super_admin_addadmin.php"></a>Employee Management</li>
 					<li><a href="../logout.php" accesskey="5" title="">Log out</a></li>
 				</ul>
 			</div>
