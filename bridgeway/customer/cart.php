@@ -99,7 +99,7 @@ $status = $row['active'];?>
 
 <?php
 		     if($status == 1){?>
-      <a  href="checkout.php?id=<?=$batchorder_id?>&status=<?=$status?>"  onclick="return confirm('Are you sure to update this order?')">  [Checkout]  </a>
+      <a  href="checkout.php?id=<?=$batchorder_id?>&status=<?=$status?>"  onclick="return confirm('Are you sure to update this order?')">  [Finalize my Order]  </a>
 	  <?php }else { 
      ?>
 	  <a  href="checkout.php?id=<?=$batchorder_id?>&status=<?=$status?>"  onclick="return confirm('Are you sure to update this order?')">  [Cancel]  </a>

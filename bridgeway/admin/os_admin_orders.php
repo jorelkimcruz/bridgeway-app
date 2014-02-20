@@ -89,7 +89,10 @@ if(mysql_num_rows($query)>0){
 	<td><?=$row['batchorder_id']?></td>
         <td><?=$row['customer_id']?></td>
 			   <td>
-			 	<?php $batchorder = $row['batchorder_id']; $query2 =  mysql_query("select * from tb_order WHERE batchorder_id=".$row['batchorder_id']."");
+			 	<?php $totalQuant=0;
+		$totalPrice=0;
+		
+		$batchorder = $row['batchorder_id']; $query2 =  mysql_query("select * from tb_order WHERE batchorder_id=".$row['batchorder_id']."");
     while($row= mysql_fetch_array($query2)){
 	
 		$p_quant = $row['product_quantity'];
@@ -97,14 +100,12 @@ if(mysql_num_rows($query)>0){
 		$p_id = $row['product_id'];
 		$date=$row['order_date'];
 		$status = $row['active'];
-		$totalQuant=0;
-		$totalPrice=0;
 		
 		$totalQuant += $p_quant;
 		$totalPrice += $p_price;
 		
-		echo $totalQuant;
-	} ?>   
+		
+	} ?><?php echo $totalQuant;?>   
 			   </td>
 			   <td><?php echo $totalPrice; ?></td>
 			   <td>

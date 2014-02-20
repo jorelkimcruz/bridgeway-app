@@ -11,7 +11,7 @@ $msg_admin="";
 		$f_fname=$f_admin['firstname'];
 		$f_lname=$f_admin['lastname'];
 		$f_mname=$f_admin['middlename'];
-		$f_name=$f_lname .",    ".$f_fname." ".$f_fname;
+		$f_name=$f_lname .",    ".$f_fname." ".$f_mname;
 		$f_address=$f_admin['address'];
 		$f_email=$f_admin['email'];
 		$f_position=$f_admin['position'];
@@ -22,7 +22,7 @@ $msg_admin="";
 		$f_cs=$f_admin['c_school'];
 		$f_status=$f_admin['status'];
 		$f_contact=$f_admin['contact_no'];
-		$msg_admin.="<tr><td><a href='emp_admin_viewempA.php?id=$f_id'>$f_name</a></td>
+		$msg_admin.="<tr><td>$f_id</td><td><a href='emp_admin_viewempA.php?id=$f_id'>$f_name</a></td>
 		<td>$f_address </td><td>$f_email </td><td>$f_dept</td><td>$f_status</td><td>$f_contact</td></tr>
 		";
 		}
@@ -72,6 +72,7 @@ $msg_admin="";
 		<div class="title">
 			<table border=2 cellpadding = 10 >
 			<tr>
+			<th>Employee ID</th>
 			<th>Name</th>
 			<th>Address</th>
 			<th>Email</th>
