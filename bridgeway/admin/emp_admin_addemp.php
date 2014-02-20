@@ -57,6 +57,7 @@
 		<tr><td>Email</td><td><input type="text" name="email" required/></td></tr>
 		<tr><td>Position</td><td><input type="text" name="pos" required/></td></tr>
 		<tr><td>Department</td><td><input type="text" name="dept" required/></td></tr>
+		<tr><td>Date Hired</td><td><input type="date" name="dateadd" required/></td></tr>
 		<tr><td>Elementary School</td><td><input type="text" name="es" required/></td></tr>
 		<tr><td>High School</td><td><input type="text" name="hs" required/></td></tr>
 		<tr><td>College School</td><td><input type="text" name="cs" required/></td></tr>
@@ -79,6 +80,7 @@ $mname=$_POST['mname'];
 $add=$_POST['add'];
 $email=$_POST['email'];
 $pos=$_POST['pos'];
+$dateadd=$_POST['dateadd'];
 $dept=$_POST['dept'];
 $es=$_POST['es'];
 $hs=$_POST['hs'];
@@ -86,9 +88,18 @@ $cs=$_POST['cs'];
 $contact=$_POST['contact'];
 $user=$_POST['user'];
 $pass=$_POST['pass'];
+
+$tulogpapo=mysql_query("SELECT email FROM tb_user WHERE email='$email'");
+if(mysql_num_rows($tulogpapo)>0)
+{
+echo "<script> alert('Email address already exist!')</script>";
+}
+
+else{
 $kwi=mysql_query("INSERT INTO tb_audit_trail VALUES('','emp_admin',CURRENT_TIMESTAMP,'Authentication','Add UserAccount&Employee','Successfull')");
 $kwiri=mysql_query("INSERT INTO tb_user VALUES('','2','$user','$pass','$fname','$lname','$contact','$email')");
-$query=mysql_query("INSERT INTO tb_employee VALUES('','2','$fname','$lname','$mname','$add','$email','$pos','','$dept','$es','$hs','$cs','','$contact')");
+$query=mysql_query("INSERT INTO tb_employee VALUES('','0','$fname','$lname','$mname','$add','$email','$pos','$dateadd','$dept','$es','$hs','$cs','','$contact','14','2','$dateadd')");
+}
 }
 ?>
 		</div>

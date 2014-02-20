@@ -8,7 +8,7 @@ $msg_admin="";
 	if(mysql_num_rows($select)>0){
 		while($f_admin=@mysql_fetch_array($select)){
 		$f_id=$f_admin['id'];
-		$f_admin_id=$f_admin['emp_id'];
+		$f_email=$f_admin['email'];
 		$f_admins_id=$f_admin['id'];
 		$f_reason=$f_admin['reason'];
 		$f_name=$f_admin['emp_name'];

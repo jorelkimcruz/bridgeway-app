@@ -154,6 +154,7 @@ $query = mysql_query("select * from tb_products order by product_id asc");
 
 if(mysql_num_rows($query)>0){ 
 ?>
+IF STOCK BELOW 10 FONT COLOR IS <font color='red'>RED</font>
 <table border="1">
 <tr>
     <td>Product ID</td>
@@ -168,7 +169,13 @@ if(mysql_num_rows($query)>0){
 	<td><?=$row['product_id']?></td>
         <td><?=$row['name']?></td>
         <td><?=$row['description']?></td>
-		   <td><?=$row['quantity']?></td>
+		   <td><?
+		   $quantity=$row['quantity'];
+		   if($quantity<10)
+		   {echo "<center><font color='red'>".$quantity."</font></center>";}
+		   else
+		   {echo $quantity;}
+		   ?></td>
 		      <td><?=$row['price']?></td>
 
 		

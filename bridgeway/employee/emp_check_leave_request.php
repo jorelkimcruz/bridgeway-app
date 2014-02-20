@@ -39,7 +39,12 @@ $id=$_SESSION['id'];
 		<div class="title"><center>
 			<table border=2 cellpadding = 10>
 			<?php 
-			$q = mysql_query("select * from tb_leave WHERE emp_id='$id'");
+			$t=mysql_query("select email from tb_user WHERE id='$id'");
+	if(mysql_num_rows($t)>0){
+	$jobs_fetch=mysql_fetch_array($t);
+		$email = $jobs_fetch['email'];
+		}
+			$q = mysql_query("select * from tb_leave WHERE email='$email'");
 echo "<table border=2 cellpadding = 10 >
 <tr>
 <th> Reason </th>

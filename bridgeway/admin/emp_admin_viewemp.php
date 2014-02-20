@@ -22,11 +22,34 @@ $msg_admin="";
 		$f_cs=$f_admin['c_school'];
 		$f_status=$f_admin['status'];
 		$f_contact=$f_admin['contact_no'];
+		$f_dateHired = $f_admin['date_renewal'];
+				$dateNow = date("Y-m-d");
+$startTimeStamp = strtotime($f_dateHired);
+$endTimeStamp = strtotime($dateNow);
+
+$timeDiff = $endTimeStamp - $startTimeStamp;
+$numberDays = $timeDiff/86400;
+
+
+
+if($numberDays>365 && $numberDays<367)
+{
+	$query = mysql_query("UPDATE tb_employee SET casual_no='14' WHERE id='$f_id' ");
+	$query = mysql_query("UPDATE tb_employee SET emergency_no='5' WHERE id='$f_id' ");
+	$query = mysql_query("UPDATE tb_employee SET date_renewal='$dateNow' WHERE id='$f_id' ");
+	
+}
 		$msg_admin.="<tr><td>$f_id</td><td><a href='emp_admin_viewempA.php?id=$f_id'>$f_name</a></td>
-		<td>$f_address </td><td>$f_email </td><td>$f_dept</td><td>$f_status</td><td>$f_contact</td></tr>
+		<td>$f_address </td><td>$f_email </td><td>$f_dept</td><td>$f_contact</td><td>$numberDays</td></tr>
 		";
 		}
 		}
+		
+
+
+
+
+		
 		
 
 ?>
@@ -77,8 +100,9 @@ $msg_admin="";
 			<th>Address</th>
 			<th>Email</th>
 			<th>Department</th>
-			<th>Status</th>
 			<th>Contact Number</th>
+			<th>DAYS</th>
+			
 			</tr>
 			<?php echo $msg_admin; ?>
 			</table>

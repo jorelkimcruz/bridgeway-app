@@ -17,13 +17,14 @@ where id='$asa' ");
 if(mysql_num_rows($query)>0){
 	$job_fetch=mysql_fetch_array($query);
 	$f_id=$job_fetch['id'];
-	$f_admin_id=$job_fetch['emp_id'];
+	$f_email=$job_fetch['email'];
 		$f_admins_id=$job_fetch['id'];
 		$f_reason=$job_fetch['reason'];
 		$f_name=$job_fetch['emp_name'];
 		$f_contact=$job_fetch['contact_no'];
 		$f_sdate=$job_fetch['start_date'];
 		$f_edate=$job_fetch['end_date'];
+		$f_days=$job_fetch['days_no'];
 		
 		$btn="<button type='submit' name='submit' id='submit'> Accept Request</button> &nbsp;";	
 		$btn1="<button type='submit' name='submit1'> Decline Request</button> &nbsp;";	
@@ -34,15 +35,64 @@ $msg_admin="
 <td>$f_reason</td>
 <td>$f_contact</td>		
 <td>$f_sdate</td>
-<td>$f_edate</td></tr>		
+<td>$f_edate</td>
+<td>$f_days</td></tr>		
 ";
 
 
 
 }
 if(isset($_POST['submit'])){
+
+
+	if($f_reason=='Casual')
+	{
+	$query10=mysql_query("SELECT casual_no FROM tb_employee WHERE email='$f_email'");
+	if(mysql_num_rows($query10)>0){
+	$job_fetch=mysql_fetch_array($query10);
+		$emp_rem_casual_days = $job_fetch['casual_no'];
+	}
+	
+	$query11=mysql_query("SELECT days_no FROM tb_leave WHERE id='$f_id'");
+	if(mysql_num_rows($query11)>0){
+	$jobs_fetch=mysql_fetch_array($query11);
+		$emp_request_days = $jobs_fetch['days_no'];
+		
+	}
+	
+	$rem_leave_casual_days = $emp_rem_casual_days - $emp_request_days;
+	
 	$query=mysql_query("UPDATE tb_leave SET status='Accepted' WHERE id='$f_id' ");
+	$querys=mysql_query("UPDATE tb_employee SET casual_no='$rem_leave_casual_days' WHERE email='$f_email' ");
+	
 	header("Location:emp_admin_viewleave.php");
+	
+	}
+	
+	
+	elseif($f_reason=='Emergency')
+		{
+	$query10=mysql_query("SELECT emergency_no FROM tb_employee WHERE email='$f_email'");
+	if(mysql_num_rows($query10)>0){
+	$job_fetch=mysql_fetch_array($query10);
+		$emp_rem_casual_days = $job_fetch['emergency_no'];
+	}
+	
+	$query11=mysql_query("SELECT days_no FROM tb_leave WHERE id='$f_id'");
+	if(mysql_num_rows($query11)>0){
+	$jobs_fetch=mysql_fetch_array($query11);
+		$emp_request_days = $jobs_fetch['days_no'];
+		
+	}
+	
+	$rem_leave_casual_days = $emp_rem_casual_days - $emp_request_days;
+	
+	$query=mysql_query("UPDATE tb_leave SET status='Accepted' WHERE id='$f_id' ");
+	$querys=mysql_query("UPDATE tb_employee SET emergency_no='$rem_leave_casual_days' WHERE email='$f_email' ");
+	
+	header("Location:emp_admin_viewleave.php");
+
+	}
 	}
 if(isset($_POST['submit1'])){
 	$query=mysql_query("UPDATE tb_leave SET status='Decline' WHERE id='$f_id' ");
@@ -100,6 +150,7 @@ if(isset($_POST['submit1'])){
 			<th>Contact Number</th>
 			<th>Start Date</th>
 			<th>End Date</th>
+			<th>Days</th>
 			<?php echo $msg_admin; ?>
 			</table>
 			<?php echo $btn; echo $btn1; echo $btn2; ?>

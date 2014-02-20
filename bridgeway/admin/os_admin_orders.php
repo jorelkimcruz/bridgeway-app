@@ -80,6 +80,8 @@ if(mysql_num_rows($query)>0){
 	   <td><b>Date Added</b></td>
 	   	   <td><b>Status</b></td>
 		   <td></td>
+		   
+		  
 
 	   
 </tr>
@@ -128,8 +130,17 @@ else{
 </td></tr>
 </table>
 <a href="os_admin_printorder.php"> PRINT ALL ORDERS</a>
-			
-			
+</br>
+<form action="os_admin_printorderBydate.php" method="POST">
+			<b>Print Orders By Date</b>
+<table>
+<tr>
+<td>From:</td><td><input type="date" name="fdate"><br></td>
+<td>To:</td><td><input type="date" name="tdate"><br></td>
+<td><input type="submit" name="submitdate" value="SUBMIT"><br></td><td></td>
+</tr>
+</table>
+	</form>
 		</div>
 	</div>
 </div>

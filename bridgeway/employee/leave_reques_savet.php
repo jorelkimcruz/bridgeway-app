@@ -9,16 +9,22 @@ $msg="";
 if(isset($_POST['submit'])){
 $leave=$_POST['leave'];
 $name=$_POST['usernamebox'];
-$cno=$_POST['cno'];
+$desc=$_POST['desc'];
 $sdate=$_POST['sdate'];
 $edate=$_POST['edate'];
 $date=date("Y-m-d");
 
-if(!is_numeric($cno))
+
+$startTimeStamp = strtotime($sdate);
+$endTimeStamp = strtotime($edate);
+
+$timeDiff = abs($endTimeStamp - $startTimeStamp);
+$numberDays = $timeDiff/86400;
+
+if($numberDays>42)
 {
-	echo"<script> alert('Contact number must be numbers only') </script>";
-	redirect_to('leave_request.php');
-	
+	echo"<script type='text/javascript'> alert('OVER') </script>";
+	header('Location:leave_request.php');
 }
 elseif($sdate<$date)
 {
@@ -32,7 +38,7 @@ redirect_to('leave_request.php');
 }
 else{
 $kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Passed Leave Request','Successfull')");
-$query="INSERT INTO tb_leave VALUES('','$id','$leave','$cno','$name','$sdate','$edate','PENDING')";
+$query="INSERT INTO tb_leave VALUES('','$id','$leave','$name','$sdate','$edate','PENDING','$desc','0')";
 $result=mysql_query($query);
 $msg="Please wait for the admin to approve you leave request!";	
 }

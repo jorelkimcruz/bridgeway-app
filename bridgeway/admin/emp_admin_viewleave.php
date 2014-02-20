@@ -8,16 +8,17 @@ $msg_admin="";
 	if(mysql_num_rows($select)>0){
 		while($f_admin=@mysql_fetch_array($select)){
 		$f_id=$f_admin['id'];
-		$f_admin_id=$f_admin['emp_id'];
+		$f_email=$f_admin['email'];
 		$f_admins_id=$f_admin['id'];
 		$f_reason=$f_admin['reason'];
 		$f_name=$f_admin['emp_name'];
 		$f_contact=$f_admin['contact_no'];
 		$f_sdate=$f_admin['start_date'];
 		$f_edate=$f_admin['end_date'];
+		$f_days=$f_admin['days_no'];
 	
 		$msg_admin.="<tr><td><a href='emp_admin_viewleaveA.php?id=$f_admins_id'>$f_name</a></td>
-		<td>$f_reason </td><td>$f_contact </td><td>$f_sdate</td><td>$f_edate</td></tr>
+		<td>$f_reason </td><td>$f_contact </td><td>$f_sdate</td><td>$f_edate</td><td>$f_days</td></tr>
 		";
 		}
 
