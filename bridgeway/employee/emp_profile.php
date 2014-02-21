@@ -2,150 +2,6 @@
 <?php require_once("../includes/session.php"); ?>
 <?php include_once("../includes/functions.php"); ?>
 
-
-<?php
-logged_in();
-$id=$_SESSION['id'];
-$print="";
-$btn1="";
-$btn2="";
-$btn3="";
-$btn4="";
-$btn5="";
-$btn6="";
-$time=time();
-$msg="";
-
-$query=mysql_query("SELECT * FROM tb_user WHERE id='$id'");
-if(mysql_num_rows($query)>0)
-{
-$emp_fetch=mysql_fetch_array($query);
-$e_id=$emp_fetch['id'];
-$e_username=$emp_fetch['username'];
-$e_password=$emp_fetch['password'];
-$e_fname=$emp_fetch['first_name'];
-$e_lname=$emp_fetch['last_name'];
-$e_contact=$emp_fetch['contact_no'];
-$e_email=$emp_fetch['email'];
-}
-
-
-$btn1="<button type='submit' name='submit1'>Update Username</button>";
-$btn2="<button type='submit' name='submit2'>Update Firstame</button>";
-$btn3="<button type='submit' name='submit3'>Update Lastame</button>";
-$btn4="<button type='submit' name='submit4'>Update Contact</button>";
-$btn5="<button type='submit' name='submit5'>Update Email</button>";
-$btn6="<button type='submit' name='submit6'>Update Password</button>";
-$print= "
-		<tr><th>Username<td>$e_username</td><td><input type='text' name='usernamebox' id='usernamebox'></input></td><td>$btn1</td></th></tr>
-		<tr><th>Password<td>*****</td><td><input type='password' name='passbox' id='passbox'></input></td><td>$btn6</td></th></tr>
-		<tr><th>Firstname<td>$e_fname</td><td><input type='text' name='fnamebox' id='fnamebox'></td><td>$btn2</td></th></tr>
-		<tr><th>Lastname<td>$e_lname</td><td><input type='text' name='lastnamebox' id='lastnamebox'></td><td>$btn3</td></th></tr>
-		<tr><th>Contact<td>$e_contact</td><td><input type='text' name='contactbox' id='contactbox'></td><td>$btn4</td></th></tr>
-		<tr><th>Email<td>$e_email</td><td><input type='text' name='emailbox' id='emailbox'></td><td>$btn5</td></th></tr>
-		
-		";
-		
-		
-		
-		
-
-if(isset($_POST['submit1']))
-{	$un=$_POST['usernamebox'];
-	//$s_username=mysql_real_escape_string($_POST['usernamebox']);
-	$select=mysql_query("SELECT * FROM tb_user WHERE username='$un' ");
-	if(mysql_num_rows($select)<=0){
-	$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Edit Profile','Successfull')");
-	$query=mysql_query("UPDATE tb_user SET username='$un' WHERE id='$id' ");
-	echo "<meta http-equiv='refresh' content='1' >";
-	}
-}
-elseif(isset($_POST['submit6']))
-{	$un=$_POST['passbox'];
-	//$s_username=mysql_real_escape_string($_POST['usernamebox']);
-	$select=mysql_query("SELECT * FROM tb_user WHERE password='$un' ");
-	if(mysql_num_rows($select)<=0){
-	$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Edit Profile','Successfull')");
-	$query=mysql_query("UPDATE tb_user SET password='$un' WHERE id='$id' ");
-	echo "<meta http-equiv='refresh' content='1' >";
-	}
-}
-	
-elseif(isset($_POST['submit2']))
-{					$un=$_POST['fnamebox'];
-					if(ctype_alpha($un))
-					{
-					$select=mysql_query("SELECT * FROM tb_user WHERE first_name='$un' ");
-					if(mysql_num_rows($select)<=0){
-					$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Edit Profile','Successfull')");
-					$query=mysql_query("UPDATE tb_user SET first_name='$un' WHERE id='$id' ");
-					echo "<meta http-equiv='refresh' content='1' >";
-					}
-					}
-					elseif(!ctype_alpha($un))
-					{
-					echo"<script> alert('First name must be letters only') </script>";
-					}
-}
-
-elseif(isset($_POST['submit3']))
-{					$un=$_POST['lastnamebox'];
-					if(ctype_alpha($un))
-					{
-					$select=mysql_query("SELECT * FROM tb_user WHERE last_name='$un' ");
-					if(mysql_num_rows($select)<=0){
-					$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Edit Profile','Successfull')");
-					$query=mysql_query("UPDATE tb_user SET last_name='$un' WHERE id='$id' ");
-					echo "<meta http-equiv='refresh' content='1' >";
-					}
-					}
-					elseif(!ctype_alpha($un))
-					{
-					echo"<script> alert('Last name must be letters only') </script>";
-					}
-}
-	
-elseif(isset($_POST['submit4']))
-{	
-					$un=$_POST['contactbox'];
-					if(is_numeric($un))
-					{
-					$select=mysql_query("SELECT * FROM tb_user WHERE contact_no='$un' ");
-					if(mysql_num_rows($select)<=0){
-					$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Edit Profile','Successfull')");
-					$query=mysql_query("UPDATE tb_user SET contact_no='$un' WHERE id='$id' ");
-					echo "<meta http-equiv='refresh' content='1' >";
-					}
-					}
-					elseif(!is_numeric($un))
-					{
-					echo"<script> alert('Contact number must be numbers only') </script>";
-					}
-					
-}
-	
-	elseif(isset($_POST['submit5']))
-{	
-
-					$un=$_POST['emailbox'];
-					if((preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$un)))
-					{
-					$select=mysql_query("SELECT * FROM tb_user WHERE email='$un' ");
-					if(mysql_num_rows($select)<=0){
-					$kwiri=mysql_query("INSERT INTO tb_audit_trail VALUES('','$id',CURRENT_TIMESTAMP,'Authentication','Edit Profile','Successfull')");
-					$query=mysql_query("UPDATE tb_user SET email='$un' WHERE id='$id' ");
-					echo "<meta http-equiv='refresh' content='1' >";
-					}
-					}
-					elseif(!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$un))
-					{
-					echo"<script> alert('Invalid Email Format') </script>";
-					}
-}	
-
-?>
-
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -158,7 +14,7 @@ elseif(isset($_POST['submit4']))
 
 </head>
 <body>
-<form action="emp_profile.php" method="POST">
+
 
 <div id="header-wrapper">
 	<div id="header" class="container">
@@ -179,12 +35,150 @@ elseif(isset($_POST['submit4']))
 	<div id="page" class="container">
 		<div class="title">
 		<center>
-		<table class="table tbl-content" colspan="4">
-		<?php echo "$print"; ?>
+		 <form id="Main_Form" name="Main_Form" action="emp_profile_update.php" method='POST' onsubmit="return validateForm()">		
 		
-		
-		
-	</table>
+		<?php
+		$query = "SELECT * FROM tb_user WHERE id ='".$_SESSION['id']."';";
+	$result = mysql_query($query);
+	$row = mysql_fetch_array($result);
+		?>
+	<input type="hidden" value="<?php echo $row[0]; ?>" name="id" />	
+<table align="center" border="0">
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+	<td colspan="5"><font style="text-decoration:underline;" size="3">Personal Information</font></td>
+</tr>
+
+<tr>
+    <td><font color="#FF0000">*</font>Name:</td>
+    <td colspan="3">
+    	<font color="#FF0000">*</font><input type="text"  name="firstname"  placeholder="First Name" value="<?php echo $row[4]; ?>" required/>	
+    	<font color="#FF0000">*</font><input type="text"  name="middlename" placeholder="Middle Name" value="<?php echo $row[5]; ?>"/>
+   		<font color="#FF0000">*</font><input type="text"  name="lastname" placeholder="Last Name" value="<?php echo $row[6]; ?>" required/></td>
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Gender:</td>
+    <td>
+	<?php
+	if($row[10]=="male"){
+	echo "<input type='radio' name='gender' value='male' checked required/> 
+	Male<input type='radio' name='gender' value='female'/> Female ";
+	}
+	else{
+	echo "<input type='radio' name='gender' value='male' checked required/> 
+	Male<input type='radio' name='gender' value='female' checked/> Female ";
+	
+	}
+	?>
+	</td>
+    <td></td>
+    <td></td>
+</tr>
+
+<tr>
+    <td><font color="#FF0000">*</font>Citizenship:</td>
+    <td><input type="text" name="citizen" value="<?php echo $row[13]; ?>" required/>
+    <td><font color="#FF0000">*</font>Civil Status:</td>
+	<td>
+	<select name=civil_status style="width:200px;">
+			<?php	
+					$selected="";
+					$option="";
+					switch($row[11]){
+						case 'Single':$selected=" selected"; $option.="<option vale='Single' ".$selected.">Single</option>
+																		<option vale='Married'>Married</option>
+																		<option vale='Widowed'>Widowed</option>
+																		";break;
+						case 'Married':$selected=" selected"; $option.="
+													<option vale='Single'>Single</option>
+													<option vale='Married' ".$selected.">Married</option>
+													<option vale='Widowed'>Widowed</option>";break;
+						case 'Widowed':$selected=" selected"; $option.="
+													<option vale='Single'>Single</option>
+													<option vale='Married'>Married</option>
+													<option vale='Widowed' ".$selected.">Widowed</option>";break;
+					}
+					echo $option;
+			?>
+			</select>
+	</td>
+ 
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Religion:</td>
+    <td><input type="text" name="religion" value="<?php echo $row[12]; ?>"/></td>
+    <td><font color="#FF0000">*</font>Email Address</td>
+    <td><input type="email" name="email" value="<?php echo $row[9]; ?>" required/></td>
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Address:</td>
+    <td colspan="3"><input type="text" size="68"  name="address" value="<?php echo $row[8]; ?>" required/></td>
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Contact No.</td>
+    <td><input type="text" name="contact" value="<?php echo $row[7]; ?>" required/></td>
+ </tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="5"><font style="text-decoration:underline;" size="3">In Case of Emergency</font></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Contact Name:</td>
+    <td><input type="text" name="e_name" value="<?php echo $row[14]; ?>" required/></td>
+    <td><font color="#FF0000">*</font>Contact Address:</td>
+    <td><input type="text" name="e_address" value="<?php echo $row[16]; ?>" required/></td>
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Contact Number:</td>
+    <td><input type="text" name="e_number" value="<?php echo $row[15]; ?>" required /></td>
+    <td><font color="#FF0000">*</font>Relationship:</td>
+    <td><input type="text" name="relationship" value="<?php echo $row[17]; ?>"required/></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+	<td></td>
+</tr>
+<tr>
+    <td colspan="5"><font style="text-decoration:underline;" size="3">User Account</font></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Password:</td>
+    <td><input id="name" type="password" name="password" value="<?php echo $row[3]; ?>"required/></td>
+</tr>
+
+
+<tr>
+<td><br><input type="submit" name="submit" value="Update"></td>
+</tr>
+</table>
+</form>
+
 	</center>
 		</div>
 	</div>
@@ -200,6 +194,5 @@ elseif(isset($_POST['submit4']))
 <div id="copyright" class="container">
 	<p>Copyright (c) 2014 Sitename.com. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
 </div>
-</form>
 </body>
 </html>
