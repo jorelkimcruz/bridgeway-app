@@ -2,55 +2,6 @@
 <?php include_once("../includes/functions.php"); ?>
 <?php require_once("../includes/db_connect.php"); ?>
 <?php logged_in();
-$msg_admin="";
-	$select=mysql_query("SELECT * FROM tb_employee");
-	if(mysql_num_rows($select)>0){
-		while($f_admin=@mysql_fetch_array($select)){
-		$f_id=$f_admin['id'];
-		$f_user_id=$f_admin['user_id'];
-		$f_fname=$f_admin['firstname'];
-		$f_lname=$f_admin['lastname'];
-		$f_mname=$f_admin['middlename'];
-		$f_name=$f_lname .",    ".$f_fname." ".$f_mname;
-		$f_address=$f_admin['address'];
-		$f_email=$f_admin['email'];
-		$f_position=$f_admin['position'];
-		$f_date=$f_admin['date_hired'];
-		$f_dept=$f_admin['department'];
-		$f_elem=$f_admin['elem_school'];
-		$f_hs=$f_admin['h_school'];
-		$f_cs=$f_admin['c_school'];
-		$f_status=$f_admin['status'];
-		$f_contact=$f_admin['contact_no'];
-		$f_dateHired = $f_admin['date_renewal'];
-				$dateNow = date("Y-m-d");
-$startTimeStamp = strtotime($f_dateHired);
-$endTimeStamp = strtotime($dateNow);
-
-$timeDiff = $endTimeStamp - $startTimeStamp;
-$numberDays = $timeDiff/86400;
-
-
-
-if($numberDays>365 && $numberDays<367)
-{
-	$query = mysql_query("UPDATE tb_employee SET casual_no='14' WHERE id='$f_id' ");
-	$query = mysql_query("UPDATE tb_employee SET emergency_no='5' WHERE id='$f_id' ");
-	$query = mysql_query("UPDATE tb_employee SET date_renewal='$dateNow' WHERE id='$f_id' ");
-	
-}
-		$msg_admin.="<tr><td>$f_id</td><td><a href='emp_admin_viewempA.php?id=$f_id'>$f_name</a></td>
-		<td>$f_address </td><td>$f_email </td><td>$f_dept</td><td>$f_contact</td><td>$numberDays</td></tr>
-		";
-		}
-		}
-		
-
-
-
-
-		
-		
 
 ?>
 
@@ -93,19 +44,73 @@ if($numberDays>365 && $numberDays<367)
 <div id="page-wrapper">
 	<div id="page" class="container">
 		<div class="title">
-			<table border=2 cellpadding = 10 >
-			<tr>
-			<th>Employee ID</th>
-			<th>Name</th>
-			<th>Address</th>
-			<th>Email</th>
-			<th>Department</th>
-			<th>Contact Number</th>
-			<th>DAYS</th>
-			
-			</tr>
-			<?php echo $msg_admin; ?>
-			</table>
+					<!-- JQUERY IMPORT-->
+        <link type="text/css" href="../jquery-ui.css" rel="Stylesheet" />	
+		<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="../js/jquery-ui-1.8.17.custom.min.js"></script>
+
+ <!-- JQUERY DATATABLES -->
+   		<script type="text/javascript" src="../js/jquery.dataTables.js"></script>
+    	<link rel="stylesheet" type="text/css" href="../jquery.dataTables_themeroller.css"/>
+    
+        
+    <script language="javascript">
+		//DATATABLES
+	$(document).ready(function() {
+    $('#auditTrail').dataTable({"bJQueryUI": true,"sPaginationType": "full_numbers","sScrollX": "120%",
+        "sScrollXInner": "120%","bScrollCollapse": true});
+	} );
+	// Select All checkboxes
+	function selectAll(x) {
+		for(var i=0,l=x.form.length; i<l; i++)
+		if(x.form[i].type == 'checkbox' && x.form[i].name != 'sAll')
+		x.form[i].checked=x.form[i].checked?false:true
+	}
+		
+	</script>
+
+<div id="">
+
+        <!-- TABLE FOR Audit Trail -->
+        <table align="center" cellpadding="0" cellspacing="0" border="0" id="auditTrail">
+        <thead>
+        <tr>
+        <th align="center">Id</th>
+        <th align="center">First Name</th>
+        <th align="center">Address</th>
+        <th align="center">Email</th>
+        <th align="center">Date Hired</th>
+        <th align="center">Department</th>
+        <th align="center">Contact no.</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+			$query = "SELECT * FROM tb_employee;";
+			$result_set = mysql_query($query);
+			confirm_query($result_set);
+			while($row = mysql_fetch_assoc($result_set))
+			{
+			?>
+            
+        
+        <tr>
+        <td align="center"><?php echo $row['id']; ?></td>
+        <td align="center"><a href="emp_admin_viewempA.php?id=<?php echo $row['id'];?>"><?php echo $row['firstname']." ".$row['lastname'] ; ?></a></td>
+        <td align="center"><?php echo $row['address']; ?></td>
+        <td align="center"><?php echo $row['email']; ?></td>
+        <td align="center"><?php echo $row['date_hired']; ?></td>
+		<td align="center"><?php echo $row['department']; ?></td>
+        <td align="center"><?php echo $row['contact_no']; ?></td>
+        </tr>
+        <?php
+			}
+			mysql_close();
+		?>
+       	</tbody>
+        </table>
+		</div>
 			<a href="emp_admin_printemp.php">[PRINT EMPLOYEE LIST REPORT]</a>
 			
 		</div>

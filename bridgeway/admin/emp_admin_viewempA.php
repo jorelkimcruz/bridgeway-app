@@ -2,43 +2,6 @@
 <?php include_once("../includes/functions.php"); ?>
 <?php require_once("../includes/db_connect.php"); ?>
 <?php logged_in();
-$msg_admin="";
-$asa=$_GET['id'];
-	$select=mysql_query("SELECT * FROM tb_employee WHERE id='$asa'");
-	if(mysql_num_rows($select)>0){
-		while($f_admin=@mysql_fetch_array($select)){
-		$f_id=$f_admin['id'];
-		$f_user_id=$f_admin['user_id'];
-		$f_fname=$f_admin['firstname'];
-		$f_lname=$f_admin['lastname'];
-		$f_mname=$f_admin['middlename'];
-		$f_address=$f_admin['address'];
-		$f_email=$f_admin['email'];
-		$f_position=$f_admin['position'];
-		$f_date=$f_admin['date_hired'];
-		$f_dept=$f_admin['department'];
-		$f_elem=$f_admin['elem_school'];
-		$f_hs=$f_admin['h_school'];
-		$f_cs=$f_admin['c_school'];
-		$f_status=$f_admin['status'];
-		$f_contact=$f_admin['contact_no'];
-		$msg_admin.="
-		<tr><th>Firstname<td>$f_fname</td></th>
-		<tr><th>Lastname<td>$f_lname</td></th>
-		<tr><th>Middlename<td>$f_mname</td></th>
-		<tr><th>Address<td>$f_address</td></th>
-		<tr><th>Email<td>$f_email</td></th>
-		<tr><th>Position<td>$f_position</td></th>
-		<tr><th>Department<td>$f_elem</td></th>
-		<tr><th>Elementary School<td>$f_hs</td></th>
-		<tr><th>High School<td>$f_hs</td></th>
-		<tr><th>College School<td>$f_cs</td></th>
-		<tr><th>Contact Number<td>$f_contact</td></th>
-		</tr>
-		";
-		}
-		}
-		
 
 ?>
 
@@ -82,9 +45,149 @@ $asa=$_GET['id'];
 	<div id="page" class="container">
 		<div class="title">
 		<center><h2>Employee Details</h2>
-			<table border=2 cellpadding = 10 >
-			<?php echo $msg_admin; ?>
-			</table><br>
+				 <form id="Main_Form" name="Main_Form" action="update_emp.php" method='POST' onsubmit="return validateForm()">		
+		
+		<?php
+		$query = "SELECT * FROM tb_user WHERE id ='".$_GET['id']."';";
+	$result = mysql_query($query);
+	$row = mysql_fetch_array($result);
+		?>
+	<input type="hidden" value="<?php echo $row[0]; ?>" name="id" />	
+<table align="center" border="0">
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+	<td colspan="5"><font style="text-decoration:underline;" size="3">Personal Information</font></td>
+</tr>
+
+<tr>
+    <td><font color="#FF0000">*</font>Name:</td>
+    <td colspan="3">
+    	<font color="#FF0000">*</font><input type="text"  name="firstname"  placeholder="First Name" value="<?php echo $row[4]; ?>" required/>	
+    	<font color="#FF0000">*</font><input type="text"  name="middlename" placeholder="Middle Name" value="<?php echo $row[5]; ?>"/>
+   		<font color="#FF0000">*</font><input type="text"  name="lastname" placeholder="Last Name" value="<?php echo $row[6]; ?>" required/></td>
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Gender:</td>
+    <td>
+	<?php
+	if($row[10]=="male"){
+	echo "<input type='radio' name='gender' value='male' checked required/> 
+	Male<input type='radio' name='gender' value='female'/> Female ";
+	}
+	else{
+	echo "<input type='radio' name='gender' value='male' checked required/> 
+	Male<input type='radio' name='gender' value='female' checked/> Female ";
+	
+	}
+	?>
+	</td>
+    <td></td>
+    <td></td>
+</tr>
+
+<tr>
+    <td><font color="#FF0000">*</font>Citizenship:</td>
+    <td><input type="text" name="citizen" value="<?php echo $row[13]; ?>" required/>
+    <td><font color="#FF0000">*</font>Civil Status:</td>
+	<td>
+	<select name=civil_status style="width:200px;">
+			<?php	
+					$selected="";
+					$option="";
+					switch($row[11]){
+						case 'Single':$selected=" selected"; $option.="<option vale='Single' ".$selected.">Single</option>
+																		<option vale='Married'>Married</option>
+																		<option vale='Widowed'>Widowed</option>
+																		";break;
+						case 'Married':$selected=" selected"; $option.="
+													<option vale='Single'>Single</option>
+													<option vale='Married' ".$selected.">Married</option>
+													<option vale='Widowed'>Widowed</option>";break;
+						case 'Widowed':$selected=" selected"; $option.="
+													<option vale='Single'>Single</option>
+													<option vale='Married'>Married</option>
+													<option vale='Widowed' ".$selected.">Widowed</option>";break;
+					}
+					echo $option;
+			?>
+			</select>
+	</td>
+ 
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Religion:</td>
+    <td><input type="text" name="religion" value="<?php echo $row[12]; ?>"/></td>
+    <td><font color="#FF0000">*</font>Email Address</td>
+    <td><input type="email" name="email" value="<?php echo $row[9]; ?>" required/></td>
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Address:</td>
+    <td colspan="3"><input type="text" size="68"  name="address" value="<?php echo $row[8]; ?>" required/></td>
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Contact No.</td>
+    <td><input type="text" name="contact" value="<?php echo $row[7]; ?>" required/></td>
+ </tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td colspan="5"><font style="text-decoration:underline;" size="3">In Case of Emergency</font></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Contact Name:</td>
+    <td><input type="text" name="e_name" value="<?php echo $row[14]; ?>" required/></td>
+    <td><font color="#FF0000">*</font>Contact Address:</td>
+    <td><input type="text" name="e_address" value="<?php echo $row[16]; ?>" required/></td>
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Contact Number:</td>
+    <td><input type="text" name="e_number" value="<?php echo $row[15]; ?>" required /></td>
+    <td><font color="#FF0000">*</font>Relationship:</td>
+    <td><input type="text" name="relationship" value="<?php echo $row[17]; ?>"required/></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+	<td></td>
+</tr>
+<tr>
+    <td colspan="5"><font style="text-decoration:underline;" size="3">User Account</font></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Password:</td>
+    <td><input id="name" type="password" name="password" value="<?php echo $row[3]; ?>"required/></td>
+</tr>
+
+
+<tr>
+<td><br><input type="submit" name="submit" value="Update"></td>
+</tr>
+</table>
+</form>
 			<form action="emp_admin_viewempB.php" method="POST">
 			<b>View Attendance of this Employee<br>
 			<input type="hidden" name="asa" value="<?php echo $asa; ?>"><br>

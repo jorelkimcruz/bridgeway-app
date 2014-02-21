@@ -88,34 +88,16 @@ $e_emer=$emp_fetch['emergency_no'];
 			*LEAVE End date must not be less than Leave Start Dates
 			</center> -->
 		
-	
-		<a href="emp_sicl_leave.php">Sick Leave/Maternity</a>
-		<a href="emp_cas_leave.php">Casual</a>
-		<a href="emp_em_leave.php">Emergency</a>
+		
 		
 		</form>
 		<form action="leave_request.php" method="post">
+		<a href="emp_sicl_leave.php">Sick Leave/Maternity</a>
+		<a>Casual</a>
+		<a href="emp_em_leave.php">Emergency</a>
+		
 		<?php
-if(isset($_POST['sick']))
-{
-echo "<center>
-			<table>
-			<tr><th>Name</th><td><input type='text' name='usernamebox' id='usernamebox' value='$name' readonly></input></td></tr>
-			<tr><th>Reason for Leaving</th><td><input type='text' value='Sick Leave/Maternity' name='leave' readonly></td></tr>
-			<tr><th>Description</th><td><textarea name='desc'></textarea></td></tr>
-			<tr><th>Leave Start Date</th><td><input type='date' name='sdate'></td></tr>
-			<tr><th>Leave End Date</th><td><input type='date' name='edate'></td></tr>
-			</table>
-			<input type='submit' name='submit' value='Submit'>
-			<br><br><br>NOTE:<br>
-			*LEAVE Start Date must be date tomorrow onwards<br>
-			*LEAVE End date must not be less than Leave Start Dates
-			</center>";
 
-}
-
-if(isset($_POST['casual']))
-{
 echo "<center>
 			<table>
 			<tr><th>Name</th><td><input type='text' name='usernamebox' id='usernamebox' value='$name' readonly></input></td></tr>
@@ -130,26 +112,7 @@ echo "<center>
 			*LEAVE End date must not be less than Leave Start Dates
 			</center>
 ";
-}
-if(isset($_POST['emergency']))
-{
-echo "
 
-<center>
-			<table>
-			<tr><th>Name</th><td><input type='text' name='usernamebox' id='usernamebox' value='$name' readonly></input></td></tr>
-			<tr><th>Reason for Leaving</th><td><input type='text' value='Emergency' name='leave' readonly></td></tr>
-			<tr><th>Description</th><td><textarea name='desc'></textarea></td></tr>
-			<tr><th>Leave Start Date</th><td><input type='date' name='sdate'></td></tr>
-			<tr><th>Leave End Date</th><td><input type='date' name='edate'></td></tr>
-			</table>
-			<input type='submit' name='submit' value='Submit'>
-			<br><br><br>NOTE:<br>
-			*LEAVE Start Date must be date tomorrow onwards<br>
-			*LEAVE End date must not be less than Leave Start Dates
-			</center>
-";
-}
 		?>
 		</form>
 		

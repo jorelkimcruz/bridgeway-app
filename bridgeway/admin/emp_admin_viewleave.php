@@ -16,10 +16,15 @@ $msg_admin="";
 		$f_sdate=$f_admin['start_date'];
 		$f_edate=$f_admin['end_date'];
 		$f_days=$f_admin['days_no'];
+		$f_file= $f_admin['file'];
 	
 		$msg_admin.="<tr><td><a href='emp_admin_viewleaveA.php?id=$f_admins_id'>$f_name</a></td>
-		<td>$f_reason </td><td>$f_contact </td><td>$f_sdate</td><td>$f_edate</td><td>$f_days</td></tr>
+		<td>$f_reason </td><td>$f_contact </td><td>$f_sdate</td><td>$f_edate</td><td>$f_days</td><td>
+		<a href='./employee/upload/$f_file' download='$f_file'>$f_file</a>
+		</td></tr>
 		";
+		
+		
 		}
 
 	}
@@ -83,6 +88,10 @@ $msg_admin="";
 			<th>Contact Number</th>
 			<th>Start Date</th>
 			<th>End Date</th>
+			<th>Days</th>
+			<th>Attached File</th>
+			
+			
 			</tr>
 			</center>
 			<?php echo $msg_admin;?>
