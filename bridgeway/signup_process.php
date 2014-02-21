@@ -4,9 +4,19 @@ include("includes/db_connect.php");
 
 //customer info
 $firstname = $_POST['firstname'];
+$middlename = $_POST['middlename'];
 $lastname = $_POST['lastname'];
-$contact = $_POST['contact'];
+$address = $_POST['address'];
 $email = $_POST['email'];
+$contact = $_POST['contact'];
+$gender = $_POST['gender'];
+$civil = $_POST['civil_status'];
+$citizenship = $_POST['citizen'];
+$religion = $_POST['religion'];
+$e_name = $_POST['e_name'];
+$e_number = $_POST['e_number'];
+$e_address = $_POST['e_address'];
+$relationship = $_POST['relationship'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 
@@ -22,18 +32,38 @@ echo "<script> alert('Username Already exists..'); location = 'signup.php';</scr
 $add_customer = mysql_query("INSERT INTO `tb_user`(
 `level` ,
 `first_name` ,
+`middle_name` ,
 `last_name` ,
-`email` ,
 `contact_no` ,
+`address` ,
+`email` ,
+`gender` ,
+`civil_status` ,
+`religion` ,
+`citizenship` ,
+`emergency_name` ,
+`emergency_no` ,
+`emergency_address` ,
+`relationship` ,
 `username` ,
 `password` 
 )
 VALUES (
 3,
 '$firstname',
+'$middlename',
 '$lastname',
-'$email',
 '$contact',
+'$address',
+'$email',
+'$gender',
+'$civil',
+'$religion',
+'$citizenship',
+'$e_name',
+'$e_number',
+'$e_address',
+'$relationship',
 '$username',
 '$password')")or die(mysql_error());
 

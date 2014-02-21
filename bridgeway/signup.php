@@ -36,8 +36,10 @@
 <div class="wrapper">
 	<div id="three-column" class="container">
 		<div><span class="arrow-down"></span></div>
+
+    <script>
 	
-	<script>
+	
 function validateForm()
 {
 
@@ -109,32 +111,118 @@ if (x != y)
           
             <form id="Main_Form" name="Main_Form" action="signup_process.php" method='POST' onsubmit="return validateForm()">
             	
-<table CELLSPACING=10 align="center">
+<table align="center" border="0">
 <tr>
-<td><label for="name">First Name </label></td><td><input id="name" type="text" name="firstname" value="" /></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
 </tr>
 <tr>
-<td><label for="name">Last Name </label></td><td><input id="name" type="text" name="lastname" value="" /></td>
+	<td colspan="5"><font style="text-decoration:underline;" size="3">Personal Information</font></td>
+</tr>
+
+<tr>
+    <td><font color="#FF0000">*</font>Name:</td>
+    <td colspan="3">
+    	<font color="#FF0000">*</font><input type="text"  name="firstname"  placeholder="First Name" required/>	
+    	<font color="#FF0000">*</font><input type="text"  name="middlename" placeholder="Middle Name"/>
+   		<font color="#FF0000">*</font><input type="text"  name="lastname" placeholder="Last Name" required/></td>
 </tr>
 <tr>
-<td><label for="name">Contact No# </label></td><td><input id="name" type="text" name="contact" value="" /></td>
+    <td><font color="#FF0000">*</font>Gender:</td>
+    <td><input type="radio" name="gender" value="male" required/> 
+	Male<input type="radio" name="gender" value="female"/> Female </td>
+    <td></td>
+    <td></td>
+</tr>
+
+<tr>
+    <td><font color="#FF0000">*</font>Citizenship:</td>
+    <td><input type="text" name="citizen" placeholder="" required/>
+    <td><font color="#FF0000">*</font>Civil Status:</td>
+    <td>
+    <select name="civil_status">
+    <option value="Single" selected="selected">Single</option>
+    <option value="Married">Married</option>
+    <option value="Widowed">Widowed</option>
+    </select>
+    </td>
 </tr>
 <tr>
-<td><label for="name">Email Address </label></td><td><input id="name" type="text" name="email" value="" /></td>
+    <td><font color="#FF0000">*</font>Religion:</td>
+    <td><input type="text" name="religion" /></td>
+    <td><font color="#FF0000">*</font>Email Address</td>
+    <td><input type="email" name="email" /></td>
 </tr>
 <tr>
-<td><label for="name">User Name</label></td><td><input id="name" type="text" name="username" value="" /></td>
+    <td><font color="#FF0000">*</font>Address:</td>
+    <td colspan="3"><input type="text" size="68"  name="address" required/></td>
 </tr>
 <tr>
-<td><label for="name">Password</label></td><td><input id="name" type="password" name="password" value="" /></td>
+    <td><font color="#FF0000">*</font>Contact No.</td>
+    <td><input type="text" name="contact" required/></td>
+ </tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
 </tr>
 <tr>
-<td><label for="name">Retype Password</label></td><td><input id="name" type="password" name="retype_password" value="" /></td>
+    <td colspan="5"><font style="text-decoration:underline;" size="3">In Case of Emergency</font></td>
+    <td></td>
+    <td></td>
+    <td></td>
 </tr>
 <tr>
-<td></td><td><input name="submit" type="submit" value='Register'></td>
-</tr></table>
-      
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Contact Name:</td>
+    <td><input type="text" name="e_name" required/></td>
+    <td><font color="#FF0000">*</font>Contact Address:</td>
+    <td><input type="text" name="e_address" required/></td>
+</tr>
+<tr>
+    <td><font color="#FF0000">*</font>Contact Number:</td>
+    <td><input type="text" name="e_number" required /></td>
+    <td><font color="#FF0000">*</font>Relationship:</td>
+    <td><input type="text" name="relationship" required/></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+	<td></td>
+</tr>
+<tr>
+    <td colspan="5"><font style="text-decoration:underline;" size="3">User Account</font></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>Username:</td>
+    <td><input id="name" type="text" name="username" value="" required/></td>
+</tr>
+<tr>
+    <td>Password:</td>
+    <td><input id="name" type="password" name="password" value="" required/></td>
+</tr>
+<tr>
+    <td>Retype Password:</td>
+    <td><input id="name" type="password" name="retype_password" value="" required/></td>
+</tr>
+
+<tr>
+<td><br><input name="submit" type="submit" value='Register'></td>
+</tr>
+</table>
             </form>
 	</div>
 
