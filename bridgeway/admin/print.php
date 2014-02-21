@@ -22,6 +22,7 @@ $f_first = $job_fetch['first_name'];
 $f_last = $job_fetch['last_name'];
 $total_biill = $f_prodp*$f_prodq;
 
+
 $total_amount +=$total_biill;
 
 
@@ -49,8 +50,9 @@ $report.="
 <tr><td>Customer Name: </td> <td><?=$f_first?>, <?=$f_last?></td><td> </td><td></td></tr>
 <tr><td><b>Product</b></td> <td><b>Price</b></td> <td><b>Quantity</b></td><b></b></tr>
 <?php echo $report;?>
-<tr><td>TOTAL AMOUNT: </td><td></td><td><?php echo 
-$total_amount;?></td></tr>
+<tr><td>VAT 12%</td><td><?php $total_billing =  $total_amount*0.12; $total_amountFinal = $total_amount + $total_billing; echo $total_amount*0.12; ?></td></tr>
+<tr><td>TOTAL AMOUNT OF BILL: </td><td></td><td><?php echo 
+$total_amountFinal;?></td></tr>
 </table>
 </center>
 
